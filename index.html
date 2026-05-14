@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2 Will Miles 2 Memorial | Charity Disc Golf Tournament</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cyan:   { DEFAULT: '#00d4ff', dark: '#008fb0' },
+            orange: { DEFAULT: '#ff6b00', dark: '#c45200' },
+            navy:   { DEFAULT: '#0a0e1a', mid: '#111827', light: '#1a2035' },
+          },
+          fontFamily: {
+            orbitron: ['Orbitron', 'sans-serif'],
+            poppins:  ['Poppins', 'sans-serif'],
+            rajdhani: ['Rajdhani', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      z-index: 9999;
+      padding: 0.75rem 1.25rem;
+      background: #00d4ff;
+      color: #0a0e1a;
+      font-weight: 700;
+      border-radius: 0 0 0.5rem 0.5rem;
+      text-decoration: none;
+      font-size: 0.875rem;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* Visible focus ring for keyboard navigation */
+    :focus-visible {
+      outline: 2px solid #00d4ff;
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+    /* Remove outline for mouse users */
+    :focus:not(:focus-visible) { outline: none; }
+
+    /* Glow effects */
+    .glow-cyan  { text-shadow: 0 0 20px #00d4ff, 0 0 40px #00d4ff88; }
+    .glow-orange{ text-shadow: 0 0 20px #ff6b00, 0 0 40px #ff6b0088; }
+    .glow-box-cyan  { box-shadow: 0 0 20px #00d4ff44, inset 0 0 20px #00d4ff11; }
+    .glow-box-orange{ box-shadow: 0 0 20px #ff6b0044; }
+
+    /* Racing stripe gradient */
+    .racing-stripe {
+      background: linear-gradient(90deg, #00d4ff, #ff6b00);
+      height: 3px;
+    }
+
+    /* Fixed cityscape background — sits behind everything */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image: url('bg.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      opacity: 0.13;
+    }
+
+    /* Hero background */
+    .hero-bg {
+      background:
+        radial-gradient(ellipse at 60% 40%, #00d4ff15 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, #ff6b0015 0%, transparent 50%),
+        linear-gradient(180deg, #0a0e1a 0%, #111827 100%);
+    }
+
+    /* Section alternating backgrounds */
+    .section-dark  { background: rgba(10,14,26,0.88); }
+    .section-mid   { background: rgba(17,24,39,0.88); }
+
+    /* Card hover */
+    .card-hover {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px #00d4ff33;
+    }
+
+    /* Sponsor card */
+    .sponsor-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .sponsor-card:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(0,212,255,0.4);
+    }
+
+    /* Nav link hover */
+    .nav-link {
+      position: relative;
+      transition: color 0.2s;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #00d4ff;
+      transition: width 0.25s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link:hover { color: #00d4ff; }
+
+    /* Title "2" numbers — orange-yellow to deep red gradient matching flyer */
+    .title-num {
+      font-family: 'Orbitron', sans-serif;
+      font-style: italic;
+      font-weight: 900;
+      display: inline-block;
+      transform: skewX(-8deg);
+      background: linear-gradient(175deg,
+        #ffe066 0%,
+        #ff8800 25%,
+        #ff4400 55%,
+        #cc1500 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 18px rgba(255,100,0,0.75))
+              drop-shadow(0 4px 8px rgba(0,0,0,0.8));
+    }
+    /* Title event name — white highlight to deep cyan-blue matching flyer */
+    .title-name {
+      font-family: 'Orbitron', sans-serif;
+      font-style: italic;
+      font-weight: 900;
+      display: inline-block;
+      transform: skewX(-8deg);
+      background: linear-gradient(175deg,
+        #ffffff 0%,
+        #aaeeff 18%,
+        #22ccff 40%,
+        #0099dd 65%,
+        #004e99 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 20px rgba(0,180,255,0.8))
+              drop-shadow(0 4px 8px rgba(0,0,0,0.8));
+    }
+
+    /* Pulse animation */
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 10px #00d4ff44; }
+      50%       { box-shadow: 0 0 30px #00d4ff88; }
+    }
+    .pulse-glow { animation: pulse-glow 2.5s ease-in-out infinite; }
+
+    /* Countdown */
+    .countdown-box {
+      background: rgba(0,212,255,0.08);
+      border: 1px solid rgba(0,212,255,0.3);
+    }
+
+    /* Scrolling ticker */
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .ticker-inner {
+      display: inline-flex;
+      animation: ticker 30s linear infinite;
+      white-space: nowrap;
+    }
+
+    /* Mobile menu */
+    #mobile-menu { transition: max-height 0.3s ease, opacity 0.3s ease; }
+
+    /* Respect reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .ticker-inner { animation: none; }
+      .pulse-glow   { animation: none; }
+      .card-hover   { transition: none; }
+      .sponsor-card { transition: none; }
+      .nav-link     { transition: none; }
+      .nav-link::after { transition: none; }
+      * { animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important; }
+    }
+
+    /* Mobile touch targets — ensure 44px minimum */
+    @media (max-width: 768px) {
+      .mobile-nav-link {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        padding-top: 0.625rem;
+        padding-bottom: 0.625rem;
+      }
+    }
+  </style>
+</head>
+<body class="font-poppins text-white section-dark">
+
+  <!-- Skip to main content (accessibility) -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ═══════════════════════════════════════════
+       NAVIGATION
+  ════════════════════════════════════════════ -->
+  <nav aria-label="Main navigation" class="fixed top-0 left-0 right-0 z-50 bg-navy/95 backdrop-blur-sm border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3" aria-label="Will Miles Memorial — return to top">
+          <!-- Disc Golf Basket Icon -->
+          <svg viewBox="0 0 100 110" class="w-10 h-10 shrink-0" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Will Miles Memorial disc golf basket logo">
+            <!-- Arch -->
+            <path d="M10,70 A40,40 0 0,1 90,70" stroke="#00d4ff" stroke-width="3" fill="none"/>
+            <!-- Flying disc top-right -->
+            <g transform="translate(82,22) rotate(-12)">
+              <ellipse cx="0" cy="0" rx="11" ry="3.5" stroke="#00d4ff" stroke-width="1.8" fill="none"/>
+              <line x1="-13" y1="-1" x2="-20" y2="-3" stroke="#00d4ff" stroke-width="1.5"/>
+              <line x1="-13" y1="1" x2="-20" y2="3" stroke="#00d4ff" stroke-width="1.5"/>
+            </g>
+            <!-- Pine trees left -->
+            <polygon points="18,68 24,50 30,68" fill="#00d4ff"/>
+            <polygon points="25,63 32,44 39,63" fill="#00d4ff"/>
+            <!-- Pine trees right -->
+            <polygon points="61,68 67,48 73,68" fill="#00d4ff"/>
+            <polygon points="70,65 77,46 84,65" fill="#00d4ff"/>
+            <!-- Hills -->
+            <path d="M10,68 Q35,60 50,63 Q65,66 90,60 L90,70 L10,70 Z" fill="#00d4ff" opacity="0.5"/>
+            <!-- Basket pole -->
+            <rect x="48" y="32" width="4" height="35" rx="1" fill="#00d4ff"/>
+            <!-- Basket rim -->
+            <ellipse cx="50" cy="32" rx="15" ry="4.5" stroke="#00d4ff" stroke-width="2" fill="none"/>
+            <!-- Chains -->
+            <line x1="36" y1="32" x2="39" y2="56" stroke="#00d4ff" stroke-width="1.1"/>
+            <line x1="41" y1="30" x2="43" y2="56" stroke="#00d4ff" stroke-width="1.1"/>
+            <line x1="46" y1="29" x2="48" y2="56" stroke="#00d4ff" stroke-width="1.1"/>
+            <line x1="54" y1="29" x2="52" y2="56" stroke="#00d4ff" stroke-width="1.1"/>
+            <line x1="59" y1="30" x2="57" y2="56" stroke="#00d4ff" stroke-width="1.1"/>
+            <line x1="64" y1="32" x2="61" y2="56" stroke="#00d4ff" stroke-width="1.1"/>
+            <!-- Catch basket ring -->
+            <ellipse cx="50" cy="56" rx="13" ry="3.5" stroke="#00d4ff" stroke-width="1.8" fill="none"/>
+            <!-- 24 number -->
+            <text x="50" y="47" text-anchor="middle" font-size="7" font-weight="bold" fill="#00d4ff" font-family="Arial">24</text>
+          </svg>
+          <span class="font-orbitron font-bold text-sm tracking-widest text-white uppercase hidden sm:block">Will Miles Memorial</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#about"       class="nav-link text-sm font-medium text-gray-300">About</a>
+          <a href="#details"     class="nav-link text-sm font-medium text-gray-300">Event Details</a>
+          <a href="#prizes"      class="nav-link text-sm font-medium text-gray-300">Prizes</a>
+          <a href="#sponsors"    class="nav-link text-sm font-medium text-gray-300">Sponsors</a>
+          <a href="#beneficiary" class="nav-link text-sm font-medium text-gray-300">Charity</a>
+          <a href="https://www.discgolfscene.com/tournaments/2nd_Annual_Will_Miles_Memorial_Charity_Tournament_CEP_Charity_Rated_2026/register" target="_blank" rel="noopener noreferrer"
+             class="ml-2 px-5 py-2 bg-gradient-to-r from-cyan to-cyan-dark text-navy font-bold text-sm rounded-full hover:opacity-90 transition pulse-glow">
+            Register Now
+          </a>
+        </div>
+
+        <!-- Hamburger -->
+        <button id="menu-toggle"
+                class="md:hidden p-3 rounded text-gray-300 hover:text-white min-w-[44px] min-h-[44px] flex items-center justify-center"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="mobile-menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path id="menu-icon-open"  stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            <path id="menu-icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-navy/98 border-t border-white/10" role="dialog" aria-label="Navigation menu">
+      <div class="px-4 py-2 flex flex-col">
+        <a href="#about"       class="mobile-nav-link text-gray-300 hover:text-cyan font-medium border-b border-white/5" onclick="closeMobileMenu()">About</a>
+        <a href="#details"     class="mobile-nav-link text-gray-300 hover:text-cyan font-medium border-b border-white/5" onclick="closeMobileMenu()">Event Details</a>
+        <a href="#prizes"      class="mobile-nav-link text-gray-300 hover:text-cyan font-medium border-b border-white/5" onclick="closeMobileMenu()">Prizes</a>
+        <a href="#sponsors"    class="mobile-nav-link text-gray-300 hover:text-cyan font-medium border-b border-white/5" onclick="closeMobileMenu()">Sponsors</a>
+        <a href="#beneficiary" class="mobile-nav-link text-gray-300 hover:text-cyan font-medium border-b border-white/5" onclick="closeMobileMenu()">Charity</a>
+        <div class="py-3">
+          <a href="https://www.discgolfscene.com/tournaments/2nd_Annual_Will_Miles_Memorial_Charity_Tournament_CEP_Charity_Rated_2026/register"
+             target="_blank" rel="noopener noreferrer"
+             class="block px-5 py-3 bg-gradient-to-r from-cyan to-cyan-dark text-navy font-bold text-sm rounded-full text-center min-h-[44px] flex items-center justify-center"
+             aria-label="Register Now on Disc Golf Scene (opens in new tab)"
+             onclick="closeMobileMenu()">
+            Register Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       TICKER BANNER
+  ════════════════════════════════════════════ -->
+  <div class="pt-16 overflow-hidden bg-gradient-to-r from-cyan/10 to-orange/10 border-b border-cyan/20" aria-hidden="true">
+    <div class="ticker-inner py-2 text-xs font-rajdhani font-semibold tracking-widest text-cyan/80 uppercase">
+      <span class="mx-8"><span aria-hidden="true">★</span> August 22, 2026</span>
+      <span class="mx-8"><span aria-hidden="true">★</span> Dr. James A. Dillon Park DGC</span>
+      <span class="mx-8"><span aria-hidden="true">★</span> $750 Added Cash</span>
+      <span class="mx-8"><span aria-hidden="true">★</span> $250 Added Merch</span>
+      <span class="mx-8"><span aria-hidden="true">★</span> Benefiting STEAM Cathedral</span>
+      <span class="mx-8"><span aria-hidden="true">★</span> Register on Disc Golf Scene</span>
+      <span class="mx-8"><span aria-hidden="true">★</span> August 22, 2026</span>
+      <span class="mx-8"><span aria-hidden="true">★</span> Dr. James A. Dillon Park DGC</span>
+      <span class="mx-8"><span aria-hidden="true">★</span> $750 Added Cash</span>
+      <span class="mx-8"><span aria-hidden="true">★</span> $250 Added Merch</span>
+      <span class="mx-8"><span aria-hidden="true">★</span> Benefiting STEAM Cathedral</span>
+      <span class="mx-8"><span aria-hidden="true">★</span> Register on Disc Golf Scene</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════════ -->
+  <section id="main-content" class="hero-bg min-h-screen flex items-center justify-center relative overflow-hidden">
+
+    <!-- Background decorative lines -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-1/3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan/20 to-transparent"></div>
+      <div class="absolute bottom-1/3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange/20 to-transparent"></div>
+      <div class="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-cyan/10 to-transparent"></div>
+      <div class="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-orange/10 to-transparent"></div>
+    </div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-4 text-center">
+
+      <!-- Presented by sponsor badge — above the fold -->
+      <div class="inline-flex items-center gap-3 mb-6 px-5 py-2.5 rounded-full border border-orange/40 bg-orange/10">
+        <span class="font-rajdhani font-semibold tracking-[0.3em] text-orange/80 uppercase text-xs">Presented by</span>
+        <span class="w-px h-4 bg-orange/30"></span>
+        <span class="font-orbitron font-black text-white text-base tracking-wider">JAX ROOFING</span>
+      </div>
+
+      <!-- Pre-title -->
+      <p class="font-rajdhani font-semibold tracking-[0.4em] text-cyan/70 uppercase text-sm mb-4">
+        2nd Annual Charity Disc Golf Tournament
+      </p>
+
+      <!-- Main title logo image — serves as page h1 -->
+      <h1 class="mb-2">
+        <img src="title-logo.png"
+             alt="2 Will Miles 2 Memorial — Charity Disc Golf Tournament"
+             class="w-full max-w-3xl mx-auto"
+             style="filter: drop-shadow(0 0 30px rgba(0,180,255,0.5)) drop-shadow(0 0 15px rgba(255,100,0,0.4));" />
+      </h1>
+
+      <!-- Racing stripe -->
+      <div class="racing-stripe my-8 rounded-full"></div>
+
+      <!-- Date & Venue -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-10">
+        <div class="flex items-center gap-3">
+          <svg class="w-5 h-5 text-cyan shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+          <span class="font-poppins font-semibold text-lg sm:text-xl text-white">August 22, 2026</span>
+        </div>
+        <div class="w-px h-6 bg-white/20 hidden sm:block" aria-hidden="true"></div>
+        <div class="flex items-center gap-3">
+          <svg class="w-5 h-5 text-cyan shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+          <span class="font-poppins font-semibold text-lg sm:text-xl text-white">Dr. James A. Dillon Park DGC</span>
+        </div>
+      </div>
+
+      <!-- Stat pills -->
+      <div class="flex flex-wrap justify-center gap-4 mb-10">
+        <div class="countdown-box rounded-xl px-6 py-4 text-center">
+          <div class="text-3xl font-orbitron font-black text-cyan glow-cyan">$750</div>
+          <div class="text-xs font-rajdhani font-semibold tracking-widest text-gray-400 uppercase mt-1">Added Cash</div>
+          <div class="text-xs text-gray-600 font-rajdhani mt-0.5">The Farmers Bank</div>
+        </div>
+        <div class="countdown-box rounded-xl px-6 py-4 text-center">
+          <div class="text-3xl font-orbitron font-black text-orange glow-orange">$250</div>
+          <div class="text-xs font-rajdhani font-semibold tracking-widest text-gray-400 uppercase mt-1">Added Merch</div>
+        </div>
+        <div class="countdown-box rounded-xl px-6 py-4 text-center">
+          <div class="text-3xl font-orbitron font-black text-white">2nd</div>
+          <div class="text-xs font-rajdhani font-semibold tracking-widest text-gray-400 uppercase mt-1">Annual Event</div>
+        </div>
+      </div>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://www.discgolfscene.com/tournaments/2nd_Annual_Will_Miles_Memorial_Charity_Tournament_CEP_Charity_Rated_2026/register"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Register Now on Disc Golf Scene (opens in new tab)"
+           class="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-cyan to-cyan-dark text-navy font-bold text-lg rounded-full hover:opacity-90 transition-all pulse-glow min-h-[52px] flex items-center justify-center">
+          Register Now <span aria-hidden="true" class="ml-1">→</span>
+        </a>
+        <a href="#about"
+           class="w-full sm:w-auto px-10 py-4 border border-white/20 text-white font-semibold text-lg rounded-full hover:border-cyan/60 hover:text-cyan transition-all text-center min-h-[52px] flex items-center justify-center">
+          Learn More
+        </a>
+      </div>
+
+      <!-- Course & Charity credits under CTAs — contrast-safe gray-400 -->
+      <div class="mt-10 flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs font-rajdhani font-semibold tracking-widest text-gray-400 uppercase">
+        <span>Course Sponsor: <span class="text-white">RAL Academy</span></span>
+        <span aria-hidden="true" class="text-white/20">|</span>
+        <span>Cash Sponsor: <span class="text-white">The Farmers Bank</span></span>
+        <span aria-hidden="true" class="text-white/20">|</span>
+        <span>Benefiting: <span class="text-white">STEAM Cathedral</span></span>
+      </div>
+    </div>
+
+    <!-- Scroll indicator (decorative) -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-gray-600" aria-hidden="true">
+      <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       JOIN | PLAY | CHANGE (throwpink-style tagline)
+  ════════════════════════════════════════════ -->
+  <div class="section-mid border-y border-white/5" aria-label="Tournament mission">
+    <div class="max-w-5xl mx-auto px-2 sm:px-4 py-8 sm:py-12">
+      <div class="grid grid-cols-3 divide-x divide-white/10">
+        <div class="text-center py-4 px-2 sm:px-6">
+          <div class="text-xl sm:text-2xl font-orbitron font-black text-cyan mb-1">DISC</div>
+          <div class="text-xs font-rajdhani font-semibold tracking-[0.2em] sm:tracking-[0.3em] text-gray-300 uppercase">for a cause</div>
+        </div>
+        <div class="text-center py-4 px-2 sm:px-6">
+          <div class="text-xl sm:text-2xl font-orbitron font-black text-white mb-1">PLAY</div>
+          <div class="text-xs font-rajdhani font-semibold tracking-[0.2em] sm:tracking-[0.3em] text-gray-300 uppercase">compete &amp; win</div>
+        </div>
+        <div class="text-center py-4 px-2 sm:px-6">
+          <div class="text-xl sm:text-2xl font-orbitron font-black text-orange mb-1">GIVE</div>
+          <div class="text-xs font-rajdhani font-semibold tracking-[0.2em] sm:tracking-[0.3em] text-gray-300 uppercase">change lives</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       ABOUT THE TOURNAMENT
+  ════════════════════════════════════════════ -->
+  <section id="about" class="section-dark py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Section label -->
+      <div class="flex items-center gap-4 mb-12">
+        <div class="h-px flex-1 bg-gradient-to-r from-cyan/40 to-transparent"></div>
+        <span class="font-rajdhani font-semibold tracking-[0.3em] text-cyan uppercase text-sm">About the Event</span>
+        <div class="h-px flex-1 bg-gradient-to-l from-orange/40 to-transparent"></div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+        <!-- Left: Text -->
+        <div>
+          <h2 class="font-orbitron font-black text-4xl sm:text-5xl text-white mb-6 leading-tight">
+            More Than a<br/>
+            <span class="text-cyan glow-cyan">Tournament.</span>
+          </h2>
+          <p class="text-gray-300 text-lg leading-relaxed mb-6">
+            The <strong class="text-white">Will Miles Memorial Disc Golf Tournament</strong> is a charity event that brings together the disc golf community to celebrate a beloved friend, competitor, and champion — while raising funds that make a real difference in our community.
+          </p>
+          <p class="text-gray-300 text-lg leading-relaxed mb-8">
+            Now in its <strong class="text-white">2nd year</strong>, this tournament has grown into a premier event on the local disc golf calendar. Players of all skill levels are welcome to compete, connect, and contribute to a cause that matters.
+          </p>
+
+          <!-- Quick facts -->
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-white/4 border border-white/8 rounded-xl p-4">
+              <div class="text-cyan font-orbitron font-bold text-2xl mb-1">Aug 22</div>
+              <div class="text-gray-400 text-sm font-rajdhani font-semibold tracking-wider uppercase">Tournament Date</div>
+            </div>
+            <div class="bg-white/4 border border-white/8 rounded-xl p-4">
+              <div class="text-orange font-orbitron font-bold text-2xl mb-1">2026</div>
+              <div class="text-gray-400 text-sm font-rajdhani font-semibold tracking-wider uppercase">Year</div>
+            </div>
+            <div class="bg-white/4 border border-white/8 rounded-xl p-4 col-span-2">
+              <div class="text-white font-semibold text-base mb-1">Dr. James A. Dillon Park DGC</div>
+              <div class="text-gray-400 text-sm font-rajdhani font-semibold tracking-wider uppercase">Home Course</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Feature card -->
+        <div class="relative">
+          <div class="glow-box-cyan rounded-2xl border border-cyan/20 bg-gradient-to-br from-navy-light to-navy p-8">
+
+            <!-- Disc icon header -->
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan/30 to-cyan/10 border border-cyan/30 flex items-center justify-center">
+                <!-- Simple disc SVG -->
+                <svg viewBox="0 0 40 40" class="w-8 h-8" fill="none">
+                  <circle cx="20" cy="20" r="18" stroke="#00d4ff" stroke-width="2"/>
+                  <ellipse cx="20" cy="20" rx="10" ry="4" stroke="#00d4ff" stroke-width="1.5"/>
+                  <path d="M2 20 Q10 14 20 14 Q30 14 38 20" stroke="#00d4ff88" stroke-width="1"/>
+                </svg>
+              </div>
+              <div>
+                <div class="font-orbitron font-bold text-cyan text-sm">DISC GOLF SCENE</div>
+                <div class="text-gray-500 text-xs">Official Registration Platform</div>
+              </div>
+            </div>
+
+            <h3 class="font-poppins font-bold text-white text-xl mb-4">2nd Annual Will Miles Memorial</h3>
+
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center gap-3 text-sm">
+                <div class="w-1.5 h-1.5 rounded-full bg-cyan"></div>
+                <span class="text-gray-300">All skill levels welcome</span>
+              </div>
+              <div class="flex items-center gap-3 text-sm">
+                <div class="w-1.5 h-1.5 rounded-full bg-cyan"></div>
+                <span class="text-gray-300">$750 added cash payouts</span>
+              </div>
+              <div class="flex items-center gap-3 text-sm">
+                <div class="w-1.5 h-1.5 rounded-full bg-cyan"></div>
+                <span class="text-gray-300">$250 added merchandise</span>
+              </div>
+              <div class="flex items-center gap-3 text-sm">
+                <div class="w-1.5 h-1.5 rounded-full bg-cyan"></div>
+                <span class="text-gray-300">Vendor booths &amp; community</span>
+              </div>
+              <div class="flex items-center gap-3 text-sm">
+                <div class="w-1.5 h-1.5 rounded-full bg-orange"></div>
+                <span class="text-gray-300">Proceeds benefit <strong class="text-white">Cathedral Land &amp; Speed Co.</strong></span>
+              </div>
+            </div>
+
+            <a href="https://www.discgolfscene.com/tournaments/2nd_Annual_Will_Miles_Memorial_Charity_Tournament_CEP_Charity_Rated_2026/register" target="_blank" rel="noopener noreferrer"
+               class="block text-center px-6 py-3 bg-gradient-to-r from-cyan to-cyan-dark text-navy font-bold rounded-full hover:opacity-90 transition-all">
+              Register on Disc Golf Scene →
+            </a>
+          </div>
+
+          <!-- Decorative corner accent -->
+          <div class="absolute -top-3 -right-3 w-12 h-12 border-t-2 border-r-2 border-orange/40 rounded-tr-xl"></div>
+          <div class="absolute -bottom-3 -left-3 w-12 h-12 border-b-2 border-l-2 border-cyan/40 rounded-bl-xl"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       EVENT DETAILS
+  ════════════════════════════════════════════ -->
+  <section id="details" class="section-mid py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="flex items-center gap-4 mb-12">
+        <div class="h-px flex-1 bg-gradient-to-r from-orange/40 to-transparent"></div>
+        <span class="font-rajdhani font-semibold tracking-[0.3em] text-orange uppercase text-sm">Event Details</span>
+        <div class="h-px flex-1 bg-gradient-to-l from-cyan/40 to-transparent"></div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Date -->
+        <div class="card-hover sponsor-card rounded-2xl p-6">
+          <div class="w-10 h-10 rounded-lg bg-cyan/15 border border-cyan/25 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="font-poppins font-bold text-white text-lg mb-2">Date</h3>
+          <p class="text-cyan font-orbitron font-bold text-xl mb-1">August 22, 2026</p>
+          <p class="text-gray-400 text-sm">Saturday</p>
+        </div>
+
+        <!-- Location -->
+        <div class="card-hover sponsor-card rounded-2xl p-6">
+          <div class="w-10 h-10 rounded-lg bg-orange/15 border border-orange/25 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-poppins font-bold text-white text-lg mb-2">Venue</h3>
+          <p class="text-white font-semibold mb-1">Dr. James A. Dillon Park DGC</p>
+          <p class="text-gray-400 text-sm">Disc Golf Course</p>
+          <div class="mt-3 pt-3 border-t border-white/8 flex items-center gap-2">
+            <span class="text-xs font-rajdhani font-semibold tracking-wider text-gray-600 uppercase">Course Sponsor</span>
+            <span class="text-xs font-bold text-blue-400">RAL Academy</span>
+          </div>
+        </div>
+
+        <!-- Format -->
+        <div class="card-hover sponsor-card rounded-2xl p-6">
+          <div class="w-10 h-10 rounded-lg bg-cyan/15 border border-cyan/25 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-poppins font-bold text-white text-lg mb-2">Format</h3>
+          <p class="text-white font-semibold mb-1">Charity Disc Golf Tournament</p>
+          <p class="text-gray-400 text-sm">All skill levels welcome</p>
+        </div>
+
+        <!-- Added Cash -->
+        <div class="card-hover sponsor-card rounded-2xl p-6">
+          <div class="w-10 h-10 rounded-lg bg-orange/15 border border-orange/25 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="font-poppins font-bold text-white text-lg mb-2">Added Cash</h3>
+          <p class="text-orange font-orbitron font-black text-2xl mb-1">$750</p>
+          <p class="text-gray-400 text-sm">Cash payouts added to purse</p>
+          <div class="mt-3 pt-3 border-t border-white/8 flex items-center gap-2">
+            <span class="text-xs font-rajdhani font-semibold tracking-wider text-gray-600 uppercase">Cash Sponsor</span>
+            <span class="text-xs font-bold text-amber-400">The Farmers Bank</span>
+          </div>
+        </div>
+
+        <!-- Added Merch -->
+        <div class="card-hover sponsor-card rounded-2xl p-6">
+          <div class="w-10 h-10 rounded-lg bg-cyan/15 border border-cyan/25 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+            </svg>
+          </div>
+          <h3 class="font-poppins font-bold text-white text-lg mb-2">Added Merch</h3>
+          <p class="text-cyan font-orbitron font-black text-2xl mb-1">$250</p>
+          <p class="text-gray-400 text-sm">Merchandise added to prizes</p>
+        </div>
+
+        <!-- Registration -->
+        <div class="card-hover sponsor-card rounded-2xl p-6">
+          <div class="w-10 h-10 rounded-lg bg-orange/15 border border-orange/25 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+            </svg>
+          </div>
+          <h3 class="font-poppins font-bold text-white text-lg mb-2">Registration</h3>
+          <p class="text-white font-semibold mb-1">Disc Golf Scene</p>
+          <p class="text-gray-400 text-sm">Online registration available</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PRIZES & PAYOUTS
+  ════════════════════════════════════════════ -->
+  <section id="prizes" class="section-dark py-24">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+      <div class="flex items-center gap-4 mb-12">
+        <div class="h-px flex-1 bg-gradient-to-r from-cyan/40 to-transparent"></div>
+        <span class="font-rajdhani font-semibold tracking-[0.3em] text-cyan uppercase text-sm">Prizes &amp; Payouts</span>
+        <div class="h-px flex-1 bg-gradient-to-l from-orange/40 to-transparent"></div>
+      </div>
+
+      <h2 class="font-orbitron font-black text-4xl sm:text-5xl text-white mb-4">
+        Compete for <span class="text-orange glow-orange">$1,000+</span>
+      </h2>
+      <p class="text-gray-400 text-lg mb-12 max-w-2xl mx-auto">
+        With $750 in added cash and $250 in added merchandise, this tournament delivers serious value for competitors at every level.
+      </p>
+
+      <div class="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+        <!-- Cash -->
+        <div class="glow-box-orange border border-orange/30 rounded-2xl p-8 bg-gradient-to-br from-orange/10 to-transparent">
+          <div class="text-6xl font-orbitron font-black text-orange glow-orange mb-3">$750</div>
+          <div class="text-white font-bold text-xl mb-2">Added Cash</div>
+          <div class="text-gray-400 text-sm leading-relaxed mb-4">
+            Cash prizes added directly to the payout pool for top finishers
+          </div>
+          <div class="pt-4 border-t border-orange/20">
+            <span class="text-xs font-rajdhani font-semibold tracking-widest text-gray-600 uppercase">Cash Sponsor</span>
+            <div class="text-amber-400 font-bold text-sm mt-0.5">The Farmers Bank</div>
+          </div>
+        </div>
+        <!-- Merch -->
+        <div class="glow-box-cyan border border-cyan/30 rounded-2xl p-8 bg-gradient-to-br from-cyan/10 to-transparent">
+          <div class="text-6xl font-orbitron font-black text-cyan glow-cyan mb-3">$250</div>
+          <div class="text-white font-bold text-xl mb-2">Added Merch</div>
+          <div class="text-gray-400 text-sm leading-relaxed">
+            Merchandise prizes awarded across divisions and categories
+          </div>
+        </div>
+      </div>
+
+      <p class="mt-8 text-gray-500 text-sm">
+        Payout structure announced prior to tournament. Register early to secure your spot.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SPONSORS
+  ════════════════════════════════════════════ -->
+  <section id="sponsors" class="section-mid py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="flex items-center gap-4 mb-12">
+        <div class="h-px flex-1 bg-gradient-to-r from-orange/40 to-transparent"></div>
+        <span class="font-rajdhani font-semibold tracking-[0.3em] text-orange uppercase text-sm">Our Sponsors</span>
+        <div class="h-px flex-1 bg-gradient-to-l from-cyan/40 to-transparent"></div>
+      </div>
+
+      <h2 class="font-orbitron font-black text-3xl sm:text-4xl text-white text-center mb-4">
+        Thank You to Our <span class="text-cyan">Partners</span>
+      </h2>
+      <p class="text-gray-400 text-center mb-14 max-w-xl mx-auto">
+        This event is made possible by the generous support of our sponsors. Their contributions power the prizes, the course, and the community.
+      </p>
+
+      <!-- Presenting Sponsor - full width -->
+      <div class="mb-8">
+        <div class="text-center mb-4">
+          <span class="inline-block px-4 py-1 bg-orange/15 border border-orange/30 rounded-full text-orange text-xs font-rajdhani font-semibold tracking-widest uppercase">
+            Presented By
+          </span>
+        </div>
+        <div class="max-w-sm mx-auto sponsor-card rounded-2xl p-8 flex flex-col items-center card-hover">
+          <div class="w-24 h-24 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-4">
+            <span class="font-orbitron font-black text-3xl text-white">JAX</span>
+          </div>
+          <div class="font-bold text-white text-xl">JAX Roofing</div>
+          <div class="text-gray-500 text-sm mt-1">Title &amp; Presenting Sponsor</div>
+        </div>
+      </div>
+
+      <!-- Three sponsors row -->
+      <div class="grid sm:grid-cols-3 gap-6">
+
+        <!-- Added Cash -->
+        <div class="text-center">
+          <div class="mb-4">
+            <span class="inline-block px-4 py-1 bg-cyan/15 border border-cyan/30 rounded-full text-cyan text-xs font-rajdhani font-semibold tracking-widest uppercase">
+              Added Cash Sponsor
+            </span>
+          </div>
+          <div class="sponsor-card rounded-2xl p-6 flex flex-col items-center card-hover">
+            <div class="w-20 h-20 rounded-xl bg-amber-900/30 border border-amber-700/40 flex items-center justify-center mb-4">
+              <div class="text-center">
+                <div class="font-bold text-amber-400 text-xs leading-tight">THE</div>
+                <div class="font-black text-amber-300 text-sm leading-tight">FARMERS</div>
+                <div class="font-bold text-amber-400 text-xs leading-tight">BANK</div>
+              </div>
+            </div>
+            <div class="font-bold text-white">The Farmers Bank</div>
+            <div class="text-gray-500 text-sm mt-1">Added Cash Sponsor</div>
+          </div>
+        </div>
+
+        <!-- Course Sponsor -->
+        <div class="text-center">
+          <div class="mb-4">
+            <span class="inline-block px-4 py-1 bg-cyan/15 border border-cyan/30 rounded-full text-cyan text-xs font-rajdhani font-semibold tracking-widest uppercase">
+              Course Sponsor
+            </span>
+          </div>
+          <div class="sponsor-card rounded-2xl p-6 flex flex-col items-center card-hover">
+            <div class="w-20 h-20 rounded-xl bg-blue-900/30 border border-blue-600/40 flex items-center justify-center mb-4">
+              <div class="text-center">
+                <div class="font-black text-blue-400 text-lg leading-tight">RAL</div>
+                <div class="font-bold text-white text-xs leading-tight">Academy</div>
+              </div>
+            </div>
+            <div class="font-bold text-white">RAL Academy</div>
+            <div class="text-gray-500 text-sm mt-1">Course Sponsor</div>
+          </div>
+        </div>
+
+        <!-- Vendor Sponsor -->
+        <div class="text-center">
+          <div class="mb-4">
+            <span class="inline-block px-4 py-1 bg-cyan/15 border border-cyan/30 rounded-full text-cyan text-xs font-rajdhani font-semibold tracking-widest uppercase">
+              Vendor Sponsor
+            </span>
+          </div>
+          <div class="sponsor-card rounded-2xl p-6 flex flex-col items-center card-hover">
+            <div class="w-20 h-20 rounded-xl bg-orange/20 border border-orange/40 flex items-center justify-center mb-4">
+              <div class="text-center">
+                <div class="text-2xl">🥏</div>
+                <div class="font-bold text-orange text-xs leading-tight mt-1">DISC GOLF</div>
+                <div class="font-bold text-white text-xs leading-tight">KAZI</div>
+              </div>
+            </div>
+            <div class="font-bold text-white">Disc Golf Kazi</div>
+            <div class="text-gray-500 text-sm mt-1">Vendor Sponsor</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Become a sponsor CTA -->
+      <div class="mt-14 text-center">
+        <p class="text-gray-500 mb-4">Interested in sponsoring the 2nd Annual?</p>
+        <a href="mailto:kentronmanagementgroup@gmail.com"
+           class="inline-block px-8 py-3 border border-orange/40 text-orange font-semibold rounded-full hover:bg-orange/10 transition-all">
+          Become a Sponsor →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       BENEFICIARY — STEAM CATHEDRAL
+  ════════════════════════════════════════════ -->
+  <section id="beneficiary" class="section-dark py-24">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="flex items-center gap-4 mb-12">
+        <div class="h-px flex-1 bg-gradient-to-r from-cyan/40 to-transparent"></div>
+        <span class="font-rajdhani font-semibold tracking-[0.3em] text-cyan uppercase text-sm">Benefiting</span>
+        <div class="h-px flex-1 bg-gradient-to-l from-orange/40 to-transparent"></div>
+      </div>
+
+      <div class="glow-box-cyan border border-cyan/20 rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-cyan/5 to-transparent">
+        <div class="grid lg:grid-cols-2 gap-10 items-start">
+
+          <!-- Left: Content -->
+          <div>
+            <div class="inline-block px-4 py-1 bg-cyan/15 border border-cyan/30 rounded-full text-cyan text-xs font-rajdhani font-semibold tracking-widest uppercase mb-6">
+              501(c)(3) Charity Partner
+            </div>
+            <h2 class="font-orbitron font-black text-3xl sm:text-4xl leading-tight mb-1">
+              Cathedral Land <span class="text-cyan glow-cyan">&amp; Speed Co.</span>
+            </h2>
+            <p class="text-gray-400 font-rajdhani font-semibold tracking-widest text-xs uppercase mb-6">Also known as STEAM Cathedral</p>
+
+            <p class="text-gray-300 text-lg leading-relaxed mb-4">
+              A 501(c)(3) nonprofit using <strong class="text-white">motorsports and automotive arts</strong> to teach STEAM education to underserved youth — hands-on, collaborative, and real.
+            </p>
+            <p class="text-gray-400 leading-relaxed mb-8">
+              Through karting, fabrication, welding, mechanics, and artistic mediums, Cathedral Land &amp; Speed Co. builds hard skills, soft skills, and confidence that opens doors to workplace opportunities for the next generation.
+            </p>
+
+            <!-- Core values -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
+              <div class="bg-white/4 border border-cyan/15 rounded-xl p-3 text-center">
+                <div class="text-cyan text-xs font-orbitron font-bold">Honor</div>
+              </div>
+              <div class="bg-white/4 border border-cyan/15 rounded-xl p-3 text-center">
+                <div class="text-cyan text-xs font-orbitron font-bold">Integrity</div>
+              </div>
+              <div class="bg-white/4 border border-cyan/15 rounded-xl p-3 text-center">
+                <div class="text-cyan text-xs font-orbitron font-bold">Respect</div>
+              </div>
+              <div class="bg-white/4 border border-cyan/15 rounded-xl p-3 text-center">
+                <div class="text-cyan text-xs font-orbitron font-bold">Excellence</div>
+              </div>
+            </div>
+
+            <a href="https://www.steamcathedral.com"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 px-7 py-3 bg-gradient-to-r from-cyan to-cyan-dark text-navy font-bold rounded-full hover:opacity-90 transition-all">
+              Visit steamcathedral.com
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Right: Logo + Programs -->
+          <div>
+            <!-- Logo -->
+            <div class="flex justify-center mb-8">
+              <div class="w-48 h-48 rounded-2xl bg-white/5 border-2 border-cyan/30 flex flex-col items-center justify-center p-4">
+                <!-- Steam Cathedral SVG logo approximation -->
+                <svg viewBox="0 0 120 100" class="w-32 h-24 mb-2" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Diamond/gear shape -->
+                  <polygon points="60,5 115,50 60,95 5,50" stroke="#00d4ff" stroke-width="3" fill="none"/>
+                  <polygon points="60,18 102,50 60,82 18,50" stroke="#00d4ff" stroke-width="1.5" fill="rgba(0,212,255,0.06)"/>
+                  <!-- Steering wheel / gear icon center -->
+                  <circle cx="60" cy="50" r="16" stroke="#00d4ff" stroke-width="2" fill="none"/>
+                  <circle cx="60" cy="50" r="5" fill="#00d4ff"/>
+                  <!-- Spokes -->
+                  <line x1="60" y1="34" x2="60" y2="44" stroke="#00d4ff" stroke-width="2"/>
+                  <line x1="60" y1="56" x2="60" y2="66" stroke="#00d4ff" stroke-width="2"/>
+                  <line x1="44" y1="50" x2="54" y2="50" stroke="#00d4ff" stroke-width="2"/>
+                  <line x1="66" y1="50" x2="76" y2="50" stroke="#00d4ff" stroke-width="2"/>
+                  <!-- Corner accent dots -->
+                  <circle cx="60" cy="8"  r="3" fill="#00d4ff"/>
+                  <circle cx="60" cy="92" r="3" fill="#00d4ff"/>
+                  <circle cx="8"  cy="50" r="3" fill="#00d4ff"/>
+                  <circle cx="112" cy="50" r="3" fill="#00d4ff"/>
+                </svg>
+                <div class="text-center">
+                  <div class="font-orbitron font-black text-white text-xs tracking-widest leading-tight">STEAM</div>
+                  <div class="font-orbitron font-black text-cyan text-xs tracking-widest leading-tight">CATHEDRAL</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Programs -->
+            <div class="space-y-3">
+              <h3 class="font-rajdhani font-bold text-white uppercase tracking-widest text-sm mb-4">Programs</h3>
+              <div class="flex items-center gap-3 bg-white/4 border border-white/8 rounded-xl px-4 py-3">
+                <div class="w-2 h-2 rounded-full bg-cyan shrink-0" aria-hidden="true"></div>
+                <div>
+                  <div class="text-white text-sm font-semibold">Karting 101</div>
+                  <div class="text-gray-300 text-xs">8-week introductory course — required before advanced classes</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 bg-white/4 border border-white/8 rounded-xl px-4 py-3">
+                <div class="w-2 h-2 rounded-full bg-cyan shrink-0" aria-hidden="true"></div>
+                <div>
+                  <div class="text-white text-sm font-semibold">Advanced Classes &amp; Workshops</div>
+                  <div class="text-gray-300 text-xs">Fabrication, welding, mechanics, and artistic mediums</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 bg-white/4 border border-white/8 rounded-xl px-4 py-3">
+                <div class="w-2 h-2 rounded-full bg-orange shrink-0" aria-hidden="true"></div>
+                <div>
+                  <div class="text-white text-sm font-semibold">Apprenticeships</div>
+                  <div class="text-gray-300 text-xs">Pre-apprenticeships through paid apprenticeships &amp; team projects</div>
+                </div>
+              </div>
+              <!-- Social -->
+              <div class="flex items-center gap-4 pt-2">
+                <a href="https://www.facebook.com/CathedralSpeed" target="_blank" rel="noopener noreferrer"
+                   aria-label="Cathedral Land & Speed Co. on Facebook (opens in new tab)"
+                   class="text-gray-400 hover:text-cyan text-xs font-rajdhani font-semibold tracking-wider transition-colors min-h-[44px] flex items-center">
+                  @CathedralSpeed
+                </a>
+                <span aria-hidden="true" class="text-gray-600">·</span>
+                <a href="https://www.instagram.com/steamcathedral" target="_blank" rel="noopener noreferrer"
+                   aria-label="STEAM Cathedral on Instagram (opens in new tab)"
+                   class="text-gray-400 hover:text-cyan text-xs font-rajdhani font-semibold tracking-wider transition-colors min-h-[44px] flex items-center">
+                  @steamcathedral
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       REGISTER CTA
+  ════════════════════════════════════════════ -->
+  <section id="register" class="py-24 relative overflow-hidden"
+           style="background: linear-gradient(135deg, #0a0e1a 0%, #0d1520 50%, #0a0e1a 100%);">
+
+    <!-- Background glow -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-cyan/5 blur-3xl"></div>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+      <span class="inline-block px-4 py-1 bg-orange/15 border border-orange/30 rounded-full text-orange text-xs font-rajdhani font-semibold tracking-widest uppercase mb-6">
+        Registration Open
+      </span>
+
+      <h2 class="font-orbitron font-black text-4xl sm:text-5xl lg:text-6xl text-white mb-6 leading-tight">
+        Ready to<br/><span class="text-cyan glow-cyan">Throw Down?</span>
+      </h2>
+
+      <p class="text-gray-300 text-xl mb-4 max-w-2xl mx-auto">
+        Join us August 22, 2026 at Dr. James A. Dillon Park DGC for a tournament that matters.
+      </p>
+      <p class="text-gray-400 mb-10">
+        Register through <strong class="text-white">Disc Golf Scene</strong> — the official registration platform for this event.
+      </p>
+
+      <!-- QR placeholder -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-8 mb-10">
+        <div class="flex flex-col items-center">
+          <div class="w-32 h-32 bg-white rounded-xl flex items-center justify-center mb-3 glow-box-cyan">
+            <div class="text-center">
+              <div class="text-xs text-gray-800 font-bold">SCAN TO</div>
+              <div class="text-xs text-gray-800 font-bold">REGISTER</div>
+              <div class="text-3xl mt-1">📱</div>
+            </div>
+          </div>
+          <p class="text-gray-500 text-xs">QR Code — Disc Golf Scene</p>
+        </div>
+        <div class="text-left max-w-xs">
+          <div class="space-y-3">
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-cyan/20 border border-cyan/40 flex items-center justify-center shrink-0 mt-0.5">
+                <span class="text-cyan text-xs font-bold">1</span>
+              </div>
+              <span class="text-gray-300 text-sm">Visit <strong class="text-white">Disc Golf Scene</strong> and search for "Will Miles Memorial"</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-cyan/20 border border-cyan/40 flex items-center justify-center shrink-0 mt-0.5">
+                <span class="text-cyan text-xs font-bold">2</span>
+              </div>
+              <span class="text-gray-300 text-sm">Select your division and complete registration</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-cyan/20 border border-cyan/40 flex items-center justify-center shrink-0 mt-0.5">
+                <span class="text-cyan text-xs font-bold">3</span>
+              </div>
+              <span class="text-gray-300 text-sm">Show up August 22nd ready to compete — and give back!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="https://www.discgolfscene.com/tournaments/2nd_Annual_Will_Miles_Memorial_Charity_Tournament_CEP_Charity_Rated_2026/register"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="inline-block px-12 py-5 bg-gradient-to-r from-cyan to-cyan-dark text-navy font-bold text-xl rounded-full hover:opacity-90 transition-all pulse-glow">
+        Register on Disc Golf Scene →
+      </a>
+
+      <p class="mt-6 text-gray-600 text-sm">
+        Questions? Contact us at
+        <a href="mailto:kentronmanagementgroup@gmail.com" class="text-cyan hover:underline">
+          kentronmanagementgroup@gmail.com
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════ -->
+  <footer class="border-t border-white/10 section-mid py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid sm:grid-cols-3 gap-8 mb-10">
+
+        <!-- Brand -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <svg viewBox="0 0 100 110" class="w-10 h-10 shrink-0" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10,70 A40,40 0 0,1 90,70" stroke="#00d4ff" stroke-width="3" fill="none"/>
+              <g transform="translate(82,22) rotate(-12)">
+                <ellipse cx="0" cy="0" rx="11" ry="3.5" stroke="#00d4ff" stroke-width="1.8" fill="none"/>
+                <line x1="-13" y1="-1" x2="-20" y2="-3" stroke="#00d4ff" stroke-width="1.5"/>
+                <line x1="-13" y1="1" x2="-20" y2="3" stroke="#00d4ff" stroke-width="1.5"/>
+              </g>
+              <polygon points="18,68 24,50 30,68" fill="#00d4ff"/>
+              <polygon points="25,63 32,44 39,63" fill="#00d4ff"/>
+              <polygon points="61,68 67,48 73,68" fill="#00d4ff"/>
+              <polygon points="70,65 77,46 84,65" fill="#00d4ff"/>
+              <path d="M10,68 Q35,60 50,63 Q65,66 90,60 L90,70 L10,70 Z" fill="#00d4ff" opacity="0.5"/>
+              <rect x="48" y="32" width="4" height="35" rx="1" fill="#00d4ff"/>
+              <ellipse cx="50" cy="32" rx="15" ry="4.5" stroke="#00d4ff" stroke-width="2" fill="none"/>
+              <line x1="36" y1="32" x2="39" y2="56" stroke="#00d4ff" stroke-width="1.1"/>
+              <line x1="41" y1="30" x2="43" y2="56" stroke="#00d4ff" stroke-width="1.1"/>
+              <line x1="46" y1="29" x2="48" y2="56" stroke="#00d4ff" stroke-width="1.1"/>
+              <line x1="54" y1="29" x2="52" y2="56" stroke="#00d4ff" stroke-width="1.1"/>
+              <line x1="59" y1="30" x2="57" y2="56" stroke="#00d4ff" stroke-width="1.1"/>
+              <line x1="64" y1="32" x2="61" y2="56" stroke="#00d4ff" stroke-width="1.1"/>
+              <ellipse cx="50" cy="56" rx="13" ry="3.5" stroke="#00d4ff" stroke-width="1.8" fill="none"/>
+              <text x="50" y="47" text-anchor="middle" font-size="7" font-weight="bold" fill="#00d4ff" font-family="Arial">24</text>
+            </svg>
+            <span class="font-orbitron font-bold text-sm tracking-widest text-white uppercase">Will Miles Memorial</span>
+          </div>
+          <p class="text-gray-500 text-sm leading-relaxed">
+            2nd Annual Charity Disc Golf Tournament — benefiting STEAM Cathedral and honoring the legacy of Will Miles.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="font-rajdhani font-bold tracking-widest text-white uppercase text-sm mb-4">Quick Links</h4>
+          <div class="space-y-2">
+            <a href="#about"       class="block text-gray-500 hover:text-cyan text-sm transition-colors">About the Tournament</a>
+            <a href="#details"     class="block text-gray-500 hover:text-cyan text-sm transition-colors">Event Details</a>
+            <a href="#prizes"      class="block text-gray-500 hover:text-cyan text-sm transition-colors">Prizes &amp; Payouts</a>
+            <a href="#sponsors"    class="block text-gray-500 hover:text-cyan text-sm transition-colors">Sponsors</a>
+            <a href="#beneficiary" class="block text-gray-500 hover:text-cyan text-sm transition-colors">STEAM Cathedral</a>
+            <a href="https://www.discgolfscene.com/tournaments/2nd_Annual_Will_Miles_Memorial_Charity_Tournament_CEP_Charity_Rated_2026/register" target="_blank" rel="noopener noreferrer"    class="block text-gray-500 hover:text-cyan text-sm transition-colors">Register</a>
+          </div>
+        </div>
+
+        <!-- Event Info -->
+        <div>
+          <h4 class="font-rajdhani font-bold tracking-widest text-white uppercase text-sm mb-4">Event Info</h4>
+          <div class="space-y-2 text-sm text-gray-500">
+            <div><span class="text-gray-400">Date:</span> August 22, 2026</div>
+            <div><span class="text-gray-400">Venue:</span> Dr. James A. Dillon Park DGC</div>
+            <div><span class="text-gray-400">Added Cash:</span> $750</div>
+            <div><span class="text-gray-400">Added Merch:</span> $250</div>
+            <div><span class="text-gray-400">Charity:</span> STEAM Cathedral</div>
+            <div class="pt-2">
+              <a href="https://www.steamcathedral.com" target="_blank" rel="noopener noreferrer"
+                 class="text-cyan hover:underline">www.steamcathedral.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="racing-stripe mb-6"></div>
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-gray-600 text-xs">
+        <div>© 2026 Will Miles Memorial Charity Disc Golf Tournament. All rights reserved.</div>
+        <div class="flex items-center gap-4">
+          <span>Presented by <strong class="text-gray-400">JAX Roofing</strong></span>
+          <span>·</span>
+          <span>Benefiting <a href="https://www.steamcathedral.com" target="_blank" rel="noopener noreferrer" class="text-cyan hover:underline">STEAM Cathedral</a></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════
+       SCRIPTS
+  ════════════════════════════════════════════ -->
+  <script>
+    // Mobile menu
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIconOpen  = document.getElementById('menu-icon-open');
+    const menuIconClose = document.getElementById('menu-icon-close');
+
+    menuToggle.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden');
+      menuIconOpen.classList.toggle('hidden');
+      menuIconClose.classList.toggle('hidden');
+      menuToggle.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+      menuToggle.setAttribute('aria-label', isHidden ? 'Close navigation menu' : 'Open navigation menu');
+    });
+
+    function closeMobileMenu() {
+      mobileMenu.classList.add('hidden');
+      menuIconOpen.classList.remove('hidden');
+      menuIconClose.classList.add('hidden');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Open navigation menu');
+    }
+
+    // Close mobile menu on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+        closeMobileMenu();
+        menuToggle.focus();
+      }
+    });
+
+    // Active nav highlight on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.toggle('text-cyan', link.getAttribute('href') === '#' + entry.target.id);
+            link.classList.toggle('text-gray-300', link.getAttribute('href') !== '#' + entry.target.id);
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -50% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+
+    // Countdown timer
+    function updateCountdown() {
+      const eventDate = new Date('2026-08-22T08:00:00');
+      const now = new Date();
+      const diff = eventDate - now;
+
+      if (diff <= 0) return;
+
+      const days  = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins  = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const secs  = Math.floor((diff % (1000 * 60)) / 1000);
+
+      const el = document.getElementById('countdown');
+      if (el) el.textContent = `${days}d ${hours}h ${mins}m ${secs}s`;
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+</html>
