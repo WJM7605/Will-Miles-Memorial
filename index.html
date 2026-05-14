@@ -72,7 +72,7 @@
       position: fixed;
       inset: 0;
       z-index: -1;
-      background-image: url('bg.jpg');
+      background-image: url('images/bg.jpg');
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
@@ -235,41 +235,15 @@
 
         <!-- Logo -->
         <a href="#" class="flex items-center gap-3" aria-label="Will Miles Memorial — return to top">
-          <!-- Disc Golf Basket Icon -->
-          <svg viewBox="0 0 100 110" class="w-10 h-10 shrink-0" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Will Miles Memorial disc golf basket logo">
-            <!-- Arch -->
-            <path d="M10,70 A40,40 0 0,1 90,70" stroke="#00d4ff" stroke-width="3" fill="none"/>
-            <!-- Flying disc top-right -->
-            <g transform="translate(82,22) rotate(-12)">
-              <ellipse cx="0" cy="0" rx="11" ry="3.5" stroke="#00d4ff" stroke-width="1.8" fill="none"/>
-              <line x1="-13" y1="-1" x2="-20" y2="-3" stroke="#00d4ff" stroke-width="1.5"/>
-              <line x1="-13" y1="1" x2="-20" y2="3" stroke="#00d4ff" stroke-width="1.5"/>
-            </g>
-            <!-- Pine trees left -->
-            <polygon points="18,68 24,50 30,68" fill="#00d4ff"/>
-            <polygon points="25,63 32,44 39,63" fill="#00d4ff"/>
-            <!-- Pine trees right -->
-            <polygon points="61,68 67,48 73,68" fill="#00d4ff"/>
-            <polygon points="70,65 77,46 84,65" fill="#00d4ff"/>
-            <!-- Hills -->
-            <path d="M10,68 Q35,60 50,63 Q65,66 90,60 L90,70 L10,70 Z" fill="#00d4ff" opacity="0.5"/>
-            <!-- Basket pole -->
-            <rect x="48" y="32" width="4" height="35" rx="1" fill="#00d4ff"/>
-            <!-- Basket rim -->
-            <ellipse cx="50" cy="32" rx="15" ry="4.5" stroke="#00d4ff" stroke-width="2" fill="none"/>
-            <!-- Chains -->
-            <line x1="36" y1="32" x2="39" y2="56" stroke="#00d4ff" stroke-width="1.1"/>
-            <line x1="41" y1="30" x2="43" y2="56" stroke="#00d4ff" stroke-width="1.1"/>
-            <line x1="46" y1="29" x2="48" y2="56" stroke="#00d4ff" stroke-width="1.1"/>
-            <line x1="54" y1="29" x2="52" y2="56" stroke="#00d4ff" stroke-width="1.1"/>
-            <line x1="59" y1="30" x2="57" y2="56" stroke="#00d4ff" stroke-width="1.1"/>
-            <line x1="64" y1="32" x2="61" y2="56" stroke="#00d4ff" stroke-width="1.1"/>
-            <!-- Catch basket ring -->
-            <ellipse cx="50" cy="56" rx="13" ry="3.5" stroke="#00d4ff" stroke-width="1.8" fill="none"/>
-            <!-- 24 number -->
-            <text x="50" y="47" text-anchor="middle" font-size="7" font-weight="bold" fill="#00d4ff" font-family="Arial">24</text>
-          </svg>
-          <span class="font-orbitron font-bold text-sm tracking-widest text-white uppercase hidden sm:block">Will Miles Memorial</span>
+          <div class="bg-white rounded-lg p-1 inline-flex shrink-0">
+            <img src="images/WMM%20logo-02.svg"
+                 alt="Will Miles Memorial Disc Golf Tournament logo"
+                 class="h-10 w-auto" />
+          </div>
+          <div class="hidden sm:block">
+            <div class="font-orbitron font-bold text-white text-sm leading-tight tracking-wide">Will Miles Memorial</div>
+            <div class="font-rajdhani font-semibold text-gray-400 text-xs tracking-widest uppercase">Disc Golf Tournament</div>
+          </div>
         </a>
 
         <!-- Desktop Nav -->
@@ -369,7 +343,7 @@
 
       <!-- Main title logo image — serves as page h1 -->
       <h1 class="mb-2">
-        <img src="title-logo.png"
+        <img src="images/title-logo.png"
              alt="2 Will Miles 2 Memorial — Charity Disc Golf Tournament"
              class="w-full max-w-3xl mx-auto"
              style="filter: drop-shadow(0 0 30px rgba(0,180,255,0.5)) drop-shadow(0 0 15px rgba(255,100,0,0.4));" />
@@ -401,11 +375,12 @@
         <div class="countdown-box rounded-xl px-6 py-4 text-center">
           <div class="text-3xl font-orbitron font-black text-cyan glow-cyan">$750</div>
           <div class="text-xs font-rajdhani font-semibold tracking-widest text-gray-400 uppercase mt-1">Added Cash</div>
-          <div class="text-xs text-gray-600 font-rajdhani mt-0.5">The Farmers Bank</div>
+          <div class="text-xs font-rajdhani font-light tracking-wide text-gray-400 mt-0.5">The Farmers Bank</div>
         </div>
         <div class="countdown-box rounded-xl px-6 py-4 text-center">
           <div class="text-3xl font-orbitron font-black text-orange glow-orange">$250</div>
           <div class="text-xs font-rajdhani font-semibold tracking-widest text-gray-400 uppercase mt-1">Added Merch</div>
+          <div class="text-xs font-rajdhani font-light tracking-wide text-gray-400 mt-0.5">The Farmers Bank</div>
         </div>
         <div class="countdown-box rounded-xl px-6 py-4 text-center">
           <div class="text-3xl font-orbitron font-black text-white">2nd</div>
@@ -445,27 +420,6 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════
-       JOIN | PLAY | CHANGE (throwpink-style tagline)
-  ════════════════════════════════════════════ -->
-  <div class="section-mid border-y border-white/5" aria-label="Tournament mission">
-    <div class="max-w-5xl mx-auto px-2 sm:px-4 py-8 sm:py-12">
-      <div class="grid grid-cols-3 divide-x divide-white/10">
-        <div class="text-center py-4 px-2 sm:px-6">
-          <div class="text-xl sm:text-2xl font-orbitron font-black text-cyan mb-1">DISC</div>
-          <div class="text-xs font-rajdhani font-semibold tracking-[0.2em] sm:tracking-[0.3em] text-gray-300 uppercase">for a cause</div>
-        </div>
-        <div class="text-center py-4 px-2 sm:px-6">
-          <div class="text-xl sm:text-2xl font-orbitron font-black text-white mb-1">PLAY</div>
-          <div class="text-xs font-rajdhani font-semibold tracking-[0.2em] sm:tracking-[0.3em] text-gray-300 uppercase">compete &amp; win</div>
-        </div>
-        <div class="text-center py-4 px-2 sm:px-6">
-          <div class="text-xl sm:text-2xl font-orbitron font-black text-orange mb-1">GIVE</div>
-          <div class="text-xs font-rajdhani font-semibold tracking-[0.2em] sm:tracking-[0.3em] text-gray-300 uppercase">change lives</div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- ═══════════════════════════════════════════
        ABOUT THE TOURNAMENT
@@ -608,9 +562,9 @@
           <h3 class="font-poppins font-bold text-white text-lg mb-2">Venue</h3>
           <p class="text-white font-semibold mb-1">Dr. James A. Dillon Park DGC</p>
           <p class="text-gray-400 text-sm">Disc Golf Course</p>
-          <div class="mt-3 pt-3 border-t border-white/8 flex items-center gap-2">
-            <span class="text-xs font-rajdhani font-semibold tracking-wider text-gray-600 uppercase">Course Sponsor</span>
-            <span class="text-xs font-bold text-blue-400">RAL Academy</span>
+          <div class="mt-3 pt-3 border-t border-white/8">
+            <span class="text-xs font-rajdhani font-light tracking-widest text-gray-400 uppercase">Course Sponsor</span>
+            <div class="text-xs font-rajdhani font-light tracking-wide text-blue-400 mt-0.5">RAL Academy</div>
           </div>
         </div>
 
@@ -636,9 +590,9 @@
           <h3 class="font-poppins font-bold text-white text-lg mb-2">Added Cash</h3>
           <p class="text-orange font-orbitron font-black text-2xl mb-1">$750</p>
           <p class="text-gray-400 text-sm">Cash payouts added to purse</p>
-          <div class="mt-3 pt-3 border-t border-white/8 flex items-center gap-2">
-            <span class="text-xs font-rajdhani font-semibold tracking-wider text-gray-600 uppercase">Cash Sponsor</span>
-            <span class="text-xs font-bold text-amber-400">The Farmers Bank</span>
+          <div class="mt-3 pt-3 border-t border-white/8">
+            <span class="text-xs font-rajdhani font-light tracking-widest text-gray-400 uppercase">Cash Sponsor</span>
+            <div class="text-xs font-rajdhani font-light tracking-wide text-amber-400 mt-0.5">The Farmers Bank</div>
           </div>
         </div>
 
@@ -652,6 +606,10 @@
           <h3 class="font-poppins font-bold text-white text-lg mb-2">Added Merch</h3>
           <p class="text-cyan font-orbitron font-black text-2xl mb-1">$250</p>
           <p class="text-gray-400 text-sm">Merchandise added to prizes</p>
+          <div class="mt-3 pt-3 border-t border-white/8">
+            <span class="text-xs font-rajdhani font-light tracking-widest text-gray-400 uppercase">Merch Sponsor</span>
+            <div class="text-xs font-rajdhani font-light tracking-wide text-amber-400 mt-0.5">The Farmers Bank</div>
+          </div>
         </div>
 
         <!-- Registration -->
@@ -697,16 +655,20 @@
             Cash prizes added directly to the payout pool for top finishers
           </div>
           <div class="pt-4 border-t border-orange/20">
-            <span class="text-xs font-rajdhani font-semibold tracking-widest text-gray-600 uppercase">Cash Sponsor</span>
-            <div class="text-amber-400 font-bold text-sm mt-0.5">The Farmers Bank</div>
+            <span class="text-xs font-rajdhani font-light tracking-widest text-gray-400 uppercase">Cash Sponsor</span>
+            <div class="text-amber-400 font-rajdhani font-light text-sm mt-0.5 tracking-wide">The Farmers Bank</div>
           </div>
         </div>
         <!-- Merch -->
         <div class="glow-box-cyan border border-cyan/30 rounded-2xl p-8 bg-gradient-to-br from-cyan/10 to-transparent">
           <div class="text-6xl font-orbitron font-black text-cyan glow-cyan mb-3">$250</div>
           <div class="text-white font-bold text-xl mb-2">Added Merch</div>
-          <div class="text-gray-400 text-sm leading-relaxed">
+          <div class="text-gray-400 text-sm leading-relaxed mb-4">
             Merchandise prizes awarded across divisions and categories
+          </div>
+          <div class="pt-4 border-t border-cyan/20">
+            <span class="text-xs font-rajdhani font-light tracking-widest text-gray-400 uppercase">Merch Sponsor</span>
+            <div class="text-amber-400 font-rajdhani font-light text-sm mt-0.5 tracking-wide">The Farmers Bank</div>
           </div>
         </div>
       </div>
@@ -744,11 +706,13 @@
           </span>
         </div>
         <div class="max-w-sm mx-auto sponsor-card rounded-2xl p-8 flex flex-col items-center card-hover">
-          <div class="w-24 h-24 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-4">
-            <span class="font-orbitron font-black text-3xl text-white">JAX</span>
+          <div class="bg-white rounded-xl p-4 mb-4 flex items-center justify-center" style="min-height:96px;min-width:160px;">
+            <img src="images/JAXIN-FullColor.png"
+                 alt="JAX Roofing logo"
+                 class="h-16 w-auto object-contain" />
           </div>
           <div class="font-bold text-white text-xl">JAX Roofing</div>
-          <div class="text-gray-500 text-sm mt-1">Title &amp; Presenting Sponsor</div>
+          <div class="text-gray-400 text-sm mt-1">Title &amp; Presenting Sponsor</div>
         </div>
       </div>
 
@@ -763,15 +727,13 @@
             </span>
           </div>
           <div class="sponsor-card rounded-2xl p-6 flex flex-col items-center card-hover">
-            <div class="w-20 h-20 rounded-xl bg-amber-900/30 border border-amber-700/40 flex items-center justify-center mb-4">
-              <div class="text-center">
-                <div class="font-bold text-amber-400 text-xs leading-tight">THE</div>
-                <div class="font-black text-amber-300 text-sm leading-tight">FARMERS</div>
-                <div class="font-bold text-amber-400 text-xs leading-tight">BANK</div>
-              </div>
+            <div class="bg-white rounded-xl p-3 mb-4 flex items-center justify-center" style="min-height:88px;min-width:120px;">
+              <img src="images/TheFarmersBank_PrimaryLogo.png"
+                   alt="The Farmers Bank logo"
+                   class="h-20 w-auto object-contain" />
             </div>
             <div class="font-bold text-white">The Farmers Bank</div>
-            <div class="text-gray-500 text-sm mt-1">Added Cash Sponsor</div>
+            <div class="text-gray-400 text-sm mt-1">Added Cash Sponsor</div>
           </div>
         </div>
 
@@ -783,14 +745,13 @@
             </span>
           </div>
           <div class="sponsor-card rounded-2xl p-6 flex flex-col items-center card-hover">
-            <div class="w-20 h-20 rounded-xl bg-blue-900/30 border border-blue-600/40 flex items-center justify-center mb-4">
-              <div class="text-center">
-                <div class="font-black text-blue-400 text-lg leading-tight">RAL</div>
-                <div class="font-bold text-white text-xs leading-tight">Academy</div>
-              </div>
+            <div class="bg-white rounded-xl p-3 mb-4 flex items-center justify-center" style="min-height:88px;min-width:160px;">
+              <img src="images/RALAcademy%20with%20Subheader.png"
+                   alt="RAL Academy — Make Financial Freedom a Family Tradition"
+                   class="h-14 w-auto object-contain" />
             </div>
             <div class="font-bold text-white">RAL Academy</div>
-            <div class="text-gray-500 text-sm mt-1">Course Sponsor</div>
+            <div class="text-gray-400 text-sm mt-1">Course Sponsor</div>
           </div>
         </div>
 
@@ -802,15 +763,13 @@
             </span>
           </div>
           <div class="sponsor-card rounded-2xl p-6 flex flex-col items-center card-hover">
-            <div class="w-20 h-20 rounded-xl bg-orange/20 border border-orange/40 flex items-center justify-center mb-4">
-              <div class="text-center">
-                <div class="text-2xl">🥏</div>
-                <div class="font-bold text-orange text-xs leading-tight mt-1">DISC GOLF</div>
-                <div class="font-bold text-white text-xs leading-tight">KAZI</div>
-              </div>
+            <div class="bg-white rounded-xl p-3 mb-4 flex items-center justify-center" style="min-height:88px;min-width:120px;">
+              <img src="images/DGM.png"
+                   alt="Disc Golf Mart logo"
+                   class="h-20 w-auto object-contain" />
             </div>
-            <div class="font-bold text-white">Disc Golf Kazi</div>
-            <div class="text-gray-500 text-sm mt-1">Vendor Sponsor</div>
+            <div class="font-bold text-white">Disc Golf Mart</div>
+            <div class="text-gray-400 text-sm mt-1">Vendor Sponsor</div>
           </div>
         </div>
       </div>
@@ -889,30 +848,10 @@
           <div>
             <!-- Logo -->
             <div class="flex justify-center mb-8">
-              <div class="w-48 h-48 rounded-2xl bg-white/5 border-2 border-cyan/30 flex flex-col items-center justify-center p-4">
-                <!-- Steam Cathedral SVG logo approximation -->
-                <svg viewBox="0 0 120 100" class="w-32 h-24 mb-2" xmlns="http://www.w3.org/2000/svg">
-                  <!-- Diamond/gear shape -->
-                  <polygon points="60,5 115,50 60,95 5,50" stroke="#00d4ff" stroke-width="3" fill="none"/>
-                  <polygon points="60,18 102,50 60,82 18,50" stroke="#00d4ff" stroke-width="1.5" fill="rgba(0,212,255,0.06)"/>
-                  <!-- Steering wheel / gear icon center -->
-                  <circle cx="60" cy="50" r="16" stroke="#00d4ff" stroke-width="2" fill="none"/>
-                  <circle cx="60" cy="50" r="5" fill="#00d4ff"/>
-                  <!-- Spokes -->
-                  <line x1="60" y1="34" x2="60" y2="44" stroke="#00d4ff" stroke-width="2"/>
-                  <line x1="60" y1="56" x2="60" y2="66" stroke="#00d4ff" stroke-width="2"/>
-                  <line x1="44" y1="50" x2="54" y2="50" stroke="#00d4ff" stroke-width="2"/>
-                  <line x1="66" y1="50" x2="76" y2="50" stroke="#00d4ff" stroke-width="2"/>
-                  <!-- Corner accent dots -->
-                  <circle cx="60" cy="8"  r="3" fill="#00d4ff"/>
-                  <circle cx="60" cy="92" r="3" fill="#00d4ff"/>
-                  <circle cx="8"  cy="50" r="3" fill="#00d4ff"/>
-                  <circle cx="112" cy="50" r="3" fill="#00d4ff"/>
-                </svg>
-                <div class="text-center">
-                  <div class="font-orbitron font-black text-white text-xs tracking-widest leading-tight">STEAM</div>
-                  <div class="font-orbitron font-black text-cyan text-xs tracking-widest leading-tight">CATHEDRAL</div>
-                </div>
+              <div class="bg-white rounded-2xl p-4 inline-flex items-center justify-center">
+                <img src="images/steam-cathedral-logo.png"
+                     alt="STEAM Cathedral Land &amp; Speed Co. — Est. 2020"
+                     class="w-44 h-auto object-contain" />
               </div>
             </div>
 
@@ -941,17 +880,25 @@
                 </div>
               </div>
               <!-- Social -->
-              <div class="flex items-center gap-4 pt-2">
+              <div class="flex items-center gap-3 pt-2">
                 <a href="https://www.facebook.com/CathedralSpeed" target="_blank" rel="noopener noreferrer"
-                   aria-label="Cathedral Land & Speed Co. on Facebook (opens in new tab)"
-                   class="text-gray-400 hover:text-cyan text-xs font-rajdhani font-semibold tracking-wider transition-colors min-h-[44px] flex items-center">
-                  @CathedralSpeed
+                   aria-label="Cathedral Land &amp; Speed Co. on Facebook (opens in new tab)"
+                   class="flex items-center gap-2 text-gray-400 hover:text-[#1877F2] transition-colors min-h-[44px] group">
+                  <!-- Facebook logo -->
+                  <svg class="w-6 h-6 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M24 12.073C24 5.404 18.627 0 12 0S0 5.404 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+                  </svg>
+                  <span class="text-xs font-rajdhani font-semibold tracking-wider">@CathedralSpeed</span>
                 </a>
                 <span aria-hidden="true" class="text-gray-600">·</span>
                 <a href="https://www.instagram.com/steamcathedral" target="_blank" rel="noopener noreferrer"
                    aria-label="STEAM Cathedral on Instagram (opens in new tab)"
-                   class="text-gray-400 hover:text-cyan text-xs font-rajdhani font-semibold tracking-wider transition-colors min-h-[44px] flex items-center">
-                  @steamcathedral
+                   class="flex items-center gap-2 text-gray-400 hover:text-[#E1306C] transition-colors min-h-[44px] group">
+                  <!-- Instagram logo -->
+                  <svg class="w-6 h-6 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
+                  <span class="text-xs font-rajdhani font-semibold tracking-wider">@steamcathedral</span>
                 </a>
               </div>
             </div>
@@ -992,14 +939,15 @@
       <!-- QR placeholder -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-8 mb-10">
         <div class="flex flex-col items-center">
-          <div class="w-32 h-32 bg-white rounded-xl flex items-center justify-center mb-3 glow-box-cyan">
-            <div class="text-center">
-              <div class="text-xs text-gray-800 font-bold">SCAN TO</div>
-              <div class="text-xs text-gray-800 font-bold">REGISTER</div>
-              <div class="text-3xl mt-1">📱</div>
-            </div>
-          </div>
-          <p class="text-gray-500 text-xs">QR Code — Disc Golf Scene</p>
+          <a href="https://www.discgolfscene.com/tournaments/2nd_Annual_Will_Miles_Memorial_Charity_Tournament_CEP_Charity_Rated_2026/register"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Scan QR code to register on Disc Golf Scene (opens in new tab)"
+             class="block glow-box-cyan rounded-xl overflow-hidden">
+            <img src="images/Registration%20QR.png"
+                 alt="QR code to register for the 2nd Annual Will Miles Memorial tournament on Disc Golf Scene"
+                 class="w-36 h-36 object-contain bg-white" />
+          </a>
+          <p class="text-gray-400 text-xs mt-2">Scan to register</p>
         </div>
         <div class="text-left max-w-xs">
           <div class="space-y-3">
@@ -1051,31 +999,10 @@
 
         <!-- Brand -->
         <div>
-          <div class="flex items-center gap-3 mb-4">
-            <svg viewBox="0 0 100 110" class="w-10 h-10 shrink-0" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10,70 A40,40 0 0,1 90,70" stroke="#00d4ff" stroke-width="3" fill="none"/>
-              <g transform="translate(82,22) rotate(-12)">
-                <ellipse cx="0" cy="0" rx="11" ry="3.5" stroke="#00d4ff" stroke-width="1.8" fill="none"/>
-                <line x1="-13" y1="-1" x2="-20" y2="-3" stroke="#00d4ff" stroke-width="1.5"/>
-                <line x1="-13" y1="1" x2="-20" y2="3" stroke="#00d4ff" stroke-width="1.5"/>
-              </g>
-              <polygon points="18,68 24,50 30,68" fill="#00d4ff"/>
-              <polygon points="25,63 32,44 39,63" fill="#00d4ff"/>
-              <polygon points="61,68 67,48 73,68" fill="#00d4ff"/>
-              <polygon points="70,65 77,46 84,65" fill="#00d4ff"/>
-              <path d="M10,68 Q35,60 50,63 Q65,66 90,60 L90,70 L10,70 Z" fill="#00d4ff" opacity="0.5"/>
-              <rect x="48" y="32" width="4" height="35" rx="1" fill="#00d4ff"/>
-              <ellipse cx="50" cy="32" rx="15" ry="4.5" stroke="#00d4ff" stroke-width="2" fill="none"/>
-              <line x1="36" y1="32" x2="39" y2="56" stroke="#00d4ff" stroke-width="1.1"/>
-              <line x1="41" y1="30" x2="43" y2="56" stroke="#00d4ff" stroke-width="1.1"/>
-              <line x1="46" y1="29" x2="48" y2="56" stroke="#00d4ff" stroke-width="1.1"/>
-              <line x1="54" y1="29" x2="52" y2="56" stroke="#00d4ff" stroke-width="1.1"/>
-              <line x1="59" y1="30" x2="57" y2="56" stroke="#00d4ff" stroke-width="1.1"/>
-              <line x1="64" y1="32" x2="61" y2="56" stroke="#00d4ff" stroke-width="1.1"/>
-              <ellipse cx="50" cy="56" rx="13" ry="3.5" stroke="#00d4ff" stroke-width="1.8" fill="none"/>
-              <text x="50" y="47" text-anchor="middle" font-size="7" font-weight="bold" fill="#00d4ff" font-family="Arial">24</text>
-            </svg>
-            <span class="font-orbitron font-bold text-sm tracking-widest text-white uppercase">Will Miles Memorial</span>
+          <div class="mb-4 inline-flex bg-white rounded-xl p-2">
+            <img src="images/WMM%20logo-02.svg"
+                 alt="Will Miles Memorial Disc Golf Tournament"
+                 class="h-20 w-auto" />
           </div>
           <p class="text-gray-500 text-sm leading-relaxed">
             2nd Annual Charity Disc Golf Tournament — benefiting STEAM Cathedral and honoring the legacy of Will Miles.
