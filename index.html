@@ -354,20 +354,27 @@
 
       <!-- Date & Venue -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-10">
-        <div class="flex items-center gap-3">
+        <a href="tournament.ics" download="WillMilesMemorial2026.ics"
+           aria-label="Add August 22, 2026 to your calendar"
+           class="flex items-center gap-3 hover:text-cyan transition-colors group">
           <svg class="w-5 h-5 text-cyan shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
           </svg>
-          <span class="font-poppins font-semibold text-lg sm:text-xl text-white">August 22, 2026</span>
-        </div>
+          <span class="font-poppins font-semibold text-lg sm:text-xl text-white group-hover:text-cyan transition-colors">August 22, 2026</span>
+          <span class="text-xs text-gray-500 group-hover:text-cyan transition-colors">+ Add to Calendar</span>
+        </a>
         <div class="w-px h-6 bg-white/20 hidden sm:block" aria-hidden="true"></div>
-        <div class="flex items-center gap-3">
+        <a href="https://www.google.com/maps/search/?api=1&query=Dr+James+A+Dillon+Park+Disc+Golf+Shelbyville+TN"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Get directions to Dr. James A. Dillon Park Disc Golf Course (opens Google Maps)"
+           class="flex items-center gap-3 hover:text-cyan transition-colors group">
           <svg class="w-5 h-5 text-cyan shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
           </svg>
-          <span class="font-poppins font-semibold text-lg sm:text-xl text-white">Dr. James A. Dillon Park DGC</span>
-        </div>
+          <span class="font-poppins font-semibold text-lg sm:text-xl text-white group-hover:text-cyan transition-colors">Dr. James A. Dillon Park DGC</span>
+          <span class="text-xs text-gray-500 group-hover:text-cyan transition-colors">↗ Maps</span>
+        </a>
       </div>
 
       <!-- Stat pills -->
@@ -451,18 +458,25 @@
 
           <!-- Quick facts -->
           <div class="grid grid-cols-2 gap-4">
-            <div class="bg-white/4 border border-white/8 rounded-xl p-4">
+            <a href="tournament.ics" download="WillMilesMemorial2026.ics"
+               aria-label="Add tournament date to your calendar"
+               class="bg-white/4 border border-white/8 rounded-xl p-4 hover:border-cyan/40 hover:bg-white/8 transition-all block">
               <div class="text-cyan font-orbitron font-bold text-2xl mb-1">Aug 22</div>
               <div class="text-gray-400 text-sm font-rajdhani font-semibold tracking-wider uppercase">Tournament Date</div>
-            </div>
+              <div class="text-gray-500 text-xs mt-1">+ Add to Calendar</div>
+            </a>
             <div class="bg-white/4 border border-white/8 rounded-xl p-4">
               <div class="text-orange font-orbitron font-bold text-2xl mb-1">2026</div>
               <div class="text-gray-400 text-sm font-rajdhani font-semibold tracking-wider uppercase">Year</div>
             </div>
-            <div class="bg-white/4 border border-white/8 rounded-xl p-4 col-span-2">
+            <a href="https://www.google.com/maps/search/?api=1&query=Dr+James+A+Dillon+Park+Disc+Golf+Shelbyville+TN"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Get directions to Dr. James A. Dillon Park (opens Google Maps)"
+               class="bg-white/4 border border-white/8 rounded-xl p-4 col-span-2 hover:border-cyan/40 hover:bg-white/8 transition-all block">
               <div class="text-white font-semibold text-base mb-1">Dr. James A. Dillon Park DGC</div>
               <div class="text-gray-400 text-sm font-rajdhani font-semibold tracking-wider uppercase">Home Course</div>
-            </div>
+              <div class="text-gray-500 text-xs mt-1">↗ Open in Google Maps</div>
+            </a>
           </div>
         </div>
 
