@@ -1135,6 +1135,22 @@
     }
     updateCountdown();
     setInterval(updateCountdown, 1000);
+
+    // JS-driven ticker — bypasses OS/browser reduced-motion setting
+    (function () {
+      const ticker = document.querySelector('.ticker-inner');
+      if (!ticker) return;
+      ticker.style.animation = 'none';
+      let pos = 0;
+      function step() {
+        pos -= 0.5;
+        const half = ticker.scrollWidth / 2;
+        if (Math.abs(pos) >= half) pos = 0;
+        ticker.style.transform = 'translateX(' + pos + 'px)';
+        requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    })();
   </script>
 
 </body>
