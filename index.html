@@ -54,11 +54,11 @@
     /* Remove outline for mouse users */
     :focus:not(:focus-visible) { outline: none; }
 
-    /* Glow effects */
-    .glow-cyan  { text-shadow: 0 0 20px #00d4ff, 0 0 40px #00d4ff88; }
-    .glow-orange{ text-shadow: 0 0 20px #ff6b00, 0 0 40px #ff6b0088; }
-    .glow-box-cyan  { box-shadow: 0 0 20px #00d4ff44, inset 0 0 20px #00d4ff11; }
-    .glow-box-orange{ box-shadow: 0 0 20px #ff6b0044; }
+    /* Glow effects — reduced intensity for accessibility */
+    .glow-cyan  { text-shadow: 0 0 10px #00d4ffaa, 0 0 22px #00d4ff55; }
+    .glow-orange{ text-shadow: 0 0 10px #ff6b00aa, 0 0 22px #ff6b0055; }
+    .glow-box-cyan  { box-shadow: 0 0 14px #00d4ff33, inset 0 0 14px #00d4ff0d; }
+    .glow-box-orange{ box-shadow: 0 0 14px #ff6b0033; }
 
     /* Racing stripe gradient */
     .racing-stripe {
@@ -205,6 +205,9 @@
       .sponsor-card { transition: none; }
       .nav-link     { transition: none; }
       .nav-link::after { transition: none; }
+      /* Remove all glows when user prefers reduced motion */
+      .glow-cyan, .glow-orange { text-shadow: none; }
+      .glow-box-cyan, .glow-box-orange { box-shadow: none; }
       * { animation-duration: 0.01ms !important;
           transition-duration: 0.01ms !important; }
     }
@@ -297,20 +300,38 @@
   <!-- ═══════════════════════════════════════════
        TICKER BANNER
   ════════════════════════════════════════════ -->
-  <div class="pt-16 overflow-hidden bg-gradient-to-r from-cyan/10 to-orange/10 border-b border-cyan/20" aria-hidden="true">
-    <div class="ticker-inner py-2 text-xs font-rajdhani font-semibold tracking-widest text-cyan/80 uppercase">
-      <span class="mx-8"><span aria-hidden="true">★</span> August 22, 2026</span>
-      <span class="mx-8"><span aria-hidden="true">★</span> Dr. James A. Dillon Park DGC</span>
-      <span class="mx-8"><span aria-hidden="true">★</span> $750 Added Cash</span>
-      <span class="mx-8"><span aria-hidden="true">★</span> $250 Added Merch</span>
-      <span class="mx-8"><span aria-hidden="true">★</span> Benefiting STEAM Cathedral</span>
-      <span class="mx-8"><span aria-hidden="true">★</span> Register on Disc Golf Scene</span>
-      <span class="mx-8"><span aria-hidden="true">★</span> August 22, 2026</span>
-      <span class="mx-8"><span aria-hidden="true">★</span> Dr. James A. Dillon Park DGC</span>
-      <span class="mx-8"><span aria-hidden="true">★</span> $750 Added Cash</span>
-      <span class="mx-8"><span aria-hidden="true">★</span> $250 Added Merch</span>
-      <span class="mx-8"><span aria-hidden="true">★</span> Benefiting STEAM Cathedral</span>
-      <span class="mx-8"><span aria-hidden="true">★</span> Register on Disc Golf Scene</span>
+  <div class="pt-16 bg-gradient-to-r from-cyan/10 to-orange/10 border-b border-cyan/20 flex items-center">
+    <!-- Pause/play button — satisfies WCAG 2.1 SC 2.2.2 -->
+    <button id="ticker-toggle"
+            aria-label="Pause scrolling announcement banner"
+            aria-pressed="false"
+            class="shrink-0 ml-3 text-cyan/60 hover:text-cyan focus-visible:text-cyan transition-colors"
+            style="min-width:28px;">
+      <!-- Pause icon (shown while playing) -->
+      <svg id="ticker-icon-pause" class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+        <rect x="5" y="4" width="3" height="12" rx="1"/>
+        <rect x="12" y="4" width="3" height="12" rx="1"/>
+      </svg>
+      <!-- Play icon (shown while paused, hidden by default) -->
+      <svg id="ticker-icon-play" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+        <path d="M6.3 2.84A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.27l9.34-5.89a1.5 1.5 0 000-2.54L6.3 2.84z"/>
+      </svg>
+    </button>
+    <div class="overflow-hidden flex-1" aria-hidden="true">
+      <div class="ticker-inner py-2 text-xs font-rajdhani font-semibold tracking-widest text-cyan/80 uppercase">
+        <span class="mx-8"><span aria-hidden="true">★</span> August 22, 2026</span>
+        <span class="mx-8"><span aria-hidden="true">★</span> Dr. James A. Dillon Park DGC</span>
+        <span class="mx-8"><span aria-hidden="true">★</span> $750 Added Cash</span>
+        <span class="mx-8"><span aria-hidden="true">★</span> $250 Added Merch</span>
+        <span class="mx-8"><span aria-hidden="true">★</span> Benefiting STEAM Cathedral</span>
+        <span class="mx-8"><span aria-hidden="true">★</span> Register on Disc Golf Scene</span>
+        <span class="mx-8"><span aria-hidden="true">★</span> August 22, 2026</span>
+        <span class="mx-8"><span aria-hidden="true">★</span> Dr. James A. Dillon Park DGC</span>
+        <span class="mx-8"><span aria-hidden="true">★</span> $750 Added Cash</span>
+        <span class="mx-8"><span aria-hidden="true">★</span> $250 Added Merch</span>
+        <span class="mx-8"><span aria-hidden="true">★</span> Benefiting STEAM Cathedral</span>
+        <span class="mx-8"><span aria-hidden="true">★</span> Register on Disc Golf Scene</span>
+      </div>
     </div>
   </div>
 
@@ -1142,20 +1163,53 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    // JS-driven ticker — bypasses OS/browser reduced-motion setting
+    // JS-driven ticker with pause control (WCAG 2.1 SC 2.2.2)
     (function () {
-      const ticker = document.querySelector('.ticker-inner');
+      const ticker   = document.querySelector('.ticker-inner');
+      const btn      = document.getElementById('ticker-toggle');
+      const iconPause = document.getElementById('ticker-icon-pause');
+      const iconPlay  = document.getElementById('ticker-icon-play');
       if (!ticker) return;
+
       ticker.style.animation = 'none';
-      let pos = 0;
+      let pos     = 0;
+      let paused  = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let rafId   = null;
+
       function step() {
+        if (paused) return;
         pos -= 0.5;
         const half = ticker.scrollWidth / 2;
         if (Math.abs(pos) >= half) pos = 0;
         ticker.style.transform = 'translateX(' + pos + 'px)';
-        requestAnimationFrame(step);
+        rafId = requestAnimationFrame(step);
       }
-      requestAnimationFrame(step);
+
+      function updateBtn() {
+        if (!btn) return;
+        if (paused) {
+          btn.setAttribute('aria-label', 'Play scrolling announcement banner');
+          btn.setAttribute('aria-pressed', 'true');
+          iconPause.classList.add('hidden');
+          iconPlay.classList.remove('hidden');
+        } else {
+          btn.setAttribute('aria-label', 'Pause scrolling announcement banner');
+          btn.setAttribute('aria-pressed', 'false');
+          iconPause.classList.remove('hidden');
+          iconPlay.classList.add('hidden');
+        }
+      }
+
+      if (btn) {
+        btn.addEventListener('click', function () {
+          paused = !paused;
+          updateBtn();
+          if (!paused) rafId = requestAnimationFrame(step);
+        });
+      }
+
+      updateBtn();
+      if (!paused) rafId = requestAnimationFrame(step);
     })();
   </script>
 
