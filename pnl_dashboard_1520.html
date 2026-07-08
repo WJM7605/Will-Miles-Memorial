@@ -5,45 +5,40 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <title>LCE Strategy v1.5.20 — PnL Dashboard</title>
 <style>
-/* ── Logo palette ─────────────────────────────────────────────
-   Dark navy #102030 / #203040  · Cyan accent #40e0e0
-   ──────────────────────────────────────────────────────────── */
+/* ── Logo palette: dark navy #102030/#203040 · cyan #40e0e0 ── */
 :root {
-  /* dark theme (default) */
-  --bg:       #0c1b27;
-  --card:     #112233;
-  --border:   #1c3348;
-  --ink:      #c8e0f0;
-  --muted:    #5a8099;
-  --line:     #1c3348;
-  --accent:   #3dd8db;
-  --accent2:  #2ab8bb;
-  --red:      #e05a6a;
-  --tag-acc-bg:  rgba(61,216,219,.12);
-  --tag-red-bg:  rgba(224,90,106,.12);
-  --row-alt:  rgba(255,255,255,.025);
-  --shadow:   0 10px 32px rgba(0,0,0,.35);
+  --bg:         #0c1b27;
+  --card:       #112233;
+  --border:     #1c3348;
+  --ink:        #c8e0f0;
+  --muted:      #5a8099;
+  --line:       #1c3348;
+  --accent:     #3dd8db;
+  --red:        #e05a6a;
+  --tag-acc-bg: rgba(61,216,219,.12);
+  --tag-red-bg: rgba(224,90,106,.12);
+  --row-alt:    rgba(255,255,255,.025);
+  --shadow:     0 10px 32px rgba(0,0,0,.35);
 }
 [data-theme='light'] {
-  --bg:       #e8f2f8;
-  --card:     #ffffff;
-  --border:   #b8d0e0;
-  --ink:      #0d1e2a;
-  --muted:    #4a6b80;
-  --line:     #c0d4e2;
-  --accent:   #0a7a96;
-  --accent2:  #086880;
-  --red:      #c9384a;
-  --tag-acc-bg:  rgba(10,122,150,.10);
-  --tag-red-bg:  rgba(201,56,74,.10);
-  --row-alt:  rgba(0,0,0,.025);
-  --shadow:   0 10px 26px rgba(13,30,42,.08);
+  --bg:         #e8f2f8;
+  --card:       #ffffff;
+  --border:     #b8d0e0;
+  --ink:        #0d1e2a;
+  --muted:      #4a6b80;
+  --line:       #c0d4e2;
+  --accent:     #0a7a96;
+  --red:        #c9384a;
+  --tag-acc-bg: rgba(10,122,150,.10);
+  --tag-red-bg: rgba(201,56,74,.10);
+  --row-alt:    rgba(0,0,0,.025);
+  --shadow:     0 10px 26px rgba(13,30,42,.08);
 }
 
 *{box-sizing:border-box;transition:background-color .2s,border-color .2s,color .15s}
 body{margin:0;background:var(--bg);font-family:Inter,system-ui,Arial,sans-serif;color:var(--ink)}
 
-/* ── Theme toggle ─── */
+/* ── Theme toggle ── */
 .theme-toggle{
   position:fixed;top:14px;right:18px;z-index:200;
   display:flex;align-items:center;gap:7px;
@@ -54,7 +49,7 @@ body{margin:0;background:var(--bg);font-family:Inter,system-ui,Arial,sans-serif;
 .theme-toggle:hover{color:var(--accent);border-color:var(--accent)}
 .theme-icon{font-size:14px;line-height:1}
 
-/* ── Layout ─── */
+/* ── Layout ── */
 .wrap{max-width:1100px;margin:0 auto;padding:28px 23px 48px}
 .hero{display:grid;grid-template-columns:120px 1fr;gap:22px;align-items:center}
 .avatar img{width:120px;height:120px;object-fit:contain;display:block}
@@ -63,24 +58,27 @@ body{margin:0;background:var(--bg);font-family:Inter,system-ui,Arial,sans-serif;
 .sub{color:var(--muted);font-size:13.5px;line-height:1.5}
 .rule{border:0;border-top:1px solid var(--line);margin:22px 0 18px}
 
-/* ── Card ─── */
+/* ── Card ── */
 .card{background:var(--card);border:1px solid var(--border);border-radius:10px;box-shadow:var(--shadow);padding:20px 22px}
 .label{font-size:11px;font-weight:900;color:var(--muted);letter-spacing:.7px;text-transform:uppercase}
 
-/* ── Filter bar ─── */
-.filter-bar{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
-.filter-group{display:flex;gap:6px;align-items:center}
-.filter-label{font-size:11px;font-weight:900;color:var(--muted);letter-spacing:.6px;text-transform:uppercase;margin-right:2px}
+/* ── Filter / mode bar ── */
+.filter-bar{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.filter-group{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.filter-label{font-size:11px;font-weight:900;color:var(--muted);letter-spacing:.6px;text-transform:uppercase;margin-right:2px;white-space:nowrap}
 .fbtn{
   appearance:none;border:1.5px solid var(--border);background:var(--card);color:var(--muted);
-  border-radius:20px;padding:5px 14px;font-size:13px;font-weight:700;cursor:pointer;
-  transition:all .15s
+  border-radius:20px;padding:5px 14px;font-size:13px;font-weight:700;cursor:pointer;transition:all .15s
 }
 .fbtn:hover{border-color:var(--accent);color:var(--accent)}
 .fbtn.active{border-color:var(--accent);background:var(--accent);color:#fff}
 [data-theme='light'] .fbtn.active{color:#0a1e2a}
 
-/* ── Stats strip ─── */
+/* mode btn gets slightly different active color to stand out */
+.mode-btn.active{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+[data-theme='light'] .mode-btn.active{color:var(--card)}
+
+/* ── Stats strip ── */
 .stat-strip{
   display:grid;grid-template-columns:repeat(5,1fr);gap:0;
   border:1px solid var(--border);border-radius:8px;overflow:hidden;
@@ -93,22 +91,35 @@ body{margin:0;background:var(--bg);font-family:Inter,system-ui,Arial,sans-serif;
 .stat-strip strong.pos{color:var(--accent)}
 .stat-strip strong.neg{color:var(--red)}
 
-/* ── Chart ─── */
+/* ── Chart ── */
 .chart-wrap{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 8px 10px;box-shadow:var(--shadow)}
-.chart-title{display:flex;justify-content:space-between;align-items:center;padding:0 12px 12px}
+.chart-title{display:flex;justify-content:space-between;align-items:flex-start;padding:0 12px 10px;flex-wrap:wrap;gap:8px}
 .chart-title h2{margin:0;font-size:15px;font-weight:800;color:var(--ink)}
 #chart{width:100%;display:block}
 .grid{stroke:var(--line);stroke-width:1}
 .axis{font-family:Inter,system-ui,Arial,sans-serif;font-size:10px;fill:var(--muted)}
-.eq-curve{fill:none;stroke:var(--accent);stroke-width:2.5;stroke-linejoin:round}
-.eq-fill{fill:url(#curveGrad);stroke:none;opacity:.18}
+.eq-curve{fill:none;stroke-width:2.5;stroke-linejoin:round}
+.eq-fill{stroke:none;opacity:.14}
 .contract-line{stroke:var(--muted);stroke-width:1;stroke-dasharray:3,5;opacity:.5}
 .contract-label{font-family:Inter,system-ui,Arial,sans-serif;font-size:9px;fill:var(--muted);font-weight:700;letter-spacing:.4px;opacity:.7}
 .zero-line{stroke:var(--muted);stroke-width:1;opacity:.35}
 .dot-win{fill:var(--accent)}
 .dot-loss{fill:var(--red)}
 
-/* ── Trade table ─── */
+/* ── Overlay legend ── */
+.ov-legend{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.ov-btn{
+  display:flex;align-items:center;gap:6px;
+  background:none;border:1.5px solid var(--border);border-radius:20px;
+  padding:4px 11px 4px 8px;cursor:pointer;font-size:12px;font-weight:700;color:var(--ink);
+  transition:opacity .15s,border-color .15s
+}
+.ov-btn:hover{border-color:var(--muted)}
+.ov-btn.off{opacity:.3}
+.ov-swatch{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.ov-pnl{font-size:11px;color:var(--muted);margin-left:2px}
+
+/* ── Trade table ── */
 .trade-table-wrap{margin-top:18px;overflow-x:auto}
 table{width:100%;border-collapse:collapse;font-size:13px}
 th{
@@ -124,9 +135,46 @@ tr:last-child td{border-bottom:none}
 .tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:800;letter-spacing:.3px}
 .tag-om,.tag-l{background:var(--tag-acc-bg);color:var(--accent)}
 .tag-os,.tag-s{background:var(--tag-red-bg);color:var(--red)}
+
+/* ── Tooltip ── */
+#tt{
+  position:fixed;pointer-events:none;z-index:999;
+  background:var(--card);border:1px solid var(--border);border-radius:9px;
+  box-shadow:0 8px 28px rgba(0,0,0,.45);padding:0;
+  font-family:Inter,system-ui,Arial,sans-serif;font-size:12px;
+  min-width:200px;opacity:0;transition:opacity .1s;
+}
+#tt.show{opacity:1}
+.tt-head{
+  padding:9px 12px 7px;border-bottom:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:baseline;gap:12px
+}
+.tt-ins{font-size:11px;font-weight:900;color:var(--muted);letter-spacing:.5px;text-transform:uppercase}
+.tt-date{font-size:11px;color:var(--muted)}
+.tt-tags{display:flex;gap:5px;padding:7px 12px 6px}
+.tt-body{padding:0 12px 10px;display:grid;grid-template-columns:auto 1fr auto;gap:3px 10px;align-items:baseline}
+.tt-lbl{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;font-weight:700}
+.tt-val{font-size:12px;color:var(--ink);font-weight:600}
+.tt-sub{font-size:10.5px;color:var(--muted)}
+.tt-divider{grid-column:1/-1;height:1px;background:var(--border);margin:4px 0}
+.tt-pnl{font-size:14px;font-weight:900}
+.tt-pnl.pos{color:var(--accent)}
+.tt-pnl.neg{color:var(--red)}
+/* make dots hoverable */
+#chart circle{cursor:crosshair}
+#chart circle:hover{r:5.5}
 </style>
 </head>
 <body>
+
+<div id='tt'>
+  <div class='tt-head'>
+    <span class='tt-ins' id='tt-ins'></span>
+    <span class='tt-date' id='tt-date'></span>
+  </div>
+  <div class='tt-tags' id='tt-tags'></div>
+  <div class='tt-body' id='tt-body'></div>
+</div>
 
 <button class='theme-toggle' id='theme-btn' onclick='toggleTheme()'>
   <span class='theme-icon' id='theme-icon'>☀</span>
@@ -146,22 +194,42 @@ tr:last-child td{border-bottom:none}
 
 <hr class='rule'>
 
-<!-- Filters -->
-<div class='filter-bar'>
+<!-- Mode toggle -->
+<div class='filter-bar' style='margin-bottom:12px'>
   <div class='filter-group'>
-    <span class='filter-label'>Direction</span>
-    <button class='fbtn active' data-dir='all' onclick='setDir(this)'>All</button>
-    <button class='fbtn' data-dir='L' onclick='setDir(this)'>Long</button>
-    <button class='fbtn' data-dir='S' onclick='setDir(this)'>Short</button>
+    <span class='filter-label'>Mode</span>
+    <button class='fbtn mode-btn active' data-mode='filter'  onclick='setMode(this)'>Filter</button>
+    <button class='fbtn mode-btn'        data-mode='overlay' onclick='setMode(this)'>Overlay</button>
   </div>
-  <div class='filter-group'>
-    <span class='filter-label'>Type</span>
-    <button class='fbtn active' data-type='all' onclick='setType(this)'>OM + OS</button>
-    <button class='fbtn' data-type='OM' onclick='setType(this)'>OM</button>
-    <button class='fbtn' data-type='OS' onclick='setType(this)'>OS</button>
+  <!-- Split-by: only visible in overlay mode -->
+  <div class='filter-group' id='split-group' style='display:none'>
+    <span class='filter-label' style='margin-left:8px'>Split by</span>
+    <button class='fbtn active' data-split='type' onclick='setSplit(this)'>Type</button>
+    <button class='fbtn' data-split='dir'  onclick='setSplit(this)'>Direction</button>
+    <button class='fbtn' data-split='both' onclick='setSplit(this)'>Both</button>
   </div>
 </div>
-<div class='filter-bar' style='margin-top:-6px'>
+
+<!-- Filter controls (hidden in overlay mode) -->
+<div id='filter-controls'>
+  <div class='filter-bar'>
+    <div class='filter-group'>
+      <span class='filter-label'>Direction</span>
+      <button class='fbtn active' data-dir='all' onclick='setDir(this)'>All</button>
+      <button class='fbtn' data-dir='L' onclick='setDir(this)'>Long</button>
+      <button class='fbtn' data-dir='S' onclick='setDir(this)'>Short</button>
+    </div>
+    <div class='filter-group'>
+      <span class='filter-label'>Type</span>
+      <button class='fbtn active' data-type='all' onclick='setType(this)'>OM + OS</button>
+      <button class='fbtn' data-type='OM' onclick='setType(this)'>OM</button>
+      <button class='fbtn' data-type='OS' onclick='setType(this)'>OS</button>
+    </div>
+  </div>
+</div>
+
+<!-- Contract zoom (always visible) -->
+<div class='filter-bar' style='margin-top:2px'>
   <div class='filter-group' style='flex-wrap:wrap'>
     <span class='filter-label'>Contract</span>
     <button class='fbtn active' data-contract='all' onclick='setContract(this)'>All</button>
@@ -188,11 +256,12 @@ tr:last-child td{border-bottom:none}
 <div class='chart-wrap'>
   <div class='chart-title'>
     <h2 id='chart-label'>Equity Curve — All Trades</h2>
+    <div class='ov-legend' id='ov-legend' style='display:none'></div>
   </div>
   <svg id='chart' viewBox='0 0 900 360' xmlns='http://www.w3.org/2000/svg'>
     <defs>
       <linearGradient id='curveGrad' x1='0' y1='0' x2='0' y2='1'>
-        <stop offset='0%' stop-color='var(--accent)' stop-opacity='1'/>
+        <stop offset='0%'   stop-color='var(--accent)' stop-opacity='1'/>
         <stop offset='100%' stop-color='var(--accent)' stop-opacity='0'/>
       </linearGradient>
     </defs>
@@ -216,152 +285,348 @@ tr:last-child td{border-bottom:none}
 </div><!-- /wrap -->
 
 <script>
-const TRADES = [{"et": "2024-12-13T10:09:00", "xt": "2024-12-13T11:02:00", "p": 89.35, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L83_20241213_100800", "xn": "LCE_Target"}, {"et": "2024-12-23T09:54:00", "xt": "2024-12-23T10:12:00", "p": 83.1, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L91_20241223_095300", "xn": "LCE_Target"}, {"et": "2024-12-24T09:55:00", "xt": "2024-12-24T10:37:00", "p": 93.1, "tp": "OM", "dir": "L", "ins": "MES 03-25", "en": "OriginalManual_Long_L88_20241224_095400", "xn": "LCE_Target"}, {"et": "2024-12-31T10:13:00", "xt": "2024-12-31T10:19:00", "p": -75.65, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L92_20241231_101200", "xn": "Stop loss"}, {"et": "2025-01-10T09:39:00", "xt": "2025-01-10T09:50:00", "p": 78.1, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L94_20250110_093800", "xn": "LCE_Target"}, {"et": "2025-01-14T10:53:00", "xt": "2025-01-14T11:43:00", "p": 125.6, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L95_20250114_105200", "xn": "LCE_Target"}, {"et": "2025-01-28T09:44:00", "xt": "2025-01-28T10:03:00", "p": -63.15, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L88_20250128_094300", "xn": "Stop loss"}, {"et": "2025-01-31T10:32:00", "xt": "2025-01-31T13:20:00", "p": -81.9, "tp": "OM", "dir": "L", "ins": "MES 03-25", "en": "OriginalManual_Long_L84_20250131_103100", "xn": "Stop loss"}, {"et": "2025-02-05T11:41:00", "xt": "2025-02-05T14:10:00", "p": 95.6, "tp": "OM", "dir": "L", "ins": "MES 03-25", "en": "OriginalManual_Long_L87_20250205_114000", "xn": "LCE_Target"}, {"et": "2025-02-20T09:59:00", "xt": "2025-02-20T15:51:00", "p": -70.65, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L84_20250220_095800", "xn": "Stop loss"}, {"et": "2025-02-21T09:43:00", "xt": "2025-02-21T10:26:00", "p": 101.85, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L84_20250221_094200", "xn": "LCE_Target"}, {"et": "2025-02-24T09:55:00", "xt": "2025-02-24T10:05:00", "p": 100.6, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L88_20250224_095400", "xn": "LCE_Target"}, {"et": "2025-03-11T09:37:00", "xt": "2025-03-11T09:38:00", "p": -74.4, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L106_20250311_093600", "xn": "Stop loss"}, {"et": "2025-03-24T09:47:00", "xt": "2025-03-24T12:08:00", "p": 118.1, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L99_20250324_094600", "xn": "LCE_Target"}, {"et": "2025-03-27T09:40:00", "xt": "2025-03-27T09:50:00", "p": -60.65, "tp": "OS", "dir": "S", "ins": "MES 06-25", "en": "OpeningShort_Short_L102_20250327_093900", "xn": "Stop loss"}, {"et": "2025-03-28T10:07:00", "xt": "2025-03-28T10:14:00", "p": 99.35, "tp": "OS", "dir": "S", "ins": "MES 06-25", "en": "OpeningShort_Short_L103_20250328_100600", "xn": "LCE_Target"}, {"et": "2025-04-16T13:13:00", "xt": "2025-04-16T13:33:00", "p": 73.1, "tp": "OM", "dir": "S", "ins": "MES 06-25", "en": "OriginalManual_Short_L118_20250416_131200", "xn": "LCE_Target"}, {"et": "2025-04-21T09:39:00", "xt": "2025-04-21T10:02:00", "p": 158.1, "tp": "OS", "dir": "S", "ins": "MES 06-25", "en": "OpeningShort_Short_L123_20250421_093800", "xn": "LCE_Target"}, {"et": "2025-04-25T13:08:00", "xt": "2025-04-25T13:29:00", "p": 71.85, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L110_20250425_130700", "xn": "LCE_Target"}, {"et": "2025-04-29T13:42:00", "xt": "2025-04-29T14:06:00", "p": 81.85, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L108_20250429_134100", "xn": "LCE_Target"}, {"et": "2025-05-01T10:47:00", "xt": "2025-05-01T11:17:00", "p": 51.85, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L104_20250501_104600", "xn": "LCE_Target"}, {"et": "2025-05-15T13:06:00", "xt": "2025-05-15T14:16:00", "p": -73.15, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L92_20250515_130500", "xn": "Stop loss"}, {"et": "2025-05-16T13:18:00", "xt": "2025-05-16T15:56:00", "p": 31.85, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L91_20250516_131700", "xn": "LCE_ForceClose"}, {"et": "2025-05-19T11:49:00", "xt": "2025-05-19T13:04:00", "p": 81.85, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L91_20250519_114800", "xn": "LCE_Target"}, {"et": "2025-05-27T11:30:00", "xt": "2025-05-27T12:42:00", "p": 76.85, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L93_20250527_112900", "xn": "LCE_Target"}, {"et": "2025-05-29T09:51:00", "xt": "2025-05-29T09:55:00", "p": -68.15, "tp": "OS", "dir": "S", "ins": "MES 06-25", "en": "OpeningShort_Short_L92_20250529_095000", "xn": "Stop loss"}, {"et": "2025-05-29T10:07:00", "xt": "2025-05-29T10:21:00", "p": 58.1, "tp": "OS", "dir": "S", "ins": "MES 06-25", "en": "OpeningShort_Short_L92_20250529_100600", "xn": "LCE_Target"}, {"et": "2025-06-03T10:05:00", "xt": "2025-06-03T10:09:00", "p": -58.15, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L91_20250603_100400", "xn": "Stop loss"}, {"et": "2025-06-03T10:18:00", "xt": "2025-06-03T11:26:00", "p": 89.35, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L91_20250603_101700", "xn": "LCE_Target"}, {"et": "2025-06-24T11:04:00", "xt": "2025-06-24T14:03:00", "p": 99.35, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L85_20250624_110300", "xn": "LCE_Target"}, {"et": "2025-06-26T10:33:00", "xt": "2025-06-26T15:56:00", "p": 73.1, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L83_20250626_103200", "xn": "LCE_ForceClose"}, {"et": "2025-06-27T10:11:00", "xt": "2025-06-27T13:47:00", "p": -60.65, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L81_20250627_101000", "xn": "Stop loss"}, {"et": "2025-07-03T10:39:00", "xt": "2025-07-04T00:26:00", "p": -81.9, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L77_20250703_103800", "xn": "Stop loss"}, {"et": "2025-07-07T10:55:00", "xt": "2025-07-07T12:22:00", "p": 98.1, "tp": "OS", "dir": "S", "ins": "MES 09-25", "en": "OpeningShort_Short_L78_20250707_105400", "xn": "LCE_Target"}, {"et": "2025-07-08T10:57:00", "xt": "2025-07-08T11:11:00", "p": -78.15, "tp": "OM", "dir": "S", "ins": "MES 09-25", "en": "OriginalManual_Short_L79_20250708_105600", "xn": "Stop loss"}, {"et": "2025-07-10T11:05:00", "xt": "2025-07-10T15:56:00", "p": 19.35, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L77_20250710_110400", "xn": "LCE_ForceClose"}, {"et": "2025-07-23T13:47:00", "xt": "2025-07-23T15:56:00", "p": 39.35, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L74_20250723_134600", "xn": "LCE_ForceClose"}, {"et": "2025-07-29T10:54:00", "xt": "2025-07-29T11:43:00", "p": 93.1, "tp": "OS", "dir": "S", "ins": "MES 09-25", "en": "OpeningShort_Short_L72_20250729_105300", "xn": "LCE_Target"}, {"et": "2025-07-31T11:00:00", "xt": "2025-07-31T13:29:00", "p": 93.1, "tp": "OS", "dir": "S", "ins": "MES 09-25", "en": "OpeningShort_Short_L72_20250731_105900", "xn": "LCE_Target"}, {"et": "2025-08-05T10:19:00", "xt": "2025-08-05T10:45:00", "p": 101.85, "tp": "OS", "dir": "S", "ins": "MES 09-25", "en": "OpeningShort_Short_L75_20250805_101800", "xn": "LCE_Target"}, {"et": "2025-08-07T10:57:00", "xt": "2025-08-07T12:45:00", "p": 100.6, "tp": "OS", "dir": "S", "ins": "MES 09-25", "en": "OpeningShort_Short_L74_20250807_105600", "xn": "LCE_Target"}, {"et": "2025-08-12T11:07:00", "xt": "2025-08-12T14:21:00", "p": 98.1, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L71_20250812_110600", "xn": "LCE_Target"}, {"et": "2025-08-13T09:49:00", "xt": "2025-08-13T10:29:00", "p": -86.9, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L69_20250813_094800", "xn": "Stop loss"}, {"et": "2025-08-20T09:58:00", "xt": "2025-08-20T10:43:00", "p": 83.1, "tp": "OS", "dir": "S", "ins": "MES 09-25", "en": "OpeningShort_Short_L73_20250820_095700", "xn": "LCE_Target"}, {"et": "2025-08-29T09:52:00", "xt": "2025-08-29T10:10:00", "p": 99.35, "tp": "OS", "dir": "S", "ins": "MES 09-25", "en": "OpeningShort_Short_L69_20250829_095100", "xn": "LCE_Target"}, {"et": "2025-09-04T11:56:00", "xt": "2025-09-04T15:46:00", "p": 89.35, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L69_20250904_115500", "xn": "LCE_Target"}, {"et": "2025-09-05T10:30:00", "xt": "2025-09-05T11:01:00", "p": 96.85, "tp": "OS", "dir": "S", "ins": "MES 09-25", "en": "OpeningShort_Short_L69_20250905_102900", "xn": "LCE_Target"}, {"et": "2025-09-22T10:59:00", "xt": "2025-09-22T13:34:00", "p": 78.1, "tp": "OM", "dir": "L", "ins": "MES 12-25", "en": "OriginalManual_Long_L60_20250922_105800", "xn": "LCE_Target"}, {"et": "2025-09-24T11:36:00", "xt": "2025-09-24T12:00:00", "p": 90.6, "tp": "OM", "dir": "S", "ins": "MES 12-25", "en": "OriginalManual_Short_L61_20250924_113500", "xn": "LCE_Target"}, {"et": "2025-10-01T13:08:00", "xt": "2025-10-01T14:37:00", "p": 71.85, "tp": "OM", "dir": "L", "ins": "MES 12-25", "en": "OriginalManual_Long_L59_20251001_130700", "xn": "LCE_Target"}, {"et": "2025-10-03T10:39:00", "xt": "2025-10-03T13:05:00", "p": -69.4, "tp": "OM", "dir": "L", "ins": "MES 12-25", "en": "OriginalManual_Long_L57_20251003_103800", "xn": "Stop loss"}, {"et": "2025-10-09T10:23:00", "xt": "2025-10-09T13:00:00", "p": 85.6, "tp": "OS", "dir": "S", "ins": "MES 12-25", "en": "OpeningShort_Short_L57_20251009_102200", "xn": "LCE_Target"}, {"et": "2025-10-15T09:47:00", "xt": "2025-10-15T09:49:00", "p": -69.4, "tp": "OM", "dir": "L", "ins": "MES 12-25", "en": "OriginalManual_Long_L59_20251015_094600", "xn": "Stop loss"}, {"et": "2025-10-15T09:55:00", "xt": "2025-10-15T10:08:00", "p": 88.1, "tp": "OM", "dir": "L", "ins": "MES 12-25", "en": "OriginalManual_Long_L59_20251015_095400", "xn": "LCE_Target"}, {"et": "2025-10-22T10:31:00", "xt": "2025-10-22T11:25:00", "p": 71.85, "tp": "OS", "dir": "S", "ins": "MES 12-25", "en": "OpeningShort_Short_L58_20251022_103000", "xn": "LCE_Target"}, {"et": "2025-10-30T09:37:00", "xt": "2025-10-30T09:49:00", "p": -76.9, "tp": "OS", "dir": "S", "ins": "MES 12-25", "en": "OpeningShort_Short_L52_20251030_093600", "xn": "Stop loss"}, {"et": "2025-10-31T09:47:00", "xt": "2025-10-31T10:45:00", "p": -78.15, "tp": "OS", "dir": "S", "ins": "MES 12-25", "en": "OpeningShort_Short_L52_20251031_094600", "xn": "Stop loss"}, {"et": "2025-10-31T11:41:00", "xt": "2025-10-31T12:11:00", "p": 76.85, "tp": "OM", "dir": "S", "ins": "MES 12-25", "en": "OriginalManual_Short_L52_20251031_114000", "xn": "LCE_Target"}, {"et": "2025-11-03T10:28:00", "xt": "2025-11-03T10:45:00", "p": -81.9, "tp": "OS", "dir": "S", "ins": "MES 12-25", "en": "OpeningShort_Short_L53_20251103_102700", "xn": "Stop loss"}, {"et": "2025-11-06T10:01:00", "xt": "2025-11-06T10:06:00", "p": 78.1, "tp": "OS", "dir": "S", "ins": "MES 12-25", "en": "OpeningShort_Short_L56_20251106_100000", "xn": "LCE_Target"}, {"et": "2025-11-17T13:54:00", "xt": "2025-11-17T14:00:00", "p": 84.35, "tp": "OM", "dir": "S", "ins": "MES 12-25", "en": "OriginalManual_Short_L59_20251117_135300", "xn": "LCE_Target"}, {"et": "2025-11-26T11:12:00", "xt": "2025-11-26T11:45:00", "p": 73.1, "tp": "OM", "dir": "L", "ins": "MES 12-25", "en": "OriginalManual_Long_L54_20251126_111100", "xn": "LCE_Target"}, {"et": "2025-11-28T10:52:00", "xt": "2025-11-30T19:26:00", "p": -76.9, "tp": "OM", "dir": "L", "ins": "MES 12-25", "en": "OriginalManual_Long_L53_20251128_105100", "xn": "Stop loss"}, {"et": "2025-12-03T09:55:00", "xt": "2025-12-03T10:00:00", "p": -50.65, "tp": "OS", "dir": "S", "ins": "MES 12-25", "en": "OpeningShort_Short_L54_20251203_095400", "xn": "Stop loss"}, {"et": "2025-12-08T10:30:00", "xt": "2025-12-08T12:04:00", "p": 86.85, "tp": "OS", "dir": "S", "ins": "MES 12-25", "en": "OpeningShort_Short_L52_20251208_102900", "xn": "LCE_Target"}, {"et": "2025-12-12T10:18:00", "xt": "2025-12-12T10:30:00", "p": 81.85, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L49_20251212_101700", "xn": "LCE_Target"}, {"et": "2025-12-15T09:58:00", "xt": "2025-12-15T10:17:00", "p": 85.6, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L53_20251215_095700", "xn": "LCE_Target"}, {"et": "2025-12-16T10:27:00", "xt": "2025-12-16T10:31:00", "p": -68.15, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L55_20251216_102600", "xn": "Stop loss"}, {"et": "2025-12-17T09:40:00", "xt": "2025-12-17T10:37:00", "p": 90.6, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L54_20251217_093900", "xn": "LCE_Target"}, {"et": "2025-12-19T11:13:00", "xt": "2025-12-19T15:56:00", "p": 20.6, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L53_20251219_111200", "xn": "LCE_ForceClose"}, {"et": "2025-12-23T11:44:00", "xt": "2025-12-23T15:56:00", "p": 58.1, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L50_20251223_114300", "xn": "LCE_ForceClose"}, {"et": "2025-12-24T10:17:00", "xt": "2025-12-24T12:09:00", "p": 66.85, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L49_20251224_101600", "xn": "LCE_Target"}, {"et": "2025-12-26T09:43:00", "xt": "2025-12-26T10:02:00", "p": -64.4, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L48_20251226_094200", "xn": "Stop loss"}, {"et": "2025-12-31T10:57:00", "xt": "2025-12-31T13:45:00", "p": -78.15, "tp": "OM", "dir": "S", "ins": "MES 03-26", "en": "OriginalManual_Short_L51_20251231_105600", "xn": "Stop loss"}, {"et": "2026-01-02T09:38:00", "xt": "2026-01-02T09:49:00", "p": -46.9, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L51_20260102_093700", "xn": "Stop loss"}, {"et": "2026-01-02T10:15:00", "xt": "2026-01-02T10:23:00", "p": 86.85, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L51_20260102_101400", "xn": "LCE_Target"}, {"et": "2026-01-09T10:24:00", "xt": "2026-01-09T11:15:00", "p": 64.35, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L48_20260109_102300", "xn": "LCE_Target"}, {"et": "2026-01-12T11:14:00", "xt": "2026-01-12T14:33:00", "p": 81.85, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L47_20260112_111300", "xn": "LCE_Target"}, {"et": "2026-01-14T09:47:00", "xt": "2026-01-14T10:02:00", "p": 64.35, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L49_20260114_094600", "xn": "LCE_Target"}, {"et": "2026-01-16T10:03:00", "xt": "2026-01-16T10:44:00", "p": 71.85, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L48_20260116_100200", "xn": "LCE_Target"}, {"et": "2026-01-20T13:24:00", "xt": "2026-01-20T13:51:00", "p": 79.35, "tp": "OM", "dir": "S", "ins": "MES 03-26", "en": "OriginalManual_Short_L53_20260120_132300", "xn": "LCE_Target"}, {"et": "2026-01-26T10:15:00", "xt": "2026-01-26T13:31:00", "p": 63.1, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L48_20260126_101400", "xn": "LCE_Target"}, {"et": "2026-01-27T11:21:00", "xt": "2026-01-27T13:02:00", "p": -70.65, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L46_20260127_112000", "xn": "Stop loss"}, {"et": "2026-01-29T09:45:00", "xt": "2026-01-29T09:49:00", "p": 33.1, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L47_20260129_094400", "xn": "LCE_Target"}, {"et": "2026-02-03T09:59:00", "xt": "2026-02-03T10:04:00", "p": 79.35, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L47_20260203_095800", "xn": "LCE_Target"}, {"et": "2026-02-12T10:11:00", "xt": "2026-02-12T10:17:00", "p": -59.4, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L48_20260212_101000", "xn": "Stop loss"}, {"et": "2026-02-12T10:35:00", "xt": "2026-02-12T10:43:00", "p": 78.1, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L48_20260212_103400", "xn": "LCE_Target"}, {"et": "2026-02-18T11:08:00", "xt": "2026-02-18T13:43:00", "p": -74.4, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L50_20260218_110700", "xn": "Stop loss"}, {"et": "2026-02-20T11:57:00", "xt": "2026-02-20T12:08:00", "p": -65.65, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L50_20260220_115600", "xn": "Stop loss"}, {"et": "2026-02-23T10:37:00", "xt": "2026-02-23T11:01:00", "p": 75.6, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L52_20260223_103600", "xn": "LCE_Target"}, {"et": "2026-02-25T09:38:00", "xt": "2026-02-25T13:03:00", "p": 74.35, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L49_20260225_093700", "xn": "LCE_Target"}, {"et": "2026-02-26T10:17:00", "xt": "2026-02-26T10:20:00", "p": 61.85, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L50_20260226_101600", "xn": "LCE_Target"}, {"et": "2026-03-05T10:24:00", "xt": "2026-03-05T10:32:00", "p": 114.35, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L53_20260305_102300", "xn": "LCE_Target"}, {"et": "2026-03-26T09:37:00", "xt": "2026-03-26T09:45:00", "p": -70.65, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L66_20260326_093600", "xn": "Stop loss"}, {"et": "2026-03-26T11:48:00", "xt": "2026-03-26T12:30:00", "p": 123.1, "tp": "OM", "dir": "S", "ins": "MES 06-26", "en": "OriginalManual_Short_L66_20260326_114700", "xn": "LCE_Target"}, {"et": "2026-04-07T10:02:00", "xt": "2026-04-07T10:10:00", "p": 90.6, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L65_20260407_100100", "xn": "LCE_Target"}, {"et": "2026-04-09T11:21:00", "xt": "2026-04-09T11:50:00", "p": 95.6, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L55_20260409_112000", "xn": "LCE_Target"}, {"et": "2026-04-15T10:24:00", "xt": "2026-04-15T13:38:00", "p": 80.6, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L46_20260415_102300", "xn": "LCE_Target"}, {"et": "2026-04-23T10:54:00", "xt": "2026-04-23T13:02:00", "p": -69.4, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L39_20260423_105300", "xn": "Stop loss"}, {"et": "2026-04-24T11:05:00", "xt": "2026-04-24T11:46:00", "p": 90.6, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L39_20260424_110400", "xn": "LCE_Target"}, {"et": "2026-04-28T10:36:00", "xt": "2026-04-28T10:53:00", "p": 64.35, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L39_20260428_103500", "xn": "LCE_Target"}, {"et": "2026-04-30T10:12:00", "xt": "2026-04-30T10:23:00", "p": -65.65, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L39_20260430_101100", "xn": "Stop loss"}, {"et": "2026-04-30T13:31:00", "xt": "2026-04-30T14:02:00", "p": 93.1, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L37_20260430_133000", "xn": "LCE_Target"}, {"et": "2026-05-01T09:57:00", "xt": "2026-05-01T10:02:00", "p": 46.85, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L34_20260501_095600", "xn": "LCE_Target"}, {"et": "2026-05-05T09:53:00", "xt": "2026-05-05T14:14:00", "p": 89.35, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L34_20260505_095200", "xn": "LCE_Target"}, {"et": "2026-05-08T10:01:00", "xt": "2026-05-08T15:56:00", "p": 34.35, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L28_20260508_100000", "xn": "LCE_ForceClose"}, {"et": "2026-05-11T10:16:00", "xt": "2026-05-11T10:33:00", "p": -73.15, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L27_20260511_101500", "xn": "Stop loss"}, {"et": "2026-05-11T10:45:00", "xt": "2026-05-11T13:45:00", "p": 83.1, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L27_20260511_104400", "xn": "LCE_Target"}, {"et": "2026-05-12T10:34:00", "xt": "2026-05-12T10:44:00", "p": -74.4, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L29_20260512_103300", "xn": "Stop loss"}, {"et": "2026-05-12T10:53:00", "xt": "2026-05-12T11:26:00", "p": 80.6, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L29_20260512_105200", "xn": "LCE_Target"}, {"et": "2026-05-13T09:49:00", "xt": "2026-05-13T10:08:00", "p": -80.65, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L28_20260513_094800", "xn": "Stop loss"}, {"et": "2026-05-14T09:43:00", "xt": "2026-05-14T10:48:00", "p": 74.35, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L24_20260514_094200", "xn": "LCE_Target"}, {"et": "2026-05-19T09:44:00", "xt": "2026-05-19T09:55:00", "p": -79.4, "tp": "OM", "dir": "S", "ins": "MES 06-26", "en": "OriginalManual_Short_L29_20260519_094300", "xn": "Stop loss"}, {"et": "2026-05-20T10:15:00", "xt": "2026-05-20T10:15:00", "p": -66.9, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L29_20260520_101400", "xn": "Stop loss"}, {"et": "2026-05-22T13:30:00", "xt": "2026-05-22T13:55:00", "p": -45.65, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L23_20260522_132900", "xn": "Stop loss"}, {"et": "2026-05-29T09:43:00", "xt": "2026-05-29T10:27:00", "p": -73.15, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L19_20260529_094200", "xn": "Stop loss"}, {"et": "2026-05-29T11:15:00", "xt": "2026-05-29T13:46:00", "p": -65.65, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L19_20260529_111400", "xn": "Stop loss"}, {"et": "2026-06-02T10:53:00", "xt": "2026-06-02T15:56:00", "p": 5.6, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L18_20260602_105200", "xn": "LCE_ForceClose"}, {"et": "2026-06-03T09:46:00", "xt": "2026-06-03T09:50:00", "p": 76.85, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L19_20260603_094500", "xn": "LCE_Target"}, {"et": "2026-06-05T09:44:00", "xt": "2026-06-05T10:00:00", "p": 91.85, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L22_20260605_094300", "xn": "LCE_Target"}, {"et": "2026-06-17T10:43:00", "xt": "2026-06-17T10:47:00", "p": -45.65, "tp": "OS", "dir": "S", "ins": "MES 09-26", "en": "OpeningShort_Short_L22_20260617_104200", "xn": "Stop loss"}, {"et": "2026-06-22T10:57:00", "xt": "2026-06-22T10:59:00", "p": -56.9, "tp": "OS", "dir": "S", "ins": "MES 09-26", "en": "OpeningShort_Short_L24_20260622_105600", "xn": "Stop loss"}, {"et": "2026-06-25T09:47:00", "xt": "2026-06-25T09:48:00", "p": 38.1, "tp": "OS", "dir": "S", "ins": "MES 09-26", "en": "OpeningShort_Short_L28_20260625_094600", "xn": "LCE_Target"}, {"et": "2026-06-29T09:56:00", "xt": "2026-06-29T09:56:00", "p": -55.65, "tp": "OM", "dir": "L", "ins": "MES 09-26", "en": "OriginalManual_Long_L26_20260629_095500", "xn": "Stop loss"}, {"et": "2026-06-29T13:07:00", "xt": "2026-06-29T14:37:00", "p": 73.1, "tp": "OM", "dir": "L", "ins": "MES 09-26", "en": "OriginalManual_Long_L26_20260629_130600", "xn": "LCE_Target"}, {"et": "2026-06-30T10:23:00", "xt": "2026-06-30T11:49:00", "p": 83.1, "tp": "OM", "dir": "L", "ins": "MES 09-26", "en": "OriginalManual_Long_L24_20260630_102200", "xn": "LCE_Target"}, {"et": "2026-07-01T10:32:00", "xt": "2026-07-01T11:17:00", "p": 90.6, "tp": "OM", "dir": "L", "ins": "MES 09-26", "en": "OriginalManual_Long_L23_20260701_103100", "xn": "LCE_Target"}, {"et": "2026-07-02T09:39:00", "xt": "2026-07-02T09:51:00", "p": 71.85, "tp": "OM", "dir": "L", "ins": "MES 09-26", "en": "OriginalManual_Long_L22_20260702_093800", "xn": "LCE_Target"}, {"et": "2026-07-06T13:09:00", "xt": "2026-07-06T13:41:00", "p": -71.9, "tp": "OM", "dir": "L", "ins": "MES 09-26", "en": "OriginalManual_Long_L21_20260706_130800", "xn": "Stop loss"}, {"et": "2026-07-07T09:59:00", "xt": "2026-07-07T10:17:00", "p": 85.6, "tp": "OS", "dir": "S", "ins": "MES 09-26", "en": "OpeningShort_Short_L22_20260707_095800", "xn": "LCE_Target"}, {"et": "2026-07-08T11:07:00", "xt": "2026-07-08T11:26:00", "p": 85.6, "tp": "OM", "dir": "S", "ins": "MES 09-26", "en": "OriginalManual_Short_L25_20260708_110600", "xn": "LCE_Target"}];
+const TRADES     = [{"et": "2024-12-13T10:09:00", "xt": "2024-12-13T11:02:00", "p": 89.35, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L83_20241213_100800", "xn": "LCE_Target", "ep": 6137.0, "xp": 6118.75, "mae": 33.75, "mfe": 98.75}, {"et": "2024-12-23T09:54:00", "xt": "2024-12-23T10:12:00", "p": 83.1, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L91_20241223_095300", "xn": "LCE_Target", "ep": 5983.75, "xp": 5966.75, "mae": 71.25, "mfe": 90.0}, {"et": "2024-12-24T09:55:00", "xt": "2024-12-24T10:37:00", "p": 93.1, "tp": "OM", "dir": "L", "ins": "MES 03-25", "en": "OriginalManual_Long_L88_20241224_095400", "xn": "LCE_Target", "ep": 6056.5, "xp": 6075.5, "mae": 11.25, "mfe": 97.5}, {"et": "2024-12-31T10:13:00", "xt": "2024-12-31T10:19:00", "p": -75.65, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L92_20241231_101200", "xn": "Stop loss", "ep": 5955.75, "xp": 5970.5, "mae": 73.75, "mfe": 5.0}, {"et": "2025-01-10T09:39:00", "xt": "2025-01-10T09:50:00", "p": 78.1, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L94_20250110_093800", "xn": "LCE_Target", "ep": 5904.75, "xp": 5888.75, "mae": 33.75, "mfe": 95.0}, {"et": "2025-01-14T10:53:00", "xt": "2025-01-14T11:43:00", "p": 125.6, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L95_20250114_105200", "xn": "LCE_Target", "ep": 5883.5, "xp": 5858.0, "mae": 25.0, "mfe": 133.75}, {"et": "2025-01-28T09:44:00", "xt": "2025-01-28T10:03:00", "p": -63.15, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L88_20250128_094300", "xn": "Stop loss", "ep": 6038.5, "xp": 6050.75, "mae": 61.25, "mfe": 75.0}, {"et": "2025-01-31T10:32:00", "xt": "2025-01-31T13:20:00", "p": -81.9, "tp": "OM", "dir": "L", "ins": "MES 03-25", "en": "OriginalManual_Long_L84_20250131_103100", "xn": "Stop loss", "ep": 6139.75, "xp": 6123.75, "mae": 80.0, "mfe": 40.0}, {"et": "2025-02-05T11:41:00", "xt": "2025-02-05T14:10:00", "p": 95.6, "tp": "OM", "dir": "L", "ins": "MES 03-25", "en": "OriginalManual_Long_L87_20250205_114000", "xn": "LCE_Target", "ep": 6060.75, "xp": 6080.25, "mae": 12.5, "mfe": 101.25}, {"et": "2025-02-20T09:59:00", "xt": "2025-02-20T15:51:00", "p": -70.65, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L84_20250220_095800", "xn": "Stop loss", "ep": 6123.25, "xp": 6137.0, "mae": 68.75, "mfe": 102.5}, {"et": "2025-02-21T09:43:00", "xt": "2025-02-21T10:26:00", "p": 101.85, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L84_20250221_094200", "xn": "LCE_Target", "ep": 6123.75, "xp": 6103.0, "mae": 13.75, "mfe": 113.75}, {"et": "2025-02-24T09:55:00", "xt": "2025-02-24T10:05:00", "p": 100.6, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L88_20250224_095400", "xn": "LCE_Target", "ep": 6024.75, "xp": 6004.25, "mae": 10.0, "mfe": 103.75}, {"et": "2025-03-11T09:37:00", "xt": "2025-03-11T09:38:00", "p": -74.4, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L106_20250311_093600", "xn": "Stop loss", "ep": 5600.0, "xp": 5614.5, "mae": 72.5, "mfe": 3.75}, {"et": "2025-03-24T09:47:00", "xt": "2025-03-24T12:08:00", "p": 118.1, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L99_20250324_094600", "xn": "LCE_Target", "ep": 5794.75, "xp": 5818.75, "mae": 12.5, "mfe": 121.25}, {"et": "2025-03-27T09:40:00", "xt": "2025-03-27T09:50:00", "p": -60.65, "tp": "OS", "dir": "S", "ins": "MES 06-25", "en": "OpeningShort_Short_L102_20250327_093900", "xn": "Stop loss", "ep": 5726.25, "xp": 5738.0, "mae": 58.75, "mfe": 31.25}, {"et": "2025-03-28T10:07:00", "xt": "2025-03-28T10:14:00", "p": 99.35, "tp": "OS", "dir": "S", "ins": "MES 06-25", "en": "OpeningShort_Short_L103_20250328_100600", "xn": "LCE_Target", "ep": 5701.25, "xp": 5681.0, "mae": 5.0, "mfe": 103.75}, {"et": "2025-04-16T13:13:00", "xt": "2025-04-16T13:33:00", "p": 73.1, "tp": "OM", "dir": "S", "ins": "MES 06-25", "en": "OriginalManual_Short_L118_20250416_131200", "xn": "LCE_Target", "ep": 5351.75, "xp": 5336.75, "mae": 73.75, "mfe": 98.75}, {"et": "2025-04-21T09:39:00", "xt": "2025-04-21T10:02:00", "p": 158.1, "tp": "OS", "dir": "S", "ins": "MES 06-25", "en": "OpeningShort_Short_L123_20250421_093800", "xn": "LCE_Target", "ep": 5246.25, "xp": 5214.25, "mae": 2.5, "mfe": 167.5}, {"et": "2025-04-25T13:08:00", "xt": "2025-04-25T13:29:00", "p": 71.85, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L110_20250425_130700", "xn": "LCE_Target", "ep": 5538.25, "xp": 5553.0, "mae": 1.25, "mfe": 75.0}, {"et": "2025-04-29T13:42:00", "xt": "2025-04-29T14:06:00", "p": 81.85, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L108_20250429_134100", "xn": "LCE_Target", "ep": 5579.0, "xp": 5595.75, "mae": 3.75, "mfe": 91.25}, {"et": "2025-05-01T10:47:00", "xt": "2025-05-01T11:17:00", "p": 51.85, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L104_20250501_104600", "xn": "LCE_Target", "ep": 5666.0, "xp": 5676.75, "mae": 11.25, "mfe": 81.25}, {"et": "2025-05-15T13:06:00", "xt": "2025-05-15T14:16:00", "p": -73.15, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L92_20250515_130500", "xn": "Stop loss", "ep": 5940.25, "xp": 5926.0, "mae": 71.25, "mfe": 21.25}, {"et": "2025-05-16T13:18:00", "xt": "2025-05-16T15:56:00", "p": 31.85, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L91_20250516_131700", "xn": "LCE_ForceClose", "ep": 5964.25, "xp": 5971.0, "mae": 32.5, "mfe": 58.75}, {"et": "2025-05-19T11:49:00", "xt": "2025-05-19T13:04:00", "p": 81.85, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L91_20250519_114800", "xn": "LCE_Target", "ep": 5962.75, "xp": 5979.5, "mae": 26.25, "mfe": 93.75}, {"et": "2025-05-27T11:30:00", "xt": "2025-05-27T12:42:00", "p": 76.85, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L93_20250527_112900", "xn": "LCE_Target", "ep": 5915.25, "xp": 5931.0, "mae": 26.25, "mfe": 82.5}, {"et": "2025-05-29T09:51:00", "xt": "2025-05-29T09:55:00", "p": -68.15, "tp": "OS", "dir": "S", "ins": "MES 06-25", "en": "OpeningShort_Short_L92_20250529_095000", "xn": "Stop loss", "ep": 5928.25, "xp": 5941.5, "mae": 66.25, "mfe": 10.0}, {"et": "2025-05-29T10:07:00", "xt": "2025-05-29T10:21:00", "p": 58.1, "tp": "OS", "dir": "S", "ins": "MES 06-25", "en": "OpeningShort_Short_L92_20250529_100600", "xn": "LCE_Target", "ep": 5924.5, "xp": 5912.5, "mae": 2.5, "mfe": 77.5}, {"et": "2025-06-03T10:05:00", "xt": "2025-06-03T10:09:00", "p": -58.15, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L91_20250603_100400", "xn": "Stop loss", "ep": 5950.25, "xp": 5939.0, "mae": 56.25, "mfe": 10.0}, {"et": "2025-06-03T10:18:00", "xt": "2025-06-03T11:26:00", "p": 89.35, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L91_20250603_101700", "xn": "LCE_Target", "ep": 5952.5, "xp": 5970.75, "mae": 11.25, "mfe": 97.5}, {"et": "2025-06-24T11:04:00", "xt": "2025-06-24T14:03:00", "p": 99.35, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L85_20250624_110300", "xn": "LCE_Target", "ep": 6130.75, "xp": 6151.0, "mae": 28.75, "mfe": 106.25}, {"et": "2025-06-26T10:33:00", "xt": "2025-06-26T15:56:00", "p": 73.1, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L83_20250626_103200", "xn": "LCE_ForceClose", "ep": 6181.0, "xp": 6196.0, "mae": 35.0, "mfe": 88.75}, {"et": "2025-06-27T10:11:00", "xt": "2025-06-27T13:47:00", "p": -60.65, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L81_20250627_101000", "xn": "Stop loss", "ep": 6225.5, "xp": 6213.75, "mae": 58.75, "mfe": 67.5}, {"et": "2025-07-03T10:39:00", "xt": "2025-07-04T00:26:00", "p": -81.9, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L77_20250703_103800", "xn": "Stop loss", "ep": 6321.75, "xp": 6305.75, "mae": 80.0, "mfe": 58.75}, {"et": "2025-07-07T10:55:00", "xt": "2025-07-07T12:22:00", "p": 98.1, "tp": "OS", "dir": "S", "ins": "MES 09-25", "en": "OpeningShort_Short_L78_20250707_105400", "xn": "LCE_Target", "ep": 6290.5, "xp": 6270.5, "mae": 10.0, "mfe": 113.75}, {"et": "2025-07-08T10:57:00", "xt": "2025-07-08T11:11:00", "p": -78.15, "tp": "OM", "dir": "S", "ins": "MES 09-25", "en": "OriginalManual_Short_L79_20250708_105600", "xn": "Stop loss", "ep": 6262.75, "xp": 6278.0, "mae": 76.25, "mfe": 1.25}, {"et": "2025-07-10T11:05:00", "xt": "2025-07-10T15:56:00", "p": 19.35, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L77_20250710_110400", "xn": "LCE_ForceClose", "ep": 6317.25, "xp": 6321.5, "mae": 11.25, "mfe": 91.25}, {"et": "2025-07-23T13:47:00", "xt": "2025-07-23T15:56:00", "p": 39.35, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L74_20250723_134600", "xn": "LCE_ForceClose", "ep": 6383.5, "xp": 6391.75, "mae": 46.25, "mfe": 53.75}, {"et": "2025-07-29T10:54:00", "xt": "2025-07-29T11:43:00", "p": 93.1, "tp": "OS", "dir": "S", "ins": "MES 09-25", "en": "OpeningShort_Short_L72_20250729_105300", "xn": "LCE_Target", "ep": 6420.75, "xp": 6401.75, "mae": 12.5, "mfe": 95.0}, {"et": "2025-07-31T11:00:00", "xt": "2025-07-31T13:29:00", "p": 93.1, "tp": "OS", "dir": "S", "ins": "MES 09-25", "en": "OpeningShort_Short_L72_20250731_105900", "xn": "LCE_Target", "ep": 6419.25, "xp": 6400.25, "mae": 80.0, "mfe": 98.75}, {"et": "2025-08-05T10:19:00", "xt": "2025-08-05T10:45:00", "p": 101.85, "tp": "OS", "dir": "S", "ins": "MES 09-25", "en": "OpeningShort_Short_L75_20250805_101800", "xn": "LCE_Target", "ep": 6344.75, "xp": 6324.0, "mae": 20.0, "mfe": 105.0}, {"et": "2025-08-07T10:57:00", "xt": "2025-08-07T12:45:00", "p": 100.6, "tp": "OS", "dir": "S", "ins": "MES 09-25", "en": "OpeningShort_Short_L74_20250807_105600", "xn": "LCE_Target", "ep": 6368.5, "xp": 6348.0, "mae": 35.0, "mfe": 102.5}, {"et": "2025-08-12T11:07:00", "xt": "2025-08-12T14:21:00", "p": 98.1, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L71_20250812_110600", "xn": "LCE_Target", "ep": 6445.5, "xp": 6465.5, "mae": 10.0, "mfe": 106.25}, {"et": "2025-08-13T09:49:00", "xt": "2025-08-13T10:29:00", "p": -86.9, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L69_20250813_094800", "xn": "Stop loss", "ep": 6498.0, "xp": 6481.0, "mae": 85.0, "mfe": 22.5}, {"et": "2025-08-20T09:58:00", "xt": "2025-08-20T10:43:00", "p": 83.1, "tp": "OS", "dir": "S", "ins": "MES 09-25", "en": "OpeningShort_Short_L73_20250820_095700", "xn": "LCE_Target", "ep": 6387.75, "xp": 6370.75, "mae": 43.75, "mfe": 102.5}, {"et": "2025-08-29T09:52:00", "xt": "2025-08-29T10:10:00", "p": 99.35, "tp": "OS", "dir": "S", "ins": "MES 09-25", "en": "OpeningShort_Short_L69_20250829_095100", "xn": "LCE_Target", "ep": 6484.25, "xp": 6464.0, "mae": 18.75, "mfe": 111.25}, {"et": "2025-09-04T11:56:00", "xt": "2025-09-04T15:46:00", "p": 89.35, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L69_20250904_115500", "xn": "LCE_Target", "ep": 6486.0, "xp": 6504.25, "mae": 32.5, "mfe": 93.75}, {"et": "2025-09-05T10:30:00", "xt": "2025-09-05T11:01:00", "p": 96.85, "tp": "OS", "dir": "S", "ins": "MES 09-25", "en": "OpeningShort_Short_L69_20250905_102900", "xn": "LCE_Target", "ep": 6480.25, "xp": 6460.5, "mae": 27.5, "mfe": 103.75}, {"et": "2025-09-22T10:59:00", "xt": "2025-09-22T13:34:00", "p": 78.1, "tp": "OM", "dir": "L", "ins": "MES 12-25", "en": "OriginalManual_Long_L60_20250922_105800", "xn": "LCE_Target", "ep": 6734.5, "xp": 6750.5, "mae": 30.0, "mfe": 82.5}, {"et": "2025-09-24T11:36:00", "xt": "2025-09-24T12:00:00", "p": 90.6, "tp": "OM", "dir": "S", "ins": "MES 12-25", "en": "OriginalManual_Short_L61_20250924_113500", "xn": "LCE_Target", "ep": 6703.75, "xp": 6685.25, "mae": 17.5, "mfe": 100.0}, {"et": "2025-10-01T13:08:00", "xt": "2025-10-01T14:37:00", "p": 71.85, "tp": "OM", "dir": "L", "ins": "MES 12-25", "en": "OriginalManual_Long_L59_20251001_130700", "xn": "LCE_Target", "ep": 6749.75, "xp": 6764.5, "mae": 15.0, "mfe": 78.75}, {"et": "2025-10-03T10:39:00", "xt": "2025-10-03T13:05:00", "p": -69.4, "tp": "OM", "dir": "L", "ins": "MES 12-25", "en": "OriginalManual_Long_L57_20251003_103800", "xn": "Stop loss", "ep": 6792.25, "xp": 6778.75, "mae": 67.5, "mfe": 38.75}, {"et": "2025-10-09T10:23:00", "xt": "2025-10-09T13:00:00", "p": 85.6, "tp": "OS", "dir": "S", "ins": "MES 12-25", "en": "OpeningShort_Short_L57_20251009_102200", "xn": "LCE_Target", "ep": 6783.5, "xp": 6766.0, "mae": 22.5, "mfe": 90.0}, {"et": "2025-10-15T09:47:00", "xt": "2025-10-15T09:49:00", "p": -69.4, "tp": "OM", "dir": "L", "ins": "MES 12-25", "en": "OriginalManual_Long_L59_20251015_094600", "xn": "Stop loss", "ep": 6741.0, "xp": 6727.5, "mae": 67.5, "mfe": 5.0}, {"et": "2025-10-15T09:55:00", "xt": "2025-10-15T10:08:00", "p": 88.1, "tp": "OM", "dir": "L", "ins": "MES 12-25", "en": "OriginalManual_Long_L59_20251015_095400", "xn": "LCE_Target", "ep": 6740.25, "xp": 6758.25, "mae": 11.25, "mfe": 92.5}, {"et": "2025-10-22T10:31:00", "xt": "2025-10-22T11:25:00", "p": 71.85, "tp": "OS", "dir": "S", "ins": "MES 12-25", "en": "OpeningShort_Short_L58_20251022_103000", "xn": "LCE_Target", "ep": 6753.25, "xp": 6738.5, "mae": 50.0, "mfe": 92.5}, {"et": "2025-10-30T09:37:00", "xt": "2025-10-30T09:49:00", "p": -76.9, "tp": "OS", "dir": "S", "ins": "MES 12-25", "en": "OpeningShort_Short_L52_20251030_093600", "xn": "Stop loss", "ep": 6880.75, "xp": 6895.75, "mae": 75.0, "mfe": 65.0}, {"et": "2025-10-31T09:47:00", "xt": "2025-10-31T10:45:00", "p": -78.15, "tp": "OS", "dir": "S", "ins": "MES 12-25", "en": "OpeningShort_Short_L52_20251031_094600", "xn": "Stop loss", "ep": 6881.25, "xp": 6896.5, "mae": 76.25, "mfe": 38.75}, {"et": "2025-10-31T11:41:00", "xt": "2025-10-31T12:11:00", "p": 76.85, "tp": "OM", "dir": "S", "ins": "MES 12-25", "en": "OriginalManual_Short_L52_20251031_114000", "xn": "LCE_Target", "ep": 6881.75, "xp": 6866.0, "mae": 63.75, "mfe": 82.5}, {"et": "2025-11-03T10:28:00", "xt": "2025-11-03T10:45:00", "p": -81.9, "tp": "OS", "dir": "S", "ins": "MES 12-25", "en": "OpeningShort_Short_L53_20251103_102700", "xn": "Stop loss", "ep": 6856.75, "xp": 6872.75, "mae": 80.0, "mfe": 36.25}, {"et": "2025-11-06T10:01:00", "xt": "2025-11-06T10:06:00", "p": 78.1, "tp": "OS", "dir": "S", "ins": "MES 12-25", "en": "OpeningShort_Short_L56_20251106_100000", "xn": "LCE_Target", "ep": 6788.5, "xp": 6772.5, "mae": 0.0, "mfe": 82.5}, {"et": "2025-11-17T13:54:00", "xt": "2025-11-17T14:00:00", "p": 84.35, "tp": "OM", "dir": "S", "ins": "MES 12-25", "en": "OriginalManual_Short_L59_20251117_135300", "xn": "LCE_Target", "ep": 6721.0, "xp": 6703.75, "mae": 11.25, "mfe": 95.0}, {"et": "2025-11-26T11:12:00", "xt": "2025-11-26T11:45:00", "p": 73.1, "tp": "OM", "dir": "L", "ins": "MES 12-25", "en": "OriginalManual_Long_L54_20251126_111100", "xn": "LCE_Target", "ep": 6830.75, "xp": 6845.75, "mae": 8.75, "mfe": 78.75}, {"et": "2025-11-28T10:52:00", "xt": "2025-11-30T19:26:00", "p": -76.9, "tp": "OM", "dir": "L", "ins": "MES 12-25", "en": "OriginalManual_Long_L53_20251128_105100", "xn": "Stop loss", "ep": 6852.5, "xp": 6837.5, "mae": 75.0, "mfe": 60.0}, {"et": "2025-12-03T09:55:00", "xt": "2025-12-03T10:00:00", "p": -50.65, "tp": "OS", "dir": "S", "ins": "MES 12-25", "en": "OpeningShort_Short_L54_20251203_095400", "xn": "Stop loss", "ep": 6824.75, "xp": 6834.5, "mae": 48.75, "mfe": 0.0}, {"et": "2025-12-08T10:30:00", "xt": "2025-12-08T12:04:00", "p": 86.85, "tp": "OS", "dir": "S", "ins": "MES 12-25", "en": "OpeningShort_Short_L52_20251208_102900", "xn": "LCE_Target", "ep": 6863.25, "xp": 6845.5, "mae": 33.75, "mfe": 88.75}, {"et": "2025-12-12T10:18:00", "xt": "2025-12-12T10:30:00", "p": 81.85, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L49_20251212_101700", "xn": "LCE_Target", "ep": 6929.75, "xp": 6913.0, "mae": 26.25, "mfe": 88.75}, {"et": "2025-12-15T09:58:00", "xt": "2025-12-15T10:17:00", "p": 85.6, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L53_20251215_095700", "xn": "LCE_Target", "ep": 6899.0, "xp": 6881.5, "mae": 5.0, "mfe": 90.0}, {"et": "2025-12-16T10:27:00", "xt": "2025-12-16T10:31:00", "p": -68.15, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L55_20251216_102600", "xn": "Stop loss", "ep": 6835.75, "xp": 6849.0, "mae": 66.25, "mfe": 16.25}, {"et": "2025-12-17T09:40:00", "xt": "2025-12-17T10:37:00", "p": 90.6, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L54_20251217_093900", "xn": "LCE_Target", "ep": 6856.75, "xp": 6838.25, "mae": 27.5, "mfe": 93.75}, {"et": "2025-12-19T11:13:00", "xt": "2025-12-19T15:56:00", "p": 20.6, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L53_20251219_111200", "xn": "LCE_ForceClose", "ep": 6883.75, "xp": 6888.25, "mae": 38.75, "mfe": 50.0}, {"et": "2025-12-23T11:44:00", "xt": "2025-12-23T15:56:00", "p": 58.1, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L50_20251223_114300", "xn": "LCE_ForceClose", "ep": 6949.25, "xp": 6961.25, "mae": 5.0, "mfe": 66.25}, {"et": "2025-12-24T10:17:00", "xt": "2025-12-24T12:09:00", "p": 66.85, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L49_20251224_101600", "xn": "LCE_Target", "ep": 6972.0, "xp": 6985.75, "mae": 20.0, "mfe": 72.5}, {"et": "2025-12-26T09:43:00", "xt": "2025-12-26T10:02:00", "p": -64.4, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L48_20251226_094200", "xn": "Stop loss", "ep": 6991.0, "xp": 6978.5, "mae": 62.5, "mfe": 15.0}, {"et": "2025-12-31T10:57:00", "xt": "2025-12-31T13:45:00", "p": -78.15, "tp": "OM", "dir": "S", "ins": "MES 03-26", "en": "OriginalManual_Short_L51_20251231_105600", "xn": "Stop loss", "ep": 6915.0, "xp": 6930.25, "mae": 76.25, "mfe": 6.25}, {"et": "2026-01-02T09:38:00", "xt": "2026-01-02T09:49:00", "p": -46.9, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L51_20260102_093700", "xn": "Stop loss", "ep": 6922.0, "xp": 6931.0, "mae": 45.0, "mfe": 52.5}, {"et": "2026-01-02T10:15:00", "xt": "2026-01-02T10:23:00", "p": 86.85, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L51_20260102_101400", "xn": "LCE_Target", "ep": 6916.0, "xp": 6898.25, "mae": 2.5, "mfe": 90.0}, {"et": "2026-01-09T10:24:00", "xt": "2026-01-09T11:15:00", "p": 64.35, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L48_20260109_102300", "xn": "LCE_Target", "ep": 6986.75, "xp": 7000.0, "mae": 47.5, "mfe": 68.75}, {"et": "2026-01-12T11:14:00", "xt": "2026-01-12T14:33:00", "p": 81.85, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L47_20260112_111300", "xn": "LCE_Target", "ep": 7005.5, "xp": 7022.25, "mae": 5.0, "mfe": 86.25}, {"et": "2026-01-14T09:47:00", "xt": "2026-01-14T10:02:00", "p": 64.35, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L49_20260114_094600", "xn": "LCE_Target", "ep": 6954.5, "xp": 6941.25, "mae": 62.5, "mfe": 82.5}, {"et": "2026-01-16T10:03:00", "xt": "2026-01-16T10:44:00", "p": 71.85, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L48_20260116_100200", "xn": "LCE_Target", "ep": 6975.5, "xp": 6960.75, "mae": 61.25, "mfe": 75.0}, {"et": "2026-01-20T13:24:00", "xt": "2026-01-20T13:51:00", "p": 79.35, "tp": "OM", "dir": "S", "ins": "MES 03-26", "en": "OriginalManual_Short_L53_20260120_132300", "xn": "LCE_Target", "ep": 6861.5, "xp": 6845.25, "mae": 6.25, "mfe": 82.5}, {"et": "2026-01-26T10:15:00", "xt": "2026-01-26T13:31:00", "p": 63.1, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L48_20260126_101400", "xn": "LCE_Target", "ep": 6978.5, "xp": 6991.5, "mae": 13.75, "mfe": 71.25}, {"et": "2026-01-27T11:21:00", "xt": "2026-01-27T13:02:00", "p": -70.65, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L46_20260127_112000", "xn": "Stop loss", "ep": 7017.75, "xp": 7004.0, "mae": 68.75, "mfe": 5.0}, {"et": "2026-01-29T09:45:00", "xt": "2026-01-29T09:49:00", "p": 33.1, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L47_20260129_094400", "xn": "LCE_Target", "ep": 6988.5, "xp": 6981.5, "mae": 6.25, "mfe": 77.5}, {"et": "2026-02-03T09:59:00", "xt": "2026-02-03T10:04:00", "p": 79.35, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L47_20260203_095800", "xn": "LCE_Target", "ep": 6985.75, "xp": 6969.5, "mae": 1.25, "mfe": 81.25}, {"et": "2026-02-12T10:11:00", "xt": "2026-02-12T10:17:00", "p": -59.4, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L48_20260212_101000", "xn": "Stop loss", "ep": 6963.0, "xp": 6974.5, "mae": 57.5, "mfe": 10.0}, {"et": "2026-02-12T10:35:00", "xt": "2026-02-12T10:43:00", "p": 78.1, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L48_20260212_103400", "xn": "LCE_Target", "ep": 6960.5, "xp": 6944.5, "mae": 10.0, "mfe": 83.75}, {"et": "2026-02-18T11:08:00", "xt": "2026-02-18T13:43:00", "p": -74.4, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L50_20260218_110700", "xn": "Stop loss", "ep": 6921.0, "xp": 6906.5, "mae": 72.5, "mfe": 23.75}, {"et": "2026-02-20T11:57:00", "xt": "2026-02-20T12:08:00", "p": -65.65, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L50_20260220_115600", "xn": "Stop loss", "ep": 6919.25, "xp": 6906.5, "mae": 63.75, "mfe": 12.5}, {"et": "2026-02-23T10:37:00", "xt": "2026-02-23T11:01:00", "p": 75.6, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L52_20260223_103600", "xn": "LCE_Target", "ep": 6867.5, "xp": 6852.0, "mae": 33.75, "mfe": 82.5}, {"et": "2026-02-25T09:38:00", "xt": "2026-02-25T13:03:00", "p": 74.35, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L49_20260225_093700", "xn": "LCE_Target", "ep": 6940.25, "xp": 6955.5, "mae": 56.25, "mfe": 77.5}, {"et": "2026-02-26T10:17:00", "xt": "2026-02-26T10:20:00", "p": 61.85, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L50_20260226_101600", "xn": "LCE_Target", "ep": 6907.5, "xp": 6894.75, "mae": 1.25, "mfe": 71.25}, {"et": "2026-03-05T10:24:00", "xt": "2026-03-05T10:32:00", "p": 114.35, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L53_20260305_102300", "xn": "LCE_Target", "ep": 6841.5, "xp": 6818.25, "mae": 7.5, "mfe": 122.5}, {"et": "2026-03-26T09:37:00", "xt": "2026-03-26T09:45:00", "p": -70.65, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L66_20260326_093600", "xn": "Stop loss", "ep": 6584.25, "xp": 6598.0, "mae": 68.75, "mfe": 21.25}, {"et": "2026-03-26T11:48:00", "xt": "2026-03-26T12:30:00", "p": 123.1, "tp": "OM", "dir": "S", "ins": "MES 06-26", "en": "OriginalManual_Short_L66_20260326_114700", "xn": "LCE_Target", "ep": 6591.0, "xp": 6566.0, "mae": 13.75, "mfe": 130.0}, {"et": "2026-04-07T10:02:00", "xt": "2026-04-07T10:10:00", "p": 90.6, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L65_20260407_100100", "xn": "LCE_Target", "ep": 6600.5, "xp": 6582.0, "mae": 5.0, "mfe": 96.25}, {"et": "2026-04-09T11:21:00", "xt": "2026-04-09T11:50:00", "p": 95.6, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L55_20260409_112000", "xn": "LCE_Target", "ep": 6828.25, "xp": 6847.75, "mae": 35.0, "mfe": 101.25}, {"et": "2026-04-15T10:24:00", "xt": "2026-04-15T13:38:00", "p": 80.6, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L46_20260415_102300", "xn": "LCE_Target", "ep": 7025.5, "xp": 7042.0, "mae": 31.25, "mfe": 83.75}, {"et": "2026-04-23T10:54:00", "xt": "2026-04-23T13:02:00", "p": -69.4, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L39_20260423_105300", "xn": "Stop loss", "ep": 7171.5, "xp": 7158.0, "mae": 67.5, "mfe": 50.0}, {"et": "2026-04-24T11:05:00", "xt": "2026-04-24T11:46:00", "p": 90.6, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L39_20260424_110400", "xn": "LCE_Target", "ep": 7170.75, "xp": 7189.25, "mae": 16.25, "mfe": 103.75}, {"et": "2026-04-28T10:36:00", "xt": "2026-04-28T10:53:00", "p": 64.35, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L39_20260428_103500", "xn": "LCE_Target", "ep": 7162.75, "xp": 7149.5, "mae": 3.75, "mfe": 82.5}, {"et": "2026-04-30T10:12:00", "xt": "2026-04-30T10:23:00", "p": -65.65, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L39_20260430_101100", "xn": "Stop loss", "ep": 7163.25, "xp": 7176.0, "mae": 63.75, "mfe": 30.0}, {"et": "2026-04-30T13:31:00", "xt": "2026-04-30T14:02:00", "p": 93.1, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L37_20260430_133000", "xn": "LCE_Target", "ep": 7211.75, "xp": 7230.75, "mae": 0.0, "mfe": 96.25}, {"et": "2026-05-01T09:57:00", "xt": "2026-05-01T10:02:00", "p": 46.85, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L34_20260501_095600", "xn": "LCE_Target", "ep": 7284.5, "xp": 7294.25, "mae": 2.5, "mfe": 57.5}, {"et": "2026-05-05T09:53:00", "xt": "2026-05-05T14:14:00", "p": 89.35, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L34_20260505_095200", "xn": "LCE_Target", "ep": 7276.75, "xp": 7295.0, "mae": 51.25, "mfe": 92.5}, {"et": "2026-05-08T10:01:00", "xt": "2026-05-08T15:56:00", "p": 34.35, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L28_20260508_100000", "xn": "LCE_ForceClose", "ep": 7413.5, "xp": 7420.75, "mae": 31.25, "mfe": 73.75}, {"et": "2026-05-11T10:16:00", "xt": "2026-05-11T10:33:00", "p": -73.15, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L27_20260511_101500", "xn": "Stop loss", "ep": 7436.25, "xp": 7422.0, "mae": 71.25, "mfe": 28.75}, {"et": "2026-05-11T10:45:00", "xt": "2026-05-11T13:45:00", "p": 83.1, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L27_20260511_104400", "xn": "LCE_Target", "ep": 7435.0, "xp": 7452.0, "mae": 13.75, "mfe": 87.5}, {"et": "2026-05-12T10:34:00", "xt": "2026-05-12T10:44:00", "p": -74.4, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L29_20260512_103300", "xn": "Stop loss", "ep": 7382.75, "xp": 7397.25, "mae": 72.5, "mfe": 13.75}, {"et": "2026-05-12T10:53:00", "xt": "2026-05-12T11:26:00", "p": 80.6, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L29_20260512_105200", "xn": "LCE_Target", "ep": 7382.5, "xp": 7366.0, "mae": 28.75, "mfe": 90.0}, {"et": "2026-05-13T09:49:00", "xt": "2026-05-13T10:08:00", "p": -80.65, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L28_20260513_094800", "xn": "Stop loss", "ep": 7403.5, "xp": 7419.25, "mae": 78.75, "mfe": 22.5}, {"et": "2026-05-14T09:43:00", "xt": "2026-05-14T10:48:00", "p": 74.35, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L24_20260514_094200", "xn": "LCE_Target", "ep": 7500.25, "xp": 7515.5, "mae": 70.0, "mfe": 83.75}, {"et": "2026-05-19T09:44:00", "xt": "2026-05-19T09:55:00", "p": -79.4, "tp": "OM", "dir": "S", "ins": "MES 06-26", "en": "OriginalManual_Short_L29_20260519_094300", "xn": "Stop loss", "ep": 7378.0, "xp": 7393.5, "mae": 77.5, "mfe": 41.25}, {"et": "2026-05-20T10:15:00", "xt": "2026-05-20T10:15:00", "p": -66.9, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L29_20260520_101400", "xn": "Stop loss", "ep": 7380.0, "xp": 7393.0, "mae": 65.0, "mfe": 0.0}, {"et": "2026-05-22T13:30:00", "xt": "2026-05-22T13:55:00", "p": -45.65, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L23_20260522_132900", "xn": "Stop loss", "ep": 7515.0, "xp": 7506.25, "mae": 43.75, "mfe": 45.0}, {"et": "2026-05-29T09:43:00", "xt": "2026-05-29T10:27:00", "p": -73.15, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L19_20260529_094200", "xn": "Stop loss", "ep": 7604.25, "xp": 7590.0, "mae": 71.25, "mfe": 37.5}, {"et": "2026-05-29T11:15:00", "xt": "2026-05-29T13:46:00", "p": -65.65, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L19_20260529_111400", "xn": "Stop loss", "ep": 7602.75, "xp": 7590.0, "mae": 63.75, "mfe": 30.0}, {"et": "2026-06-02T10:53:00", "xt": "2026-06-02T15:56:00", "p": 5.6, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L18_20260602_105200", "xn": "LCE_ForceClose", "ep": 7622.0, "xp": 7623.5, "mae": 38.75, "mfe": 50.0}, {"et": "2026-06-03T09:46:00", "xt": "2026-06-03T09:50:00", "p": 76.85, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L19_20260603_094500", "xn": "LCE_Target", "ep": 7592.25, "xp": 7576.5, "mae": 11.25, "mfe": 80.0}, {"et": "2026-06-05T09:44:00", "xt": "2026-06-05T10:00:00", "p": 91.85, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L22_20260605_094300", "xn": "LCE_Target", "ep": 7531.75, "xp": 7513.0, "mae": 15.0, "mfe": 93.75}, {"et": "2026-06-17T10:43:00", "xt": "2026-06-17T10:47:00", "p": -45.65, "tp": "OS", "dir": "S", "ins": "MES 09-26", "en": "OpeningShort_Short_L22_20260617_104200", "xn": "Stop loss", "ep": 7580.0, "xp": 7588.75, "mae": 43.75, "mfe": 2.5}, {"et": "2026-06-22T10:57:00", "xt": "2026-06-22T10:59:00", "p": -56.9, "tp": "OS", "dir": "S", "ins": "MES 09-26", "en": "OpeningShort_Short_L24_20260622_105600", "xn": "Stop loss", "ep": 7531.5, "xp": 7542.5, "mae": 55.0, "mfe": 2.5}, {"et": "2026-06-25T09:47:00", "xt": "2026-06-25T09:48:00", "p": 38.1, "tp": "OS", "dir": "S", "ins": "MES 09-26", "en": "OpeningShort_Short_L28_20260625_094600", "xn": "LCE_Target", "ep": 7429.25, "xp": 7421.25, "mae": 8.75, "mfe": 65.0}, {"et": "2026-06-29T09:56:00", "xt": "2026-06-29T09:56:00", "p": -55.65, "tp": "OM", "dir": "L", "ins": "MES 09-26", "en": "OriginalManual_Long_L26_20260629_095500", "xn": "Stop loss", "ep": 7479.5, "xp": 7468.75, "mae": 53.75, "mfe": 0.0}, {"et": "2026-06-29T13:07:00", "xt": "2026-06-29T14:37:00", "p": 73.1, "tp": "OM", "dir": "L", "ins": "MES 09-26", "en": "OriginalManual_Long_L26_20260629_130600", "xn": "LCE_Target", "ep": 7482.75, "xp": 7497.75, "mae": 8.75, "mfe": 83.75}, {"et": "2026-06-30T10:23:00", "xt": "2026-06-30T11:49:00", "p": 83.1, "tp": "OM", "dir": "L", "ins": "MES 09-26", "en": "OriginalManual_Long_L24_20260630_102200", "xn": "LCE_Target", "ep": 7525.75, "xp": 7542.75, "mae": 46.25, "mfe": 93.75}, {"et": "2026-07-01T10:32:00", "xt": "2026-07-01T11:17:00", "p": 90.6, "tp": "OM", "dir": "L", "ins": "MES 09-26", "en": "OriginalManual_Long_L23_20260701_103100", "xn": "LCE_Target", "ep": 7547.0, "xp": 7565.5, "mae": 35.0, "mfe": 98.75}, {"et": "2026-07-02T09:39:00", "xt": "2026-07-02T09:51:00", "p": 71.85, "tp": "OM", "dir": "L", "ins": "MES 09-26", "en": "OriginalManual_Long_L22_20260702_093800", "xn": "LCE_Target", "ep": 7570.5, "xp": 7585.25, "mae": 50.0, "mfe": 90.0}, {"et": "2026-07-06T13:09:00", "xt": "2026-07-06T13:41:00", "p": -71.9, "tp": "OM", "dir": "L", "ins": "MES 09-26", "en": "OriginalManual_Long_L21_20260706_130800", "xn": "Stop loss", "ep": 7594.0, "xp": 7580.0, "mae": 70.0, "mfe": 1.25}, {"et": "2026-07-07T09:59:00", "xt": "2026-07-07T10:17:00", "p": 85.6, "tp": "OS", "dir": "S", "ins": "MES 09-26", "en": "OpeningShort_Short_L22_20260707_095800", "xn": "LCE_Target", "ep": 7564.25, "xp": 7546.75, "mae": 30.0, "mfe": 108.75}, {"et": "2026-07-08T11:07:00", "xt": "2026-07-08T11:26:00", "p": 85.6, "tp": "OM", "dir": "S", "ins": "MES 09-26", "en": "OriginalManual_Short_L25_20260708_110600", "xn": "LCE_Target", "ep": 7493.75, "xp": 7476.25, "mae": 3.75, "mfe": 93.75}];
 const BOUNDARIES = [{"idx": 13, "ins": "MES 06-25", "date": "2025-03-24"}, {"idx": 29, "ins": "MES 09-25", "date": "2025-06-24"}, {"idx": 47, "ins": "MES 12-25", "date": "2025-09-22"}, {"idx": 65, "ins": "MES 03-26", "date": "2025-12-12"}, {"idx": 93, "ins": "MES 06-26", "date": "2026-03-26"}, {"idx": 120, "ins": "MES 09-26", "date": "2026-06-17"}];
-const CONTRACTS = ["MES 03-25", "MES 06-25", "MES 09-25", "MES 12-25", "MES 03-26", "MES 06-26", "MES 09-26"];
+const CONTRACTS  = ["MES 03-25", "MES 06-25", "MES 09-25", "MES 12-25", "MES 03-26", "MES 06-26", "MES 09-26"];
 
-let activeDir = 'all';
-let activeType = 'all';
+// ── State ──
+let activeDir      = 'all';
+let activeType     = 'all';
 let activeContract = 'all';
+let mode           = 'filter';   // 'filter' | 'overlay'
+let splitBy        = 'type';     // 'type' | 'dir' | 'both'
+const hiddenCurves = new Set();  // curve ids toggled off in overlay mode
 
+// ── Overlay curve definitions ──
+// Colors picked from the logo palette: cyan, amber, green, red-pink, sky-blue, orange
+const CURVE_DEFS = {
+  type: [
+    { id:'om',   label:'OM',       dir:'all', tp:'OM',  color:'#3dd8db' },
+    { id:'os',   label:'OS',       dir:'all', tp:'OS',  color:'#f0a030' },
+  ],
+  dir: [
+    { id:'long',  label:'Long',  dir:'L',   tp:'all', color:'#4ec87a' },
+    { id:'short', label:'Short', dir:'S',   tp:'all', color:'#e05a6a' },
+  ],
+  both: [
+    { id:'om-l',  label:'OM Long',  dir:'L', tp:'OM', color:'#3dd8db' },
+    { id:'om-s',  label:'OM Short', dir:'S', tp:'OM', color:'#6ab8e8' },
+    { id:'os-l',  label:'OS Long',  dir:'L', tp:'OS', color:'#f0a030' },
+    { id:'os-s',  label:'OS Short', dir:'S', tp:'OS', color:'#e07848' },
+  ],
+};
+
+// ── Dimensions ──
 const X0 = 56, X1 = 888, Y0 = 22, Y1 = 312;
 const W = X1 - X0, H = Y1 - Y0;
-
 const gMinTs = new Date(TRADES[0].xt).getTime();
-const gMaxTs = new Date(TRADES[TRADES.length - 1].xt).getTime();
+const gMaxTs = new Date(TRADES[TRADES.length-1].xt).getTime();
 
+// ── Helpers ──
 function fmt$(v) {
   const a = Math.abs(v);
-  const s = a >= 1000 ? '$' + (a / 1000).toFixed(1) + 'k' : '$' + a.toFixed(2);
-  return v < 0 ? '-' + s : s;
+  const s = a >= 1000 ? '$'+(a/1000).toFixed(1)+'k' : '$'+a.toFixed(2);
+  return v < 0 ? '-'+s : s;
 }
 
-function filterTrades() {
-  return TRADES.filter(t =>
-    (activeDir === 'all' || t.dir === activeDir) &&
-    (activeType === 'all' || t.tp === activeType) &&
-    (activeContract === 'all' || t.ins === activeContract)
+function filterTrades(dir, tp) {
+  const d  = dir ?? activeDir;
+  const t  = tp  ?? activeType;
+  return TRADES.filter(r =>
+    (d === 'all' || r.dir === d) &&
+    (t === 'all' || r.tp  === t) &&
+    (activeContract === 'all' || r.ins === activeContract)
   );
 }
 
-function calcStats(filtered) {
-  const total = filtered.reduce((a, t) => a + t.p, 0);
-  const wins = filtered.filter(t => t.p > 0);
-  const losses = filtered.filter(t => t.p <= 0);
-  const grossWin = wins.reduce((a, t) => a + t.p, 0);
-  const grossLoss = Math.abs(losses.reduce((a, t) => a + t.p, 0));
-  const pf = grossLoss > 0 ? grossWin / grossLoss : wins.length > 0 ? Infinity : 0;
-  const wr = filtered.length ? wins.length / filtered.length * 100 : 0;
-  const avg = filtered.length ? total / filtered.length : 0;
-  return { total, wins: wins.length, losses: losses.length, wr, avg, pf, n: filtered.length };
+function calcStats(trades) {
+  const total    = trades.reduce((a,t) => a+t.p, 0);
+  const wins     = trades.filter(t => t.p > 0);
+  const losses   = trades.filter(t => t.p <= 0);
+  const grossW   = wins.reduce((a,t) => a+t.p, 0);
+  const grossL   = Math.abs(losses.reduce((a,t) => a+t.p, 0));
+  const pf       = grossL > 0 ? grossW/grossL : wins.length ? Infinity : 0;
+  const wr       = trades.length ? wins.length/trades.length*100 : 0;
+  const avg      = trades.length ? total/trades.length : 0;
+  return { total, wins:wins.length, losses:losses.length, wr, avg, pf, n:trades.length };
 }
 
 function updateStats(s) {
   const el = document.getElementById('st-pnl');
   el.textContent = fmt$(s.total);
-  el.className = s.total >= 0 ? 'pos' : 'neg';
-  document.getElementById('st-wr').textContent  = s.n ? s.wr.toFixed(1) + '%' : '—';
+  el.className   = s.total >= 0 ? 'pos' : 'neg';
+  document.getElementById('st-wr').textContent  = s.n ? s.wr.toFixed(1)+'%' : '—';
   document.getElementById('st-avg').textContent = s.n ? fmt$(s.avg) : '—';
-  document.getElementById('st-cnt').textContent = s.n ? s.n + ' (' + s.wins + ' / ' + s.losses + ')' : '—';
+  document.getElementById('st-cnt').textContent = s.n ? s.n+' ('+s.wins+' / '+s.losses+')' : '—';
   document.getElementById('st-pf').textContent  = s.n ? (isFinite(s.pf) ? s.pf.toFixed(2) : '∞') : '—';
 }
 
-function buildPts(filtered, toX) {
-  if (!filtered.length) return [];
-  const pts = [{ x: toX(filtered[0].xt), y: 0 }];
-  let cum = 0;
-  for (const t of filtered) {
-    cum += t.p;
-    pts.push({ x: toX(t.xt), y: cum });
+// ── X-axis scoping ──
+function makeXFn() {
+  let xMinTs = gMinTs, xMaxTs = gMaxTs;
+  if (activeContract !== 'all') {
+    const cTrades = TRADES.filter(t => t.ins === activeContract);
+    if (cTrades.length) {
+      const ts   = cTrades.map(t => new Date(t.xt).getTime());
+      const span = Math.max(...ts) - Math.min(...ts) || 86400000;
+      xMinTs = Math.min(...ts) - span*0.06;
+      xMaxTs = Math.max(...ts) + span*0.06;
+    }
   }
+  const xRange = xMaxTs - xMinTs || 1;
+  return { toX: s => X0 + ((new Date(s).getTime()-xMinTs)/xRange)*W, xMinTs, xMaxTs };
+}
+
+function buildPts(trades, toX) {
+  if (!trades.length) return [];
+  const pts = [{ x: toX(trades[0].xt), y: 0 }];
+  let cum = 0;
+  for (const t of trades) { cum += t.p; pts.push({ x:toX(t.xt), y:cum }); }
   return pts;
 }
 
-function renderChart(filtered) {
+// ── Chart rendering ──
+function renderChart() {
   const svg = document.getElementById('chart');
+  const { toX, xMinTs, xMaxTs } = makeXFn();
 
-  // ── X-axis range: zoom to contract if one is selected ──
-  let xMinTs, xMaxTs;
-  if (activeContract !== 'all' && filtered.length) {
-    const ts = filtered.map(t => new Date(t.xt).getTime());
-    const span = Math.max(...ts) - Math.min(...ts) || 86400000;
-    xMinTs = Math.min(...ts) - span * 0.06;
-    xMaxTs = Math.max(...ts) + span * 0.06;
+  if (mode === 'filter') {
+    const trades = filterTrades();
+    renderSingleCurve(svg, trades, toX, xMinTs, xMaxTs, 'var(--accent)', true);
   } else {
-    xMinTs = gMinTs;
-    xMaxTs = gMaxTs;
+    renderOverlayCurves(svg, toX, xMinTs, xMaxTs);
   }
-  const xRange = xMaxTs - xMinTs || 1;
-  function toX(s) { return X0 + ((new Date(s).getTime() - xMinTs) / xRange) * W; }
+}
 
-  // ── Y-axis ──
-  const pts = buildPts(filtered, toX);
-  const yVals = pts.map(p => p.y);
+function commonChrome(trades, toX, xMinTs, xMaxTs) {
+  // Collect all y values to compute shared axis
+  return { toX, xMinTs, xMaxTs };
+}
+
+function renderSingleCurve(svg, trades, toX, xMinTs, xMaxTs, color, showDots) {
+  const pts    = buildPts(trades, toX);
+  const yVals  = pts.map(p => p.y);
   const rawMin = yVals.length ? Math.min(...yVals) : 0;
   const rawMax = yVals.length ? Math.max(...yVals) : 100;
-  const pad = (rawMax - rawMin) * 0.12 || 60;
-  const minY = rawMin - pad, maxY = rawMax + pad;
-  const yRange = maxY - minY || 1;
-  function sy(v) { return Y1 - ((v - minY) / yRange) * H; }
+  const pad    = (rawMax-rawMin)*0.12 || 60;
+  const minY   = rawMin-pad, maxY = rawMax+pad;
+  drawAxes(svg, toX, xMinTs, xMaxTs, minY, maxY);
+  drawCurve(svg, pts, minY, maxY, color, true, 'curveGrad');
+  if (showDots) {
+    let cum = 0;
+    for (const t of trades) {
+      cum += t.p;
+      const cls = t.p > 0 ? 'dot-win' : 'dot-loss';
+      inject(svg, dotHtml(t, cum, toX, minY, maxY, cls, null));
+    }
+  }
+}
 
-  const zeroY = sy(0);
+function renderOverlayCurves(svg, toX, xMinTs, xMaxTs) {
+  const defs = CURVE_DEFS[splitBy];
+  const visible = defs.filter(d => !hiddenCurves.has(d.id));
+
+  // Collect ALL pts across visible curves to find shared y range
+  const allPts = visible.flatMap(d => buildPts(filterTrades(d.dir, d.tp), toX));
+  const yVals  = allPts.map(p => p.y);
+  const rawMin = yVals.length ? Math.min(...yVals) : 0;
+  const rawMax = yVals.length ? Math.max(...yVals) : 100;
+  const pad    = (rawMax-rawMin)*0.12 || 60;
+  const minY   = rawMin-pad, maxY = rawMax+pad;
+
+  drawAxes(svg, toX, xMinTs, xMaxTs, minY, maxY);
+
+  // Draw fills first, then lines on top
+  for (const d of visible) {
+    const pts = buildPts(filterTrades(d.dir, d.tp), toX);
+    if (pts.length > 1) {
+      drawCurve(svg, pts, minY, maxY, d.color, false, null);
+    }
+  }
+  // Dots on top of everything
+  for (const d of visible) {
+    const trades = filterTrades(d.dir, d.tp);
+    let cum = 0;
+    for (const t of trades) {
+      cum += t.p;
+      inject(svg, dotHtml(t, cum, toX, minY, maxY, null, d.color));
+    }
+  }
+}
+
+function drawAxes(svg, toX, xMinTs, xMaxTs, minY, maxY) {
+  const yRange = maxY - minY || 1;
+  function sy(v) { return Y1 - ((v-minY)/yRange)*H; }
+  const zeroY      = sy(0);
   const zeroInView = zeroY >= Y0 && zeroY <= Y1;
 
-  // Grid
+  // Grid + y labels
   let out = '';
   for (let i = 0; i <= 5; i++) {
-    const v = minY + (yRange / 5) * i;
+    const v = minY + (yRange/5)*i;
     const y = sy(v).toFixed(1);
     out += `<line class='grid' x1='${X0}' y1='${y}' x2='${X1}' y2='${y}'/>`;
     out += `<text class='axis' x='${X0-4}' y='${(parseFloat(y)+4).toFixed(1)}' text-anchor='end'>${fmt$(v)}</text>`;
   }
-
-  // Zero line
   if (zeroInView) out += `<line class='zero-line' x1='${X0}' y1='${zeroY.toFixed(1)}' x2='${X1}' y2='${zeroY.toFixed(1)}'/>`;
 
-  // Contract flip lines — only those whose date falls within the visible x range
+  // Contract flip lines
   for (const b of BOUNDARIES) {
-    const bTs = new Date(b.date + 'T12:00:00').getTime();
+    const bTs = new Date(b.date+'T12:00:00').getTime();
     if (bTs < xMinTs || bTs > xMaxTs) continue;
-    const x = toX(b.date + 'T12:00:00').toFixed(1);
+    const x = toX(b.date+'T12:00:00').toFixed(1);
     out += `<line class='contract-line' x1='${x}' y1='${Y0}' x2='${x}' y2='${Y1}'/>`;
     out += `<text class='contract-label' x='${(parseFloat(x)+4).toFixed(1)}' y='${Y0+10}'>${b.ins}</text>`;
   }
 
-  // X-axis date labels — show the actual visible range
-  const xStartLabel = new Date(xMinTs).toISOString().slice(0,10);
-  const xEndLabel   = new Date(xMaxTs).toISOString().slice(0,10);
-  out += `<text class='axis' x='${X0}' y='${Y1+18}' text-anchor='start'>${xStartLabel}</text>`;
-  out += `<text class='axis' x='${X1}' y='${Y1+18}' text-anchor='end'>${xEndLabel}</text>`;
-
-  // Fill + curve
-  if (pts.length > 1) {
-    const lineD = pts.map((p,i) => (i?'L':'M') + p.x.toFixed(1) + ',' + sy(p.y).toFixed(1)).join(' ');
-    const fy = (zeroInView ? zeroY : Y1).toFixed(1);
-    const fillD = lineD + ` L${pts[pts.length-1].x.toFixed(1)},${fy} L${pts[0].x.toFixed(1)},${fy} Z`;
-    out += `<path class='eq-fill' d='${fillD}'/>`;
-    out += `<path class='eq-curve' d='${lineD}'/>`;
-  }
-
-  // Dots
-  let cum = 0;
-  for (const t of filtered) {
-    cum += t.p;
-    out += `<circle class='dot-${t.p>0?"win":"loss"}' cx='${toX(t.xt).toFixed(1)}' cy='${sy(cum).toFixed(1)}' r='3.2' opacity='0.75'/>`;
-  }
+  // X labels
+  out += `<text class='axis' x='${X0}' y='${Y1+18}' text-anchor='start'>${new Date(xMinTs).toISOString().slice(0,10)}</text>`;
+  out += `<text class='axis' x='${X1}' y='${Y1+18}' text-anchor='end'>${new Date(xMaxTs).toISOString().slice(0,10)}</text>`;
 
   const defs = svg.querySelector('defs');
   svg.innerHTML = '';
   if (defs) svg.appendChild(defs);
   svg.insertAdjacentHTML('beforeend', out);
+
+  // Store sy on svg for later use
+  svg._sy    = sy;
+  svg._minY  = minY;
+  svg._maxY  = maxY;
+  svg._zeroY = zeroInView ? zeroY : null;
 }
 
-function renderTable(filtered) {
+function svgY(v, minY, maxY) {
+  const yRange = maxY - minY || 1;
+  return Y1 - ((v-minY)/yRange)*H;
+}
+
+function drawCurve(svg, pts, minY, maxY, color, showFill, gradId) {
+  const lineD = pts.map((p,i) => (i?'L':'M')+p.x.toFixed(1)+','+svgY(p.y,minY,maxY).toFixed(1)).join(' ');
+  if (showFill && gradId) {
+    const zy  = svg._zeroY ?? Y1;
+    const fy  = zy.toFixed(1);
+    const fD  = lineD+` L${pts[pts.length-1].x.toFixed(1)},${fy} L${pts[0].x.toFixed(1)},${fy} Z`;
+    inject(svg, `<path class='eq-fill' d='${fD}' fill='url(#${gradId})'/>` );
+  }
+  inject(svg, `<path class='eq-curve' d='${lineD}' stroke='${color}'/>` );
+}
+
+function inject(svg, html) {
+  svg.insertAdjacentHTML('beforeend', html);
+}
+
+// ── Dot builder ──
+function dotHtml(t, cum, toX, minY, maxY, cls, color) {
+  const cx   = toX(t.xt).toFixed(1);
+  const cy   = svgY(cum, minY, maxY).toFixed(1);
+  const xnS  = t.xn === 'LCE_Target' ? 'Target' : t.xn === 'Stop loss' ? 'Stop' : t.xn;
+  const fill = color ? `fill='${color}'` : `class='${cls}'`;
+  const r    = color ? '2.8' : '3.5';
+  // Encode trade data as data attributes (no JSON needed)
+  return `<circle ${fill} cx='${cx}' cy='${cy}' r='${r}' opacity='0.8'
+    data-ins='${t.ins}' data-date='${t.xt.slice(0,10)}'
+    data-dir='${t.dir==="L"?"Long":"Short"}' data-tp='${t.tp}'
+    data-et='${t.et.slice(11,16)}' data-xt='${t.xt.slice(11,16)}'
+    data-ep='${t.ep}' data-xp='${t.xp}'
+    data-xn='${xnS}' data-p='${t.p.toFixed(2)}' data-cum='${cum.toFixed(2)}'
+    data-mae='${t.mae}' data-mfe='${t.mfe}'/>`;
+}
+
+// ── Tooltip ──
+const tt = document.getElementById('tt');
+
+function showTooltip(e, el) {
+  const d = el.dataset;
+  const p = parseFloat(d.p), cum = parseFloat(d.cum);
+  const pCls = p >= 0 ? 'pos' : 'neg';
+
+  document.getElementById('tt-ins').textContent  = d.ins;
+  document.getElementById('tt-date').textContent = d.date;
+
+  document.getElementById('tt-tags').innerHTML =
+    `<span class='tag tag-${d.dir==="Long"?"l":"s"}'>${d.dir}</span>` +
+    `<span class='tag tag-${d.tp.toLowerCase()}'>${d.tp}</span>` +
+    `<span class='tag' style='background:var(--row-alt);color:var(--muted)'>${d.xn}</span>`;
+
+  document.getElementById('tt-body').innerHTML = `
+    <span class='tt-lbl'>Entry</span>
+    <span class='tt-val'>${d.ep}</span>
+    <span class='tt-sub'>${d.et}</span>
+    <span class='tt-lbl'>Exit</span>
+    <span class='tt-val'>${d.xp}</span>
+    <span class='tt-sub'>${d.xt}</span>
+    <span class='tt-divider'></span>
+    <span class='tt-lbl'>P&L</span>
+    <span class='tt-pnl ${pCls}'>${fmt$(p)}</span>
+    <span class='tt-sub'></span>
+    <span class='tt-lbl'>Cum</span>
+    <span class='tt-val' style='color:var(--muted)'>${fmt$(cum)}</span>
+    <span class='tt-sub'></span>
+    <span class='tt-lbl'>MAE</span>
+    <span class='tt-val' style='color:var(--red)'>-${d.mae}</span>
+    <span class='tt-sub'></span>
+    <span class='tt-lbl'>MFE</span>
+    <span class='tt-val' style='color:var(--accent)'>+${d.mfe}</span>
+    <span class='tt-sub'></span>
+  `;
+  positionTooltip(e);
+  tt.classList.add('show');
+}
+
+function positionTooltip(e) {
+  const pad = 14, w = tt.offsetWidth || 220, h = tt.offsetHeight || 180;
+  let x = e.clientX + pad, y = e.clientY + pad;
+  if (x + w > window.innerWidth  - 8) x = e.clientX - w - pad;
+  if (y + h > window.innerHeight - 8) y = e.clientY - h - pad;
+  tt.style.left = x + 'px';
+  tt.style.top  = y + 'px';
+}
+
+function hideTooltip() { tt.classList.remove('show'); }
+
+// Event delegation on the chart SVG
+document.getElementById('chart').addEventListener('mouseover', e => {
+  const el = e.target.closest('circle[data-ins]');
+  if (el) showTooltip(e, el);
+  else hideTooltip();
+});
+document.getElementById('chart').addEventListener('mousemove', e => {
+  if (tt.classList.contains('show')) positionTooltip(e);
+});
+document.getElementById('chart').addEventListener('mouseleave', hideTooltip);
+
+// ── Overlay legend ──
+function renderLegend() {
+  const el = document.getElementById('ov-legend');
+  if (mode !== 'overlay') { el.style.display = 'none'; return; }
+  el.style.display = 'flex';
+  const defs = CURVE_DEFS[splitBy];
+  el.innerHTML = defs.map(d => {
+    const trades = filterTrades(d.dir, d.tp);
+    const total  = trades.reduce((a,t) => a+t.p, 0);
+    const off    = hiddenCurves.has(d.id) ? ' off' : '';
+    return `<button class='ov-btn${off}' onclick='toggleCurve("${d.id}")'>
+      <span class='ov-swatch' style='background:${d.color}'></span>
+      <span>${d.label}</span>
+      <span class='ov-pnl'>${fmt$(total)}</span>
+    </button>`;
+  }).join('');
+}
+
+function toggleCurve(id) {
+  if (hiddenCurves.has(id)) hiddenCurves.delete(id);
+  else hiddenCurves.add(id);
+  renderLegend();
+  renderChart();
+}
+
+// ── Table ──
+function renderTable() {
+  const trades = filterTrades();
   let cum = 0, rows = '';
-  for (let i = 0; i < filtered.length; i++) {
-    const t = filtered[i];
+  for (let i = 0; i < trades.length; i++) {
+    const t = trades[i];
     cum += t.p;
-    const pCls = t.p > 0 ? 'win' : 'loss';
     const xnShort = t.xn === 'LCE_Target' ? 'Target' : t.xn === 'Stop loss' ? 'Stop' : t.xn;
     rows += `<tr>
       <td style='color:var(--muted)'>${i+1}</td>
@@ -372,7 +637,7 @@ function renderTable(filtered) {
       <td style='color:var(--muted)'>${t.et.slice(11,16)}</td>
       <td style='color:var(--muted)'>${t.xt.slice(11,16)}</td>
       <td style='font-size:12px'>${xnShort}</td>
-      <td class='${pCls}'>${fmt$(t.p)}</td>
+      <td class='${t.p>0?"win":"loss"}'>${fmt$(t.p)}</td>
       <td class='${cum>=0?"win":"loss"}'>${fmt$(cum)}</td>
     </tr>`;
   }
@@ -380,18 +645,45 @@ function renderTable(filtered) {
 }
 
 function updateLabel() {
-  const d  = activeDir==='all'?'All':activeDir==='L'?'Long':'Short';
-  const tp = activeType==='all'?'OM+OS':activeType;
-  const c  = activeContract==='all'?'All Contracts':activeContract;
-  document.getElementById('chart-label').textContent = `Equity Curve — ${c} · ${tp} · ${d}`;
+  if (mode === 'overlay') {
+    const names = { type:'Type (OM / OS)', dir:'Direction (Long / Short)', both:'All Splits' };
+    const c = activeContract === 'all' ? 'All Contracts' : activeContract;
+    document.getElementById('chart-label').textContent = `Overlay — ${names[splitBy]} · ${c}`;
+  } else {
+    const d  = activeDir==='all'?'All':activeDir==='L'?'Long':'Short';
+    const tp = activeType==='all'?'OM+OS':activeType;
+    const c  = activeContract==='all'?'All Contracts':activeContract;
+    document.getElementById('chart-label').textContent = `Equity Curve — ${c} · ${tp} · ${d}`;
+  }
 }
 
+// ── Update all ──
 function update() {
-  const f = filterTrades();
-  updateStats(calcStats(f));
-  renderChart(f);
-  renderTable(f);
+  const base = filterTrades();
+  updateStats(calcStats(base));
+  renderChart();
+  renderTable();
+  renderLegend();
   updateLabel();
+}
+
+// ── Event handlers ──
+function setMode(btn) {
+  document.querySelectorAll('[data-mode]').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  mode = btn.dataset.mode;
+  document.getElementById('filter-controls').style.display = mode === 'filter' ? '' : 'none';
+  document.getElementById('split-group').style.display     = mode === 'overlay' ? 'flex' : 'none';
+  hiddenCurves.clear();
+  update();
+}
+
+function setSplit(btn) {
+  document.querySelectorAll('[data-split]').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  splitBy = btn.dataset.split;
+  hiddenCurves.clear();
+  update();
 }
 
 function setDir(btn) {
