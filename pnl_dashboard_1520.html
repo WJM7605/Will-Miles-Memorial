@@ -719,3 +719,90 @@ function updateLabel() {
   if (activeVersion === 'compare') {
     document.getElementById('chart-label').textContent = `Compare v1.5.20 vs v1.5.21 · ${c}`;
   } else if (mode === 'overlay') {
+    const names = { type:'Type (OM / OS)', dir:'Direction (Long / Short)', both:'All Splits' };
+    const vl = VER_LABELS[activeVersion];
+    document.getElementById('chart-label').textContent = `${vl} Overlay — ${names[splitBy]} · ${c}`;
+  } else {
+    const d  = activeDir==='all'?'All':activeDir==='L'?'Long':'Short';
+    const tp = activeType==='all'?'OM+OS':activeType;
+    const vl = VER_LABELS[activeVersion];
+    document.getElementById('chart-label').textContent = `${vl} Equity Curve — ${c} · ${tp} · ${d}`;
+  }
+}
+
+// ── Update all ──
+function update() {
+  // Stats always reflect the active single version (or 1521 in compare)
+  const statsVer = activeVersion === 'compare' ? '1521' : activeVersion;
+  updateStats(calcStats(filterTrades(null, null, statsVer)));
+  renderChart();
+  renderTable();
+  renderLegend();
+  updateLabel();
+}
+
+// ── Event handlers ──
+function setVersion(btn) {
+  document.querySelectorAll('[data-ver]').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeVersion = btn.dataset.ver;
+  hiddenCurves.clear();
+  // In compare mode hide the mode/filter bar (compare IS the overlay)
+  const isCompare = activeVersion === 'compare';
+  document.getElementById('mode-bar').style.display      = isCompare ? 'none' : '';
+  document.getElementById('filter-controls').style.display =
+    isCompare || mode !== 'filter' ? 'none' : '';
+  update();
+}
+
+function setMode(btn) {
+  document.querySelectorAll('[data-mode]').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  mode = btn.dataset.mode;
+  document.getElementById('filter-controls').style.display = mode === 'filter' ? '' : 'none';
+  document.getElementById('split-group').style.display     = mode === 'overlay' ? 'flex' : 'none';
+  hiddenCurves.clear();
+  update();
+}
+
+function setSplit(btn) {
+  document.querySelectorAll('[data-split]').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  splitBy = btn.dataset.split;
+  hiddenCurves.clear();
+  update();
+}
+
+function setDir(btn) {
+  document.querySelectorAll('[data-dir]').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeDir = btn.dataset.dir;
+  update();
+}
+
+function setType(btn) {
+  document.querySelectorAll('[data-type]').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeType = btn.dataset.type;
+  update();
+}
+
+function setContract(btn) {
+  document.querySelectorAll('[data-contract]').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeContract = btn.dataset.contract;
+  update();
+}
+
+function toggleTheme() {
+  const html = document.documentElement;
+  const going = html.dataset.theme === 'dark' ? 'light' : 'dark';
+  html.dataset.theme = going;
+  document.getElementById('theme-icon').textContent  = going === 'dark' ? '☀' : '◑';
+  document.getElementById('theme-label').textContent = going === 'dark' ? 'Light' : 'Dark';
+}
+
+update();
+</script>
+</body>
+</html>
