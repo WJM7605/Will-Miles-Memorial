@@ -161,6 +161,19 @@ tr:last-child td{border-bottom:none}
     <button class='fbtn' data-type='OS' onclick='setType(this)'>OS</button>
   </div>
 </div>
+<div class='filter-bar' style='margin-top:-6px'>
+  <div class='filter-group' style='flex-wrap:wrap'>
+    <span class='filter-label'>Contract</span>
+    <button class='fbtn active' data-contract='all' onclick='setContract(this)'>All</button>
+    <button class='fbtn' data-contract='MES 03-25' onclick='setContract(this)'>MES 03-25</button>
+    <button class='fbtn' data-contract='MES 06-25' onclick='setContract(this)'>MES 06-25</button>
+    <button class='fbtn' data-contract='MES 09-25' onclick='setContract(this)'>MES 09-25</button>
+    <button class='fbtn' data-contract='MES 12-25' onclick='setContract(this)'>MES 12-25</button>
+    <button class='fbtn' data-contract='MES 03-26' onclick='setContract(this)'>MES 03-26</button>
+    <button class='fbtn' data-contract='MES 06-26' onclick='setContract(this)'>MES 06-26</button>
+    <button class='fbtn' data-contract='MES 09-26' onclick='setContract(this)'>MES 09-26</button>
+  </div>
+</div>
 
 <!-- Stats strip -->
 <div class='stat-strip'>
@@ -205,20 +218,17 @@ tr:last-child td{border-bottom:none}
 <script>
 const TRADES = [{"et": "2024-12-13T10:09:00", "xt": "2024-12-13T11:02:00", "p": 89.35, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L83_20241213_100800", "xn": "LCE_Target"}, {"et": "2024-12-23T09:54:00", "xt": "2024-12-23T10:12:00", "p": 83.1, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L91_20241223_095300", "xn": "LCE_Target"}, {"et": "2024-12-24T09:55:00", "xt": "2024-12-24T10:37:00", "p": 93.1, "tp": "OM", "dir": "L", "ins": "MES 03-25", "en": "OriginalManual_Long_L88_20241224_095400", "xn": "LCE_Target"}, {"et": "2024-12-31T10:13:00", "xt": "2024-12-31T10:19:00", "p": -75.65, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L92_20241231_101200", "xn": "Stop loss"}, {"et": "2025-01-10T09:39:00", "xt": "2025-01-10T09:50:00", "p": 78.1, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L94_20250110_093800", "xn": "LCE_Target"}, {"et": "2025-01-14T10:53:00", "xt": "2025-01-14T11:43:00", "p": 125.6, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L95_20250114_105200", "xn": "LCE_Target"}, {"et": "2025-01-28T09:44:00", "xt": "2025-01-28T10:03:00", "p": -63.15, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L88_20250128_094300", "xn": "Stop loss"}, {"et": "2025-01-31T10:32:00", "xt": "2025-01-31T13:20:00", "p": -81.9, "tp": "OM", "dir": "L", "ins": "MES 03-25", "en": "OriginalManual_Long_L84_20250131_103100", "xn": "Stop loss"}, {"et": "2025-02-05T11:41:00", "xt": "2025-02-05T14:10:00", "p": 95.6, "tp": "OM", "dir": "L", "ins": "MES 03-25", "en": "OriginalManual_Long_L87_20250205_114000", "xn": "LCE_Target"}, {"et": "2025-02-20T09:59:00", "xt": "2025-02-20T15:51:00", "p": -70.65, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L84_20250220_095800", "xn": "Stop loss"}, {"et": "2025-02-21T09:43:00", "xt": "2025-02-21T10:26:00", "p": 101.85, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L84_20250221_094200", "xn": "LCE_Target"}, {"et": "2025-02-24T09:55:00", "xt": "2025-02-24T10:05:00", "p": 100.6, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L88_20250224_095400", "xn": "LCE_Target"}, {"et": "2025-03-11T09:37:00", "xt": "2025-03-11T09:38:00", "p": -74.4, "tp": "OS", "dir": "S", "ins": "MES 03-25", "en": "OpeningShort_Short_L106_20250311_093600", "xn": "Stop loss"}, {"et": "2025-03-24T09:47:00", "xt": "2025-03-24T12:08:00", "p": 118.1, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L99_20250324_094600", "xn": "LCE_Target"}, {"et": "2025-03-27T09:40:00", "xt": "2025-03-27T09:50:00", "p": -60.65, "tp": "OS", "dir": "S", "ins": "MES 06-25", "en": "OpeningShort_Short_L102_20250327_093900", "xn": "Stop loss"}, {"et": "2025-03-28T10:07:00", "xt": "2025-03-28T10:14:00", "p": 99.35, "tp": "OS", "dir": "S", "ins": "MES 06-25", "en": "OpeningShort_Short_L103_20250328_100600", "xn": "LCE_Target"}, {"et": "2025-04-16T13:13:00", "xt": "2025-04-16T13:33:00", "p": 73.1, "tp": "OM", "dir": "S", "ins": "MES 06-25", "en": "OriginalManual_Short_L118_20250416_131200", "xn": "LCE_Target"}, {"et": "2025-04-21T09:39:00", "xt": "2025-04-21T10:02:00", "p": 158.1, "tp": "OS", "dir": "S", "ins": "MES 06-25", "en": "OpeningShort_Short_L123_20250421_093800", "xn": "LCE_Target"}, {"et": "2025-04-25T13:08:00", "xt": "2025-04-25T13:29:00", "p": 71.85, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L110_20250425_130700", "xn": "LCE_Target"}, {"et": "2025-04-29T13:42:00", "xt": "2025-04-29T14:06:00", "p": 81.85, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L108_20250429_134100", "xn": "LCE_Target"}, {"et": "2025-05-01T10:47:00", "xt": "2025-05-01T11:17:00", "p": 51.85, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L104_20250501_104600", "xn": "LCE_Target"}, {"et": "2025-05-15T13:06:00", "xt": "2025-05-15T14:16:00", "p": -73.15, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L92_20250515_130500", "xn": "Stop loss"}, {"et": "2025-05-16T13:18:00", "xt": "2025-05-16T15:56:00", "p": 31.85, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L91_20250516_131700", "xn": "LCE_ForceClose"}, {"et": "2025-05-19T11:49:00", "xt": "2025-05-19T13:04:00", "p": 81.85, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L91_20250519_114800", "xn": "LCE_Target"}, {"et": "2025-05-27T11:30:00", "xt": "2025-05-27T12:42:00", "p": 76.85, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L93_20250527_112900", "xn": "LCE_Target"}, {"et": "2025-05-29T09:51:00", "xt": "2025-05-29T09:55:00", "p": -68.15, "tp": "OS", "dir": "S", "ins": "MES 06-25", "en": "OpeningShort_Short_L92_20250529_095000", "xn": "Stop loss"}, {"et": "2025-05-29T10:07:00", "xt": "2025-05-29T10:21:00", "p": 58.1, "tp": "OS", "dir": "S", "ins": "MES 06-25", "en": "OpeningShort_Short_L92_20250529_100600", "xn": "LCE_Target"}, {"et": "2025-06-03T10:05:00", "xt": "2025-06-03T10:09:00", "p": -58.15, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L91_20250603_100400", "xn": "Stop loss"}, {"et": "2025-06-03T10:18:00", "xt": "2025-06-03T11:26:00", "p": 89.35, "tp": "OM", "dir": "L", "ins": "MES 06-25", "en": "OriginalManual_Long_L91_20250603_101700", "xn": "LCE_Target"}, {"et": "2025-06-24T11:04:00", "xt": "2025-06-24T14:03:00", "p": 99.35, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L85_20250624_110300", "xn": "LCE_Target"}, {"et": "2025-06-26T10:33:00", "xt": "2025-06-26T15:56:00", "p": 73.1, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L83_20250626_103200", "xn": "LCE_ForceClose"}, {"et": "2025-06-27T10:11:00", "xt": "2025-06-27T13:47:00", "p": -60.65, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L81_20250627_101000", "xn": "Stop loss"}, {"et": "2025-07-03T10:39:00", "xt": "2025-07-04T00:26:00", "p": -81.9, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L77_20250703_103800", "xn": "Stop loss"}, {"et": "2025-07-07T10:55:00", "xt": "2025-07-07T12:22:00", "p": 98.1, "tp": "OS", "dir": "S", "ins": "MES 09-25", "en": "OpeningShort_Short_L78_20250707_105400", "xn": "LCE_Target"}, {"et": "2025-07-08T10:57:00", "xt": "2025-07-08T11:11:00", "p": -78.15, "tp": "OM", "dir": "S", "ins": "MES 09-25", "en": "OriginalManual_Short_L79_20250708_105600", "xn": "Stop loss"}, {"et": "2025-07-10T11:05:00", "xt": "2025-07-10T15:56:00", "p": 19.35, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L77_20250710_110400", "xn": "LCE_ForceClose"}, {"et": "2025-07-23T13:47:00", "xt": "2025-07-23T15:56:00", "p": 39.35, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L74_20250723_134600", "xn": "LCE_ForceClose"}, {"et": "2025-07-29T10:54:00", "xt": "2025-07-29T11:43:00", "p": 93.1, "tp": "OS", "dir": "S", "ins": "MES 09-25", "en": "OpeningShort_Short_L72_20250729_105300", "xn": "LCE_Target"}, {"et": "2025-07-31T11:00:00", "xt": "2025-07-31T13:29:00", "p": 93.1, "tp": "OS", "dir": "S", "ins": "MES 09-25", "en": "OpeningShort_Short_L72_20250731_105900", "xn": "LCE_Target"}, {"et": "2025-08-05T10:19:00", "xt": "2025-08-05T10:45:00", "p": 101.85, "tp": "OS", "dir": "S", "ins": "MES 09-25", "en": "OpeningShort_Short_L75_20250805_101800", "xn": "LCE_Target"}, {"et": "2025-08-07T10:57:00", "xt": "2025-08-07T12:45:00", "p": 100.6, "tp": "OS", "dir": "S", "ins": "MES 09-25", "en": "OpeningShort_Short_L74_20250807_105600", "xn": "LCE_Target"}, {"et": "2025-08-12T11:07:00", "xt": "2025-08-12T14:21:00", "p": 98.1, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L71_20250812_110600", "xn": "LCE_Target"}, {"et": "2025-08-13T09:49:00", "xt": "2025-08-13T10:29:00", "p": -86.9, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L69_20250813_094800", "xn": "Stop loss"}, {"et": "2025-08-20T09:58:00", "xt": "2025-08-20T10:43:00", "p": 83.1, "tp": "OS", "dir": "S", "ins": "MES 09-25", "en": "OpeningShort_Short_L73_20250820_095700", "xn": "LCE_Target"}, {"et": "2025-08-29T09:52:00", "xt": "2025-08-29T10:10:00", "p": 99.35, "tp": "OS", "dir": "S", "ins": "MES 09-25", "en": "OpeningShort_Short_L69_20250829_095100", "xn": "LCE_Target"}, {"et": "2025-09-04T11:56:00", "xt": "2025-09-04T15:46:00", "p": 89.35, "tp": "OM", "dir": "L", "ins": "MES 09-25", "en": "OriginalManual_Long_L69_20250904_115500", "xn": "LCE_Target"}, {"et": "2025-09-05T10:30:00", "xt": "2025-09-05T11:01:00", "p": 96.85, "tp": "OS", "dir": "S", "ins": "MES 09-25", "en": "OpeningShort_Short_L69_20250905_102900", "xn": "LCE_Target"}, {"et": "2025-09-22T10:59:00", "xt": "2025-09-22T13:34:00", "p": 78.1, "tp": "OM", "dir": "L", "ins": "MES 12-25", "en": "OriginalManual_Long_L60_20250922_105800", "xn": "LCE_Target"}, {"et": "2025-09-24T11:36:00", "xt": "2025-09-24T12:00:00", "p": 90.6, "tp": "OM", "dir": "S", "ins": "MES 12-25", "en": "OriginalManual_Short_L61_20250924_113500", "xn": "LCE_Target"}, {"et": "2025-10-01T13:08:00", "xt": "2025-10-01T14:37:00", "p": 71.85, "tp": "OM", "dir": "L", "ins": "MES 12-25", "en": "OriginalManual_Long_L59_20251001_130700", "xn": "LCE_Target"}, {"et": "2025-10-03T10:39:00", "xt": "2025-10-03T13:05:00", "p": -69.4, "tp": "OM", "dir": "L", "ins": "MES 12-25", "en": "OriginalManual_Long_L57_20251003_103800", "xn": "Stop loss"}, {"et": "2025-10-09T10:23:00", "xt": "2025-10-09T13:00:00", "p": 85.6, "tp": "OS", "dir": "S", "ins": "MES 12-25", "en": "OpeningShort_Short_L57_20251009_102200", "xn": "LCE_Target"}, {"et": "2025-10-15T09:47:00", "xt": "2025-10-15T09:49:00", "p": -69.4, "tp": "OM", "dir": "L", "ins": "MES 12-25", "en": "OriginalManual_Long_L59_20251015_094600", "xn": "Stop loss"}, {"et": "2025-10-15T09:55:00", "xt": "2025-10-15T10:08:00", "p": 88.1, "tp": "OM", "dir": "L", "ins": "MES 12-25", "en": "OriginalManual_Long_L59_20251015_095400", "xn": "LCE_Target"}, {"et": "2025-10-22T10:31:00", "xt": "2025-10-22T11:25:00", "p": 71.85, "tp": "OS", "dir": "S", "ins": "MES 12-25", "en": "OpeningShort_Short_L58_20251022_103000", "xn": "LCE_Target"}, {"et": "2025-10-30T09:37:00", "xt": "2025-10-30T09:49:00", "p": -76.9, "tp": "OS", "dir": "S", "ins": "MES 12-25", "en": "OpeningShort_Short_L52_20251030_093600", "xn": "Stop loss"}, {"et": "2025-10-31T09:47:00", "xt": "2025-10-31T10:45:00", "p": -78.15, "tp": "OS", "dir": "S", "ins": "MES 12-25", "en": "OpeningShort_Short_L52_20251031_094600", "xn": "Stop loss"}, {"et": "2025-10-31T11:41:00", "xt": "2025-10-31T12:11:00", "p": 76.85, "tp": "OM", "dir": "S", "ins": "MES 12-25", "en": "OriginalManual_Short_L52_20251031_114000", "xn": "LCE_Target"}, {"et": "2025-11-03T10:28:00", "xt": "2025-11-03T10:45:00", "p": -81.9, "tp": "OS", "dir": "S", "ins": "MES 12-25", "en": "OpeningShort_Short_L53_20251103_102700", "xn": "Stop loss"}, {"et": "2025-11-06T10:01:00", "xt": "2025-11-06T10:06:00", "p": 78.1, "tp": "OS", "dir": "S", "ins": "MES 12-25", "en": "OpeningShort_Short_L56_20251106_100000", "xn": "LCE_Target"}, {"et": "2025-11-17T13:54:00", "xt": "2025-11-17T14:00:00", "p": 84.35, "tp": "OM", "dir": "S", "ins": "MES 12-25", "en": "OriginalManual_Short_L59_20251117_135300", "xn": "LCE_Target"}, {"et": "2025-11-26T11:12:00", "xt": "2025-11-26T11:45:00", "p": 73.1, "tp": "OM", "dir": "L", "ins": "MES 12-25", "en": "OriginalManual_Long_L54_20251126_111100", "xn": "LCE_Target"}, {"et": "2025-11-28T10:52:00", "xt": "2025-11-30T19:26:00", "p": -76.9, "tp": "OM", "dir": "L", "ins": "MES 12-25", "en": "OriginalManual_Long_L53_20251128_105100", "xn": "Stop loss"}, {"et": "2025-12-03T09:55:00", "xt": "2025-12-03T10:00:00", "p": -50.65, "tp": "OS", "dir": "S", "ins": "MES 12-25", "en": "OpeningShort_Short_L54_20251203_095400", "xn": "Stop loss"}, {"et": "2025-12-08T10:30:00", "xt": "2025-12-08T12:04:00", "p": 86.85, "tp": "OS", "dir": "S", "ins": "MES 12-25", "en": "OpeningShort_Short_L52_20251208_102900", "xn": "LCE_Target"}, {"et": "2025-12-12T10:18:00", "xt": "2025-12-12T10:30:00", "p": 81.85, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L49_20251212_101700", "xn": "LCE_Target"}, {"et": "2025-12-15T09:58:00", "xt": "2025-12-15T10:17:00", "p": 85.6, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L53_20251215_095700", "xn": "LCE_Target"}, {"et": "2025-12-16T10:27:00", "xt": "2025-12-16T10:31:00", "p": -68.15, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L55_20251216_102600", "xn": "Stop loss"}, {"et": "2025-12-17T09:40:00", "xt": "2025-12-17T10:37:00", "p": 90.6, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L54_20251217_093900", "xn": "LCE_Target"}, {"et": "2025-12-19T11:13:00", "xt": "2025-12-19T15:56:00", "p": 20.6, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L53_20251219_111200", "xn": "LCE_ForceClose"}, {"et": "2025-12-23T11:44:00", "xt": "2025-12-23T15:56:00", "p": 58.1, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L50_20251223_114300", "xn": "LCE_ForceClose"}, {"et": "2025-12-24T10:17:00", "xt": "2025-12-24T12:09:00", "p": 66.85, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L49_20251224_101600", "xn": "LCE_Target"}, {"et": "2025-12-26T09:43:00", "xt": "2025-12-26T10:02:00", "p": -64.4, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L48_20251226_094200", "xn": "Stop loss"}, {"et": "2025-12-31T10:57:00", "xt": "2025-12-31T13:45:00", "p": -78.15, "tp": "OM", "dir": "S", "ins": "MES 03-26", "en": "OriginalManual_Short_L51_20251231_105600", "xn": "Stop loss"}, {"et": "2026-01-02T09:38:00", "xt": "2026-01-02T09:49:00", "p": -46.9, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L51_20260102_093700", "xn": "Stop loss"}, {"et": "2026-01-02T10:15:00", "xt": "2026-01-02T10:23:00", "p": 86.85, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L51_20260102_101400", "xn": "LCE_Target"}, {"et": "2026-01-09T10:24:00", "xt": "2026-01-09T11:15:00", "p": 64.35, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L48_20260109_102300", "xn": "LCE_Target"}, {"et": "2026-01-12T11:14:00", "xt": "2026-01-12T14:33:00", "p": 81.85, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L47_20260112_111300", "xn": "LCE_Target"}, {"et": "2026-01-14T09:47:00", "xt": "2026-01-14T10:02:00", "p": 64.35, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L49_20260114_094600", "xn": "LCE_Target"}, {"et": "2026-01-16T10:03:00", "xt": "2026-01-16T10:44:00", "p": 71.85, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L48_20260116_100200", "xn": "LCE_Target"}, {"et": "2026-01-20T13:24:00", "xt": "2026-01-20T13:51:00", "p": 79.35, "tp": "OM", "dir": "S", "ins": "MES 03-26", "en": "OriginalManual_Short_L53_20260120_132300", "xn": "LCE_Target"}, {"et": "2026-01-26T10:15:00", "xt": "2026-01-26T13:31:00", "p": 63.1, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L48_20260126_101400", "xn": "LCE_Target"}, {"et": "2026-01-27T11:21:00", "xt": "2026-01-27T13:02:00", "p": -70.65, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L46_20260127_112000", "xn": "Stop loss"}, {"et": "2026-01-29T09:45:00", "xt": "2026-01-29T09:49:00", "p": 33.1, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L47_20260129_094400", "xn": "LCE_Target"}, {"et": "2026-02-03T09:59:00", "xt": "2026-02-03T10:04:00", "p": 79.35, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L47_20260203_095800", "xn": "LCE_Target"}, {"et": "2026-02-12T10:11:00", "xt": "2026-02-12T10:17:00", "p": -59.4, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L48_20260212_101000", "xn": "Stop loss"}, {"et": "2026-02-12T10:35:00", "xt": "2026-02-12T10:43:00", "p": 78.1, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L48_20260212_103400", "xn": "LCE_Target"}, {"et": "2026-02-18T11:08:00", "xt": "2026-02-18T13:43:00", "p": -74.4, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L50_20260218_110700", "xn": "Stop loss"}, {"et": "2026-02-20T11:57:00", "xt": "2026-02-20T12:08:00", "p": -65.65, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L50_20260220_115600", "xn": "Stop loss"}, {"et": "2026-02-23T10:37:00", "xt": "2026-02-23T11:01:00", "p": 75.6, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L52_20260223_103600", "xn": "LCE_Target"}, {"et": "2026-02-25T09:38:00", "xt": "2026-02-25T13:03:00", "p": 74.35, "tp": "OM", "dir": "L", "ins": "MES 03-26", "en": "OriginalManual_Long_L49_20260225_093700", "xn": "LCE_Target"}, {"et": "2026-02-26T10:17:00", "xt": "2026-02-26T10:20:00", "p": 61.85, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L50_20260226_101600", "xn": "LCE_Target"}, {"et": "2026-03-05T10:24:00", "xt": "2026-03-05T10:32:00", "p": 114.35, "tp": "OS", "dir": "S", "ins": "MES 03-26", "en": "OpeningShort_Short_L53_20260305_102300", "xn": "LCE_Target"}, {"et": "2026-03-26T09:37:00", "xt": "2026-03-26T09:45:00", "p": -70.65, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L66_20260326_093600", "xn": "Stop loss"}, {"et": "2026-03-26T11:48:00", "xt": "2026-03-26T12:30:00", "p": 123.1, "tp": "OM", "dir": "S", "ins": "MES 06-26", "en": "OriginalManual_Short_L66_20260326_114700", "xn": "LCE_Target"}, {"et": "2026-04-07T10:02:00", "xt": "2026-04-07T10:10:00", "p": 90.6, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L65_20260407_100100", "xn": "LCE_Target"}, {"et": "2026-04-09T11:21:00", "xt": "2026-04-09T11:50:00", "p": 95.6, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L55_20260409_112000", "xn": "LCE_Target"}, {"et": "2026-04-15T10:24:00", "xt": "2026-04-15T13:38:00", "p": 80.6, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L46_20260415_102300", "xn": "LCE_Target"}, {"et": "2026-04-23T10:54:00", "xt": "2026-04-23T13:02:00", "p": -69.4, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L39_20260423_105300", "xn": "Stop loss"}, {"et": "2026-04-24T11:05:00", "xt": "2026-04-24T11:46:00", "p": 90.6, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L39_20260424_110400", "xn": "LCE_Target"}, {"et": "2026-04-28T10:36:00", "xt": "2026-04-28T10:53:00", "p": 64.35, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L39_20260428_103500", "xn": "LCE_Target"}, {"et": "2026-04-30T10:12:00", "xt": "2026-04-30T10:23:00", "p": -65.65, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L39_20260430_101100", "xn": "Stop loss"}, {"et": "2026-04-30T13:31:00", "xt": "2026-04-30T14:02:00", "p": 93.1, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L37_20260430_133000", "xn": "LCE_Target"}, {"et": "2026-05-01T09:57:00", "xt": "2026-05-01T10:02:00", "p": 46.85, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L34_20260501_095600", "xn": "LCE_Target"}, {"et": "2026-05-05T09:53:00", "xt": "2026-05-05T14:14:00", "p": 89.35, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L34_20260505_095200", "xn": "LCE_Target"}, {"et": "2026-05-08T10:01:00", "xt": "2026-05-08T15:56:00", "p": 34.35, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L28_20260508_100000", "xn": "LCE_ForceClose"}, {"et": "2026-05-11T10:16:00", "xt": "2026-05-11T10:33:00", "p": -73.15, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L27_20260511_101500", "xn": "Stop loss"}, {"et": "2026-05-11T10:45:00", "xt": "2026-05-11T13:45:00", "p": 83.1, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L27_20260511_104400", "xn": "LCE_Target"}, {"et": "2026-05-12T10:34:00", "xt": "2026-05-12T10:44:00", "p": -74.4, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L29_20260512_103300", "xn": "Stop loss"}, {"et": "2026-05-12T10:53:00", "xt": "2026-05-12T11:26:00", "p": 80.6, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L29_20260512_105200", "xn": "LCE_Target"}, {"et": "2026-05-13T09:49:00", "xt": "2026-05-13T10:08:00", "p": -80.65, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L28_20260513_094800", "xn": "Stop loss"}, {"et": "2026-05-14T09:43:00", "xt": "2026-05-14T10:48:00", "p": 74.35, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L24_20260514_094200", "xn": "LCE_Target"}, {"et": "2026-05-19T09:44:00", "xt": "2026-05-19T09:55:00", "p": -79.4, "tp": "OM", "dir": "S", "ins": "MES 06-26", "en": "OriginalManual_Short_L29_20260519_094300", "xn": "Stop loss"}, {"et": "2026-05-20T10:15:00", "xt": "2026-05-20T10:15:00", "p": -66.9, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L29_20260520_101400", "xn": "Stop loss"}, {"et": "2026-05-22T13:30:00", "xt": "2026-05-22T13:55:00", "p": -45.65, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L23_20260522_132900", "xn": "Stop loss"}, {"et": "2026-05-29T09:43:00", "xt": "2026-05-29T10:27:00", "p": -73.15, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L19_20260529_094200", "xn": "Stop loss"}, {"et": "2026-05-29T11:15:00", "xt": "2026-05-29T13:46:00", "p": -65.65, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L19_20260529_111400", "xn": "Stop loss"}, {"et": "2026-06-02T10:53:00", "xt": "2026-06-02T15:56:00", "p": 5.6, "tp": "OM", "dir": "L", "ins": "MES 06-26", "en": "OriginalManual_Long_L18_20260602_105200", "xn": "LCE_ForceClose"}, {"et": "2026-06-03T09:46:00", "xt": "2026-06-03T09:50:00", "p": 76.85, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L19_20260603_094500", "xn": "LCE_Target"}, {"et": "2026-06-05T09:44:00", "xt": "2026-06-05T10:00:00", "p": 91.85, "tp": "OS", "dir": "S", "ins": "MES 06-26", "en": "OpeningShort_Short_L22_20260605_094300", "xn": "LCE_Target"}, {"et": "2026-06-17T10:43:00", "xt": "2026-06-17T10:47:00", "p": -45.65, "tp": "OS", "dir": "S", "ins": "MES 09-26", "en": "OpeningShort_Short_L22_20260617_104200", "xn": "Stop loss"}, {"et": "2026-06-22T10:57:00", "xt": "2026-06-22T10:59:00", "p": -56.9, "tp": "OS", "dir": "S", "ins": "MES 09-26", "en": "OpeningShort_Short_L24_20260622_105600", "xn": "Stop loss"}, {"et": "2026-06-25T09:47:00", "xt": "2026-06-25T09:48:00", "p": 38.1, "tp": "OS", "dir": "S", "ins": "MES 09-26", "en": "OpeningShort_Short_L28_20260625_094600", "xn": "LCE_Target"}, {"et": "2026-06-29T09:56:00", "xt": "2026-06-29T09:56:00", "p": -55.65, "tp": "OM", "dir": "L", "ins": "MES 09-26", "en": "OriginalManual_Long_L26_20260629_095500", "xn": "Stop loss"}, {"et": "2026-06-29T13:07:00", "xt": "2026-06-29T14:37:00", "p": 73.1, "tp": "OM", "dir": "L", "ins": "MES 09-26", "en": "OriginalManual_Long_L26_20260629_130600", "xn": "LCE_Target"}, {"et": "2026-06-30T10:23:00", "xt": "2026-06-30T11:49:00", "p": 83.1, "tp": "OM", "dir": "L", "ins": "MES 09-26", "en": "OriginalManual_Long_L24_20260630_102200", "xn": "LCE_Target"}, {"et": "2026-07-01T10:32:00", "xt": "2026-07-01T11:17:00", "p": 90.6, "tp": "OM", "dir": "L", "ins": "MES 09-26", "en": "OriginalManual_Long_L23_20260701_103100", "xn": "LCE_Target"}, {"et": "2026-07-02T09:39:00", "xt": "2026-07-02T09:51:00", "p": 71.85, "tp": "OM", "dir": "L", "ins": "MES 09-26", "en": "OriginalManual_Long_L22_20260702_093800", "xn": "LCE_Target"}, {"et": "2026-07-06T13:09:00", "xt": "2026-07-06T13:41:00", "p": -71.9, "tp": "OM", "dir": "L", "ins": "MES 09-26", "en": "OriginalManual_Long_L21_20260706_130800", "xn": "Stop loss"}, {"et": "2026-07-07T09:59:00", "xt": "2026-07-07T10:17:00", "p": 85.6, "tp": "OS", "dir": "S", "ins": "MES 09-26", "en": "OpeningShort_Short_L22_20260707_095800", "xn": "LCE_Target"}, {"et": "2026-07-08T11:07:00", "xt": "2026-07-08T11:26:00", "p": 85.6, "tp": "OM", "dir": "S", "ins": "MES 09-26", "en": "OriginalManual_Short_L25_20260708_110600", "xn": "LCE_Target"}];
 const BOUNDARIES = [{"idx": 13, "ins": "MES 06-25", "date": "2025-03-24"}, {"idx": 29, "ins": "MES 09-25", "date": "2025-06-24"}, {"idx": 47, "ins": "MES 12-25", "date": "2025-09-22"}, {"idx": 65, "ins": "MES 03-26", "date": "2025-12-12"}, {"idx": 93, "ins": "MES 06-26", "date": "2026-03-26"}, {"idx": 120, "ins": "MES 09-26", "date": "2026-06-17"}];
+const CONTRACTS = ["MES 03-25", "MES 06-25", "MES 09-25", "MES 12-25", "MES 03-26", "MES 06-26", "MES 09-26"];
 
 let activeDir = 'all';
 let activeType = 'all';
+let activeContract = 'all';
 
 const X0 = 56, X1 = 888, Y0 = 22, Y1 = 312;
 const W = X1 - X0, H = Y1 - Y0;
 
 const gMinTs = new Date(TRADES[0].xt).getTime();
 const gMaxTs = new Date(TRADES[TRADES.length - 1].xt).getTime();
-const gRange = gMaxTs - gMinTs || 1;
-
-function dateToX(s) {
-  return X0 + ((new Date(s).getTime() - gMinTs) / gRange) * W;
-}
 
 function fmt$(v) {
   const a = Math.abs(v);
@@ -229,7 +239,8 @@ function fmt$(v) {
 function filterTrades() {
   return TRADES.filter(t =>
     (activeDir === 'all' || t.dir === activeDir) &&
-    (activeType === 'all' || t.tp === activeType)
+    (activeType === 'all' || t.tp === activeType) &&
+    (activeContract === 'all' || t.ins === activeContract)
   );
 }
 
@@ -255,28 +266,43 @@ function updateStats(s) {
   document.getElementById('st-pf').textContent  = s.n ? (isFinite(s.pf) ? s.pf.toFixed(2) : '∞') : '—';
 }
 
-function buildPts(filtered) {
+function buildPts(filtered, toX) {
   if (!filtered.length) return [];
-  const pts = [{ x: dateToX(filtered[0].xt), y: 0 }];
+  const pts = [{ x: toX(filtered[0].xt), y: 0 }];
   let cum = 0;
   for (const t of filtered) {
     cum += t.p;
-    pts.push({ x: dateToX(t.xt), y: cum });
+    pts.push({ x: toX(t.xt), y: cum });
   }
   return pts;
 }
 
 function renderChart(filtered) {
   const svg = document.getElementById('chart');
-  const pts = buildPts(filtered);
+
+  // ── X-axis range: zoom to contract if one is selected ──
+  let xMinTs, xMaxTs;
+  if (activeContract !== 'all' && filtered.length) {
+    const ts = filtered.map(t => new Date(t.xt).getTime());
+    const span = Math.max(...ts) - Math.min(...ts) || 86400000;
+    xMinTs = Math.min(...ts) - span * 0.06;
+    xMaxTs = Math.max(...ts) + span * 0.06;
+  } else {
+    xMinTs = gMinTs;
+    xMaxTs = gMaxTs;
+  }
+  const xRange = xMaxTs - xMinTs || 1;
+  function toX(s) { return X0 + ((new Date(s).getTime() - xMinTs) / xRange) * W; }
+
+  // ── Y-axis ──
+  const pts = buildPts(filtered, toX);
   const yVals = pts.map(p => p.y);
   const rawMin = yVals.length ? Math.min(...yVals) : 0;
   const rawMax = yVals.length ? Math.max(...yVals) : 100;
   const pad = (rawMax - rawMin) * 0.12 || 60;
   const minY = rawMin - pad, maxY = rawMax + pad;
-  const range = maxY - minY || 1;
-
-  function sy(v) { return Y1 - ((v - minY) / range) * H; }
+  const yRange = maxY - minY || 1;
+  function sy(v) { return Y1 - ((v - minY) / yRange) * H; }
 
   const zeroY = sy(0);
   const zeroInView = zeroY >= Y0 && zeroY <= Y1;
@@ -284,7 +310,7 @@ function renderChart(filtered) {
   // Grid
   let out = '';
   for (let i = 0; i <= 5; i++) {
-    const v = minY + (range / 5) * i;
+    const v = minY + (yRange / 5) * i;
     const y = sy(v).toFixed(1);
     out += `<line class='grid' x1='${X0}' y1='${y}' x2='${X1}' y2='${y}'/>`;
     out += `<text class='axis' x='${X0-4}' y='${(parseFloat(y)+4).toFixed(1)}' text-anchor='end'>${fmt$(v)}</text>`;
@@ -293,21 +319,26 @@ function renderChart(filtered) {
   // Zero line
   if (zeroInView) out += `<line class='zero-line' x1='${X0}' y1='${zeroY.toFixed(1)}' x2='${X1}' y2='${zeroY.toFixed(1)}'/>`;
 
-  // Contract flip lines
+  // Contract flip lines — only those whose date falls within the visible x range
   for (const b of BOUNDARIES) {
-    const x = dateToX(b.date + 'T12:00:00').toFixed(1);
+    const bTs = new Date(b.date + 'T12:00:00').getTime();
+    if (bTs < xMinTs || bTs > xMaxTs) continue;
+    const x = toX(b.date + 'T12:00:00').toFixed(1);
     out += `<line class='contract-line' x1='${x}' y1='${Y0}' x2='${x}' y2='${Y1}'/>`;
     out += `<text class='contract-label' x='${(parseFloat(x)+4).toFixed(1)}' y='${Y0+10}'>${b.ins}</text>`;
   }
 
-  // X-axis dates
-  out += `<text class='axis' x='${X0}' y='${Y1+18}' text-anchor='start'>${TRADES[0].xt.slice(0,10)}</text>`;
-  out += `<text class='axis' x='${X1}' y='${Y1+18}' text-anchor='end'>${TRADES[TRADES.length-1].xt.slice(0,10)}</text>`;
+  // X-axis date labels — show the actual visible range
+  const xStartLabel = new Date(xMinTs).toISOString().slice(0,10);
+  const xEndLabel   = new Date(xMaxTs).toISOString().slice(0,10);
+  out += `<text class='axis' x='${X0}' y='${Y1+18}' text-anchor='start'>${xStartLabel}</text>`;
+  out += `<text class='axis' x='${X1}' y='${Y1+18}' text-anchor='end'>${xEndLabel}</text>`;
 
-  // Fill area under curve
+  // Fill + curve
   if (pts.length > 1) {
     const lineD = pts.map((p,i) => (i?'L':'M') + p.x.toFixed(1) + ',' + sy(p.y).toFixed(1)).join(' ');
-    const fillD = lineD + ` L${pts[pts.length-1].x.toFixed(1)},${zeroInView ? zeroY.toFixed(1) : Y1} L${pts[0].x.toFixed(1)},${zeroInView ? zeroY.toFixed(1) : Y1} Z`;
+    const fy = (zeroInView ? zeroY : Y1).toFixed(1);
+    const fillD = lineD + ` L${pts[pts.length-1].x.toFixed(1)},${fy} L${pts[0].x.toFixed(1)},${fy} Z`;
     out += `<path class='eq-fill' d='${fillD}'/>`;
     out += `<path class='eq-curve' d='${lineD}'/>`;
   }
@@ -316,12 +347,9 @@ function renderChart(filtered) {
   let cum = 0;
   for (const t of filtered) {
     cum += t.p;
-    const cx = dateToX(t.xt).toFixed(1);
-    const cy = sy(cum).toFixed(1);
-    out += `<circle class='dot-${t.p > 0 ? "win" : "loss"}' cx='${cx}' cy='${cy}' r='3.2' opacity='0.75'/>`;
+    out += `<circle class='dot-${t.p>0?"win":"loss"}' cx='${toX(t.xt).toFixed(1)}' cy='${sy(cum).toFixed(1)}' r='3.2' opacity='0.75'/>`;
   }
 
-  // Preserve <defs>
   const defs = svg.querySelector('defs');
   svg.innerHTML = '';
   if (defs) svg.appendChild(defs);
@@ -352,9 +380,10 @@ function renderTable(filtered) {
 }
 
 function updateLabel() {
-  const d = activeDir==='all'?'All Directions':activeDir==='L'?'Longs':'Shorts';
-  const tp = activeType==='all'?'OM + OS':activeType;
-  document.getElementById('chart-label').textContent = `Equity Curve — ${tp} · ${d}`;
+  const d  = activeDir==='all'?'All':activeDir==='L'?'Long':'Short';
+  const tp = activeType==='all'?'OM+OS':activeType;
+  const c  = activeContract==='all'?'All Contracts':activeContract;
+  document.getElementById('chart-label').textContent = `Equity Curve — ${c} · ${tp} · ${d}`;
 }
 
 function update() {
@@ -376,6 +405,13 @@ function setType(btn) {
   document.querySelectorAll('[data-type]').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   activeType = btn.dataset.type;
+  update();
+}
+
+function setContract(btn) {
+  document.querySelectorAll('[data-contract]').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeContract = btn.dataset.contract;
   update();
 }
 
