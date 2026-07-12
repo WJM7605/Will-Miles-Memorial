@@ -759,10 +759,10 @@ pre, code {
 //               open APLUS position window (32 LCE trades blocked)
 const DATA = {
   configs: [
-    { label: 'LCE Only',              color: '#F5A623', trades: 129, wins:  89, losses: 40, wr: 69.0, pnl:  4348.6, pf: 2.59, maxDD:  -337.1 },
-    { label: 'MES_Aplus Only',        color: '#3DBFBF', trades:  99, wins:  70, losses: 29, wr: 70.7, pnl:  3531.2, pf: 3.15, maxDD:  -195.0 },
-    { label: 'Combined — Concurrent', color: '#7B6FD4', trades: 228, wins: 159, losses: 69, wr: 69.7, pnl:  7879.9, pf: 2.80, maxDD:  -371.5 },
-    { label: 'MES_Aplus Priority',    color: '#5CAD75', trades: 196, wins: 132, losses: 64, wr: 67.3, pnl:  6044.5, pf: 2.50, maxDD:  -448.3 },
+    { label: 'LCE Only',              color: '#F5A623', trades: 129, wins:  89, losses: 40, wr: 69.0, pnl:  4348.6, pf: 2.59, maxDD:  -337.1, maxCW:  7, maxCL: 5 },
+    { label: 'MES_Aplus Only',        color: '#3DBFBF', trades:  99, wins:  70, losses: 29, wr: 70.7, pnl:  3531.2, pf: 3.15, maxDD:  -195.0, maxCW:  8, maxCL: 3 },
+    { label: 'Combined — Concurrent', color: '#7B6FD4', trades: 228, wins: 159, losses: 69, wr: 69.7, pnl:  7879.9, pf: 2.80, maxDD:  -371.5, maxCW: 10, maxCL: 4 },
+    { label: 'MES_Aplus Priority',    color: '#5CAD75', trades: 196, wins: 132, losses: 64, wr: 67.3, pnl:  6044.5, pf: 2.50, maxDD:  -448.3, maxCW: 10, maxCL: 4 },
   ]
 };
 // ─────────────────────────────────────────────────────────────────────
@@ -781,12 +781,14 @@ function cnt(v)  { return v === null ? '—' : String(v); }
 var grid = document.getElementById('results-grid');
 DATA.configs.forEach(function(cfg) {
   var fields = [
-    { l: 'Trades',       v: cnt(cfg.trades),                        raw: cfg.trades },
-    { l: 'W / L',        v: cfg.wins + 'W / ' + cfg.losses + 'L',  raw: cfg.trades },
-    { l: 'Win Rate',     v: pct(cfg.wr),                            raw: cfg.wr     },
-    { l: 'Total PnL',    v: $fmt(cfg.pnl),                          raw: cfg.pnl    },
-    { l: 'Prof. Factor', v: pfmt(cfg.pf),                           raw: cfg.pf     },
-    { l: 'Max DD',       v: $fmt(cfg.maxDD),                        raw: cfg.maxDD  },
+    { l: 'Trades',        v: cnt(cfg.trades),                        raw: cfg.trades },
+    { l: 'W / L',         v: cfg.wins + 'W / ' + cfg.losses + 'L',  raw: cfg.trades },
+    { l: 'Win Rate',      v: pct(cfg.wr),                            raw: cfg.wr     },
+    { l: 'Total PnL',     v: $fmt(cfg.pnl),                          raw: cfg.pnl    },
+    { l: 'Prof. Factor',  v: pfmt(cfg.pf),                           raw: cfg.pf     },
+    { l: 'Max DD',        v: $fmt(cfg.maxDD),                        raw: cfg.maxDD  },
+    { l: 'Max Consec. W', v: cnt(cfg.maxCW),                         raw: cfg.maxCW  },
+    { l: 'Max Consec. L', v: cnt(cfg.maxCL),                         raw: cfg.maxCL  },
   ];
   var statsHtml = fields.map(function(s) {
     return '<div class="result-stat"><div class="rs-label">' + s.l + '</div>'
@@ -852,10 +854,26 @@ function drawEquityCurve(canvasId) {
   var ML = 68, MR = 16, MT = 16, MB = 34;
   var cW = cssW - ML - MR, cH = cssH - MT - MB;
 
-  var xMin = new Date('2025-01-02').getTime();
+  var xMin = new Date('2025-01-01').getTime();
   var xMax = new Date('2026-07-09').getTime();
-  var allVals = Object.keys(CURVES).reduce(function(acc, k) {
-    return acc.concat(CURVES[k].map(function(p){ return p[1]; }));
+
+  // Build offset curves: each resets to $0 on 2025-01-01, then accumulates from trades after that
+  var keys = ['lce', 'aplus', 'concurrent', 'priority'];
+  var offsetCurves = {};
+  keys.forEach(function(key) {
+    var pts = CURVES[key];
+    var priorVal = 0;
+    pts.forEach(function(pt) {
+      if (new Date(pt[0]).getTime() < xMin) priorVal = pt[1];
+    });
+    offsetCurves[key] = [['2025-01-01', 0]].concat(
+      pts.filter(function(pt) { return new Date(pt[0]).getTime() >= xMin; })
+         .map(function(pt) { return [pt[0], pt[1] - priorVal]; })
+    );
+  });
+
+  var allVals = keys.reduce(function(acc, k) {
+    return acc.concat(offsetCurves[k].map(function(p){ return p[1]; }));
   }, []);
   var yMax = Math.max.apply(null, allVals) * 1.08;
   var yMin = Math.min(0, Math.min.apply(null, allVals) - 80);
@@ -884,7 +902,7 @@ function drawEquityCurve(canvasId) {
   }
 
   // X axis ticks + labels
-  var xLabels = [['2025-01-02','Jan 2025'],['2025-07-01','Jul'],['2026-01-01','Jan 2026'],['2026-07-01','Jul']];
+  var xLabels = [['2025-01-01','Jan 2025'],['2025-07-01','Jul'],['2026-01-01','Jan 2026'],['2026-07-01','Jul']];
   ctx.fillStyle = tk.label; ctx.textAlign = 'center'; ctx.textBaseline = 'top';
   ctx.font = '10px \'Helvetica Neue\', Arial, sans-serif';
   xLabels.forEach(function(pair) {
@@ -895,23 +913,11 @@ function drawEquityCurve(canvasId) {
     ctx.fillText(pair[1], x, MT + cH + 6);
   });
 
-  // Draw each curve, clipped to xMin so lines start at the left edge
-  var keys = ['lce', 'aplus', 'concurrent', 'priority'];
+  // Draw each curve starting at $0 on Jan 1 2025
   var colors = DATA.configs.map(function(c){ return c.color; });
   keys.forEach(function(key, i) {
-    var pts = CURVES[key];
+    var visible = offsetCurves[key];
     var color = colors[i];
-
-    // Carry forward the last cumulative value before xMin
-    var priorVal = 0;
-    pts.forEach(function(pt) {
-      if (new Date(pt[0]).getTime() < xMin) priorVal = pt[1];
-    });
-
-    // Synthetic start at xMin then all points within range
-    var visible = [['2025-01-02', priorVal]].concat(
-      pts.filter(function(pt) { return new Date(pt[0]).getTime() >= xMin; })
-    );
 
     ctx.beginPath();
     ctx.strokeStyle = color;
