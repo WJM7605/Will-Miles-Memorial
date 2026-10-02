@@ -1,0 +1,1156 @@
+year,domain,question,entity,pct_favorable,respondents
+2024,Overall,Overall satisfaction with the quality of your medical education,Medical School A,87.1,395
+2024,Overall,Would choose this medical school again,Medical School A,85.3,395
+2024,Overall,Feel prepared to begin residency,Medical School A,87.8,395
+2024,Curriculum,Quality of pre-clinical basic science instruction,Medical School A,82.9,395
+2024,Curriculum,Integration of basic science with clinical medicine,Medical School A,77.7,395
+2024,Curriculum,Quality of teaching by faculty,Medical School A,86.4,395
+2024,Curriculum,Fairness and transparency of assessments,Medical School A,79.7,395
+2024,Curriculum,Support for Step 1 / Step 2 preparation,Medical School A,77.0,395
+2024,Curriculum,Opportunities for research and scholarly activity,Medical School A,79.7,395
+2024,Clerkships,Satisfaction with Internal Medicine clerkship,Medical School A,88.9,395
+2024,Clerkships,Satisfaction with Surgery clerkship,Medical School A,78.9,395
+2024,Clerkships,Satisfaction with Pediatrics clerkship,Medical School A,89.2,395
+2024,Clerkships,Satisfaction with OBGYN clerkship,Medical School A,82.6,395
+2024,Clerkships,Satisfaction with Psychiatry clerkship,Medical School A,86.8,395
+2024,Clerkships,Satisfaction with Family Medicine clerkship,Medical School A,90.3,395
+2024,Clerkships,Satisfaction with Neurology clerkship,Medical School A,82.3,395
+2024,Clerkships,Satisfaction with Emergency Medicine clerkship,Medical School A,88.6,395
+2024,Admin Support,Quality of academic advising,Medical School A,72.6,395
+2024,Admin Support,Quality of residency / career advising,Medical School A,74.3,395
+2024,Admin Support,Responsiveness of registrar and student records,Medical School A,77.7,395
+2024,Admin Support,Accessibility of student affairs deans,Medical School A,77.8,395
+2024,Admin Support,Availability of wellness and mental-health services,Medical School A,70.3,395
+2024,Mistreatment & Climate,Learning environment free from mistreatment,Medical School A,89.8,395
+2024,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Medical School A,71.5,395
+2024,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Medical School A,69.0,395
+2024,Mistreatment & Climate,Faculty and residents model professional behavior,Medical School A,85.7,395
+2024,Mistreatment & Climate,Inclusive and respectful climate for all students,Medical School A,85.0,395
+2024,Facilities,Library and study spaces,Medical School A,89.4,395
+2024,Facilities,Simulation and skills-lab facilities,Medical School A,88.0,395
+2024,Facilities,Technology and IT support,Medical School A,84.8,395
+2024,Facilities,Quality of clinical training sites,Medical School A,85.8,395
+2024,Financial Support,Quality of financial-aid counseling,Medical School A,73.3,395
+2024,Financial Support,Affordability of cost of attendance,Medical School A,48.8,395
+2024,Financial Support,Availability of scholarships,Medical School A,56.1,395
+2024,Financial Support,Education on debt management,Medical School A,67.2,395
+2024,Overall,Overall satisfaction with the quality of your medical education,National Benchmark,84.4,
+2024,Overall,Would choose this medical school again,National Benchmark,82.6,
+2024,Overall,Feel prepared to begin residency,National Benchmark,85.3,
+2024,Curriculum,Quality of pre-clinical basic science instruction,National Benchmark,80.9,
+2024,Curriculum,Integration of basic science with clinical medicine,National Benchmark,76.4,
+2024,Curriculum,Quality of teaching by faculty,National Benchmark,84.2,
+2024,Curriculum,Fairness and transparency of assessments,National Benchmark,78.2,
+2024,Curriculum,Support for Step 1 / Step 2 preparation,National Benchmark,75.0,
+2024,Curriculum,Opportunities for research and scholarly activity,National Benchmark,78.1,
+2024,Clerkships,Satisfaction with Internal Medicine clerkship,National Benchmark,87.5,
+2024,Clerkships,Satisfaction with Surgery clerkship,National Benchmark,79.6,
+2024,Clerkships,Satisfaction with Pediatrics clerkship,National Benchmark,87.7,
+2024,Clerkships,Satisfaction with OBGYN clerkship,National Benchmark,82.0,
+2024,Clerkships,Satisfaction with Psychiatry clerkship,National Benchmark,85.8,
+2024,Clerkships,Satisfaction with Family Medicine clerkship,National Benchmark,88.1,
+2024,Clerkships,Satisfaction with Neurology clerkship,National Benchmark,81.4,
+2024,Clerkships,Satisfaction with Emergency Medicine clerkship,National Benchmark,87.9,
+2024,Admin Support,Quality of academic advising,National Benchmark,75.6,
+2024,Admin Support,Quality of residency / career advising,National Benchmark,78.1,
+2024,Admin Support,Responsiveness of registrar and student records,National Benchmark,82.2,
+2024,Admin Support,Accessibility of student affairs deans,National Benchmark,80.5,
+2024,Admin Support,Availability of wellness and mental-health services,National Benchmark,73.8,
+2024,Mistreatment & Climate,Learning environment free from mistreatment,National Benchmark,88.3,
+2024,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,National Benchmark,71.8,
+2024,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,National Benchmark,68.4,
+2024,Mistreatment & Climate,Faculty and residents model professional behavior,National Benchmark,84.8,
+2024,Mistreatment & Climate,Inclusive and respectful climate for all students,National Benchmark,84.3,
+2024,Facilities,Library and study spaces,National Benchmark,84.4,
+2024,Facilities,Simulation and skills-lab facilities,National Benchmark,82.1,
+2024,Facilities,Technology and IT support,National Benchmark,79.8,
+2024,Facilities,Quality of clinical training sites,National Benchmark,81.2,
+2024,Financial Support,Quality of financial-aid counseling,National Benchmark,77.8,
+2024,Financial Support,Affordability of cost of attendance,National Benchmark,54.4,
+2024,Financial Support,Availability of scholarships,National Benchmark,61.2,
+2024,Financial Support,Education on debt management,National Benchmark,70.9,
+2024,Overall,Overall satisfaction with the quality of your medical education,Campus 1,88.9,109
+2024,Overall,Would choose this medical school again,Campus 1,87.5,109
+2024,Overall,Feel prepared to begin residency,Campus 1,88.7,109
+2024,Curriculum,Quality of pre-clinical basic science instruction,Campus 1,84.6,109
+2024,Curriculum,Integration of basic science with clinical medicine,Campus 1,78.5,109
+2024,Curriculum,Quality of teaching by faculty,Campus 1,87.5,109
+2024,Curriculum,Fairness and transparency of assessments,Campus 1,81.3,109
+2024,Curriculum,Support for Step 1 / Step 2 preparation,Campus 1,77.7,109
+2024,Curriculum,Opportunities for research and scholarly activity,Campus 1,79.9,109
+2024,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 1,90.9,109
+2024,Clerkships,Satisfaction with Surgery clerkship,Campus 1,80.6,109
+2024,Clerkships,Satisfaction with Pediatrics clerkship,Campus 1,88.9,109
+2024,Clerkships,Satisfaction with OBGYN clerkship,Campus 1,85.6,109
+2024,Clerkships,Satisfaction with Psychiatry clerkship,Campus 1,88.3,109
+2024,Clerkships,Satisfaction with Family Medicine clerkship,Campus 1,93.4,109
+2024,Clerkships,Satisfaction with Neurology clerkship,Campus 1,84.8,109
+2024,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 1,88.9,109
+2024,Admin Support,Quality of academic advising,Campus 1,75.2,109
+2024,Admin Support,Quality of residency / career advising,Campus 1,73.9,109
+2024,Admin Support,Responsiveness of registrar and student records,Campus 1,77.2,109
+2024,Admin Support,Accessibility of student affairs deans,Campus 1,78.6,109
+2024,Admin Support,Availability of wellness and mental-health services,Campus 1,69.9,109
+2024,Mistreatment & Climate,Learning environment free from mistreatment,Campus 1,91.7,109
+2024,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 1,72.8,109
+2024,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 1,71.3,109
+2024,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 1,85.8,109
+2024,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 1,86.0,109
+2024,Facilities,Library and study spaces,Campus 1,89.3,109
+2024,Facilities,Simulation and skills-lab facilities,Campus 1,89.0,109
+2024,Facilities,Technology and IT support,Campus 1,87.9,109
+2024,Facilities,Quality of clinical training sites,Campus 1,86.0,109
+2024,Financial Support,Quality of financial-aid counseling,Campus 1,74.0,109
+2024,Financial Support,Affordability of cost of attendance,Campus 1,50.0,109
+2024,Financial Support,Availability of scholarships,Campus 1,56.1,109
+2024,Financial Support,Education on debt management,Campus 1,68.6,109
+2024,Overall,Overall satisfaction with the quality of your medical education,Campus 2,89.2,56
+2024,Overall,Would choose this medical school again,Campus 2,85.0,56
+2024,Overall,Feel prepared to begin residency,Campus 2,89.9,56
+2024,Curriculum,Quality of pre-clinical basic science instruction,Campus 2,82.3,56
+2024,Curriculum,Integration of basic science with clinical medicine,Campus 2,75.1,56
+2024,Curriculum,Quality of teaching by faculty,Campus 2,87.8,56
+2024,Curriculum,Fairness and transparency of assessments,Campus 2,81.7,56
+2024,Curriculum,Support for Step 1 / Step 2 preparation,Campus 2,78.6,56
+2024,Curriculum,Opportunities for research and scholarly activity,Campus 2,81.6,56
+2024,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 2,90.5,56
+2024,Clerkships,Satisfaction with Surgery clerkship,Campus 2,79.5,56
+2024,Clerkships,Satisfaction with Pediatrics clerkship,Campus 2,91.4,56
+2024,Clerkships,Satisfaction with OBGYN clerkship,Campus 2,82.0,56
+2024,Clerkships,Satisfaction with Psychiatry clerkship,Campus 2,86.3,56
+2024,Clerkships,Satisfaction with Family Medicine clerkship,Campus 2,89.5,56
+2024,Clerkships,Satisfaction with Neurology clerkship,Campus 2,84.2,56
+2024,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 2,90.7,56
+2024,Admin Support,Quality of academic advising,Campus 2,70.4,56
+2024,Admin Support,Quality of residency / career advising,Campus 2,76.4,56
+2024,Admin Support,Responsiveness of registrar and student records,Campus 2,79.3,56
+2024,Admin Support,Accessibility of student affairs deans,Campus 2,77.8,56
+2024,Admin Support,Availability of wellness and mental-health services,Campus 2,72.4,56
+2024,Mistreatment & Climate,Learning environment free from mistreatment,Campus 2,92.3,56
+2024,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 2,71.9,56
+2024,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 2,71.0,56
+2024,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 2,89.0,56
+2024,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 2,85.0,56
+2024,Facilities,Library and study spaces,Campus 2,92.2,56
+2024,Facilities,Simulation and skills-lab facilities,Campus 2,90.9,56
+2024,Facilities,Technology and IT support,Campus 2,87.5,56
+2024,Facilities,Quality of clinical training sites,Campus 2,86.0,56
+2024,Financial Support,Quality of financial-aid counseling,Campus 2,71.0,56
+2024,Financial Support,Affordability of cost of attendance,Campus 2,47.7,56
+2024,Financial Support,Availability of scholarships,Campus 2,57.1,56
+2024,Financial Support,Education on debt management,Campus 2,68.3,56
+2024,Overall,Overall satisfaction with the quality of your medical education,Campus 3,86.6,42
+2024,Overall,Would choose this medical school again,Campus 3,85.3,42
+2024,Overall,Feel prepared to begin residency,Campus 3,86.2,42
+2024,Curriculum,Quality of pre-clinical basic science instruction,Campus 3,78.0,42
+2024,Curriculum,Integration of basic science with clinical medicine,Campus 3,77.5,42
+2024,Curriculum,Quality of teaching by faculty,Campus 3,83.4,42
+2024,Curriculum,Fairness and transparency of assessments,Campus 3,78.0,42
+2024,Curriculum,Support for Step 1 / Step 2 preparation,Campus 3,75.6,42
+2024,Curriculum,Opportunities for research and scholarly activity,Campus 3,79.0,42
+2024,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 3,82.7,42
+2024,Clerkships,Satisfaction with Surgery clerkship,Campus 3,75.2,42
+2024,Clerkships,Satisfaction with Pediatrics clerkship,Campus 3,81.7,42
+2024,Clerkships,Satisfaction with OBGYN clerkship,Campus 3,76.0,42
+2024,Clerkships,Satisfaction with Psychiatry clerkship,Campus 3,80.6,42
+2024,Clerkships,Satisfaction with Family Medicine clerkship,Campus 3,84.4,42
+2024,Clerkships,Satisfaction with Neurology clerkship,Campus 3,74.8,42
+2024,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 3,82.6,42
+2024,Admin Support,Quality of academic advising,Campus 3,71.2,42
+2024,Admin Support,Quality of residency / career advising,Campus 3,72.7,42
+2024,Admin Support,Responsiveness of registrar and student records,Campus 3,78.6,42
+2024,Admin Support,Accessibility of student affairs deans,Campus 3,77.3,42
+2024,Admin Support,Availability of wellness and mental-health services,Campus 3,71.5,42
+2024,Mistreatment & Climate,Learning environment free from mistreatment,Campus 3,86.4,42
+2024,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 3,73.8,42
+2024,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 3,65.6,42
+2024,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 3,84.9,42
+2024,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 3,85.8,42
+2024,Facilities,Library and study spaces,Campus 3,84.5,42
+2024,Facilities,Simulation and skills-lab facilities,Campus 3,81.7,42
+2024,Facilities,Technology and IT support,Campus 3,78.8,42
+2024,Facilities,Quality of clinical training sites,Campus 3,83.1,42
+2024,Financial Support,Quality of financial-aid counseling,Campus 3,75.1,42
+2024,Financial Support,Affordability of cost of attendance,Campus 3,49.0,42
+2024,Financial Support,Availability of scholarships,Campus 3,53.2,42
+2024,Financial Support,Education on debt management,Campus 3,68.7,42
+2024,Overall,Overall satisfaction with the quality of your medical education,Campus 4,85.6,49
+2024,Overall,Would choose this medical school again,Campus 4,83.4,49
+2024,Overall,Feel prepared to begin residency,Campus 4,84.6,49
+2024,Curriculum,Quality of pre-clinical basic science instruction,Campus 4,84.0,49
+2024,Curriculum,Integration of basic science with clinical medicine,Campus 4,79.8,49
+2024,Curriculum,Quality of teaching by faculty,Campus 4,85.2,49
+2024,Curriculum,Fairness and transparency of assessments,Campus 4,77.7,49
+2024,Curriculum,Support for Step 1 / Step 2 preparation,Campus 4,75.9,49
+2024,Curriculum,Opportunities for research and scholarly activity,Campus 4,78.7,49
+2024,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 4,89.3,49
+2024,Clerkships,Satisfaction with Surgery clerkship,Campus 4,79.8,49
+2024,Clerkships,Satisfaction with Pediatrics clerkship,Campus 4,91.1,49
+2024,Clerkships,Satisfaction with OBGYN clerkship,Campus 4,82.9,49
+2024,Clerkships,Satisfaction with Psychiatry clerkship,Campus 4,86.2,49
+2024,Clerkships,Satisfaction with Family Medicine clerkship,Campus 4,87.9,49
+2024,Clerkships,Satisfaction with Neurology clerkship,Campus 4,82.3,49
+2024,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 4,89.7,49
+2024,Admin Support,Quality of academic advising,Campus 4,70.7,49
+2024,Admin Support,Quality of residency / career advising,Campus 4,77.8,49
+2024,Admin Support,Responsiveness of registrar and student records,Campus 4,76.9,49
+2024,Admin Support,Accessibility of student affairs deans,Campus 4,76.4,49
+2024,Admin Support,Availability of wellness and mental-health services,Campus 4,69.2,49
+2024,Mistreatment & Climate,Learning environment free from mistreatment,Campus 4,88.8,49
+2024,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 4,70.7,49
+2024,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 4,69.8,49
+2024,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 4,84.6,49
+2024,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 4,85.0,49
+2024,Facilities,Library and study spaces,Campus 4,88.2,49
+2024,Facilities,Simulation and skills-lab facilities,Campus 4,86.7,49
+2024,Facilities,Technology and IT support,Campus 4,85.6,49
+2024,Facilities,Quality of clinical training sites,Campus 4,90.4,49
+2024,Financial Support,Quality of financial-aid counseling,Campus 4,74.6,49
+2024,Financial Support,Affordability of cost of attendance,Campus 4,48.6,49
+2024,Financial Support,Availability of scholarships,Campus 4,56.5,49
+2024,Financial Support,Education on debt management,Campus 4,64.8,49
+2024,Overall,Overall satisfaction with the quality of your medical education,Campus 5,82.4,30
+2024,Overall,Would choose this medical school again,Campus 5,82.3,30
+2024,Overall,Feel prepared to begin residency,Campus 5,85.6,30
+2024,Curriculum,Quality of pre-clinical basic science instruction,Campus 5,81.6,30
+2024,Curriculum,Integration of basic science with clinical medicine,Campus 5,75.6,30
+2024,Curriculum,Quality of teaching by faculty,Campus 5,84.8,30
+2024,Curriculum,Fairness and transparency of assessments,Campus 5,77.7,30
+2024,Curriculum,Support for Step 1 / Step 2 preparation,Campus 5,72.4,30
+2024,Curriculum,Opportunities for research and scholarly activity,Campus 5,77.5,30
+2024,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 5,85.8,30
+2024,Clerkships,Satisfaction with Surgery clerkship,Campus 5,73.4,30
+2024,Clerkships,Satisfaction with Pediatrics clerkship,Campus 5,88.2,30
+2024,Clerkships,Satisfaction with OBGYN clerkship,Campus 5,80.2,30
+2024,Clerkships,Satisfaction with Psychiatry clerkship,Campus 5,86.0,30
+2024,Clerkships,Satisfaction with Family Medicine clerkship,Campus 5,86.4,30
+2024,Clerkships,Satisfaction with Neurology clerkship,Campus 5,79.2,30
+2024,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 5,85.5,30
+2024,Admin Support,Quality of academic advising,Campus 5,71.1,30
+2024,Admin Support,Quality of residency / career advising,Campus 5,71.7,30
+2024,Admin Support,Responsiveness of registrar and student records,Campus 5,76.0,30
+2024,Admin Support,Accessibility of student affairs deans,Campus 5,74.9,30
+2024,Admin Support,Availability of wellness and mental-health services,Campus 5,68.4,30
+2024,Mistreatment & Climate,Learning environment free from mistreatment,Campus 5,81.2,30
+2024,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 5,63.1,30
+2024,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 5,58.4,30
+2024,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 5,81.5,30
+2024,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 5,76.3,30
+2024,Facilities,Library and study spaces,Campus 5,88.4,30
+2024,Facilities,Simulation and skills-lab facilities,Campus 5,86.4,30
+2024,Facilities,Technology and IT support,Campus 5,80.8,30
+2024,Facilities,Quality of clinical training sites,Campus 5,84.3,30
+2024,Financial Support,Quality of financial-aid counseling,Campus 5,71.2,30
+2024,Financial Support,Affordability of cost of attendance,Campus 5,47.0,30
+2024,Financial Support,Availability of scholarships,Campus 5,54.4,30
+2024,Financial Support,Education on debt management,Campus 5,63.6,30
+2024,Overall,Overall satisfaction with the quality of your medical education,Campus 6,84.7,36
+2024,Overall,Would choose this medical school again,Campus 6,85.3,36
+2024,Overall,Feel prepared to begin residency,Campus 6,86.9,36
+2024,Curriculum,Quality of pre-clinical basic science instruction,Campus 6,81.4,36
+2024,Curriculum,Integration of basic science with clinical medicine,Campus 6,76.5,36
+2024,Curriculum,Quality of teaching by faculty,Campus 6,88.9,36
+2024,Curriculum,Fairness and transparency of assessments,Campus 6,81.9,36
+2024,Curriculum,Support for Step 1 / Step 2 preparation,Campus 6,76.2,36
+2024,Curriculum,Opportunities for research and scholarly activity,Campus 6,80.4,36
+2024,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 6,88.0,36
+2024,Clerkships,Satisfaction with Surgery clerkship,Campus 6,77.7,36
+2024,Clerkships,Satisfaction with Pediatrics clerkship,Campus 6,92.6,36
+2024,Clerkships,Satisfaction with OBGYN clerkship,Campus 6,83.5,36
+2024,Clerkships,Satisfaction with Psychiatry clerkship,Campus 6,90.5,36
+2024,Clerkships,Satisfaction with Family Medicine clerkship,Campus 6,92.3,36
+2024,Clerkships,Satisfaction with Neurology clerkship,Campus 6,82.5,36
+2024,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 6,88.3,36
+2024,Admin Support,Quality of academic advising,Campus 6,72.4,36
+2024,Admin Support,Quality of residency / career advising,Campus 6,74.7,36
+2024,Admin Support,Responsiveness of registrar and student records,Campus 6,79.1,36
+2024,Admin Support,Accessibility of student affairs deans,Campus 6,77.8,36
+2024,Admin Support,Availability of wellness and mental-health services,Campus 6,72.2,36
+2024,Mistreatment & Climate,Learning environment free from mistreatment,Campus 6,90.4,36
+2024,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 6,70.8,36
+2024,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 6,70.7,36
+2024,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 6,86.8,36
+2024,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 6,85.5,36
+2024,Facilities,Library and study spaces,Campus 6,90.2,36
+2024,Facilities,Simulation and skills-lab facilities,Campus 6,88.9,36
+2024,Facilities,Technology and IT support,Campus 6,83.1,36
+2024,Facilities,Quality of clinical training sites,Campus 6,82.8,36
+2024,Financial Support,Quality of financial-aid counseling,Campus 6,75.2,36
+2024,Financial Support,Affordability of cost of attendance,Campus 6,49.9,36
+2024,Financial Support,Availability of scholarships,Campus 6,56.1,36
+2024,Financial Support,Education on debt management,Campus 6,69.1,36
+2024,Overall,Overall satisfaction with the quality of your medical education,Campus 7,91.8,29
+2024,Overall,Would choose this medical school again,Campus 7,89.1,29
+2024,Overall,Feel prepared to begin residency,Campus 7,92.1,29
+2024,Curriculum,Quality of pre-clinical basic science instruction,Campus 7,86.6,29
+2024,Curriculum,Integration of basic science with clinical medicine,Campus 7,80.9,29
+2024,Curriculum,Quality of teaching by faculty,Campus 7,90.1,29
+2024,Curriculum,Fairness and transparency of assessments,Campus 7,81.0,29
+2024,Curriculum,Support for Step 1 / Step 2 preparation,Campus 7,80.8,29
+2024,Curriculum,Opportunities for research and scholarly activity,Campus 7,81.8,29
+2024,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 7,91.1,29
+2024,Clerkships,Satisfaction with Surgery clerkship,Campus 7,83.4,29
+2024,Clerkships,Satisfaction with Pediatrics clerkship,Campus 7,91.9,29
+2024,Clerkships,Satisfaction with OBGYN clerkship,Campus 7,85.8,29
+2024,Clerkships,Satisfaction with Psychiatry clerkship,Campus 7,93.4,29
+2024,Clerkships,Satisfaction with Family Medicine clerkship,Campus 7,94.5,29
+2024,Clerkships,Satisfaction with Neurology clerkship,Campus 7,83.1,29
+2024,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 7,93.6,29
+2024,Admin Support,Quality of academic advising,Campus 7,77.8,29
+2024,Admin Support,Quality of residency / career advising,Campus 7,77.4,29
+2024,Admin Support,Responsiveness of registrar and student records,Campus 7,82.6,29
+2024,Admin Support,Accessibility of student affairs deans,Campus 7,85.1,29
+2024,Admin Support,Availability of wellness and mental-health services,Campus 7,73.3,29
+2024,Mistreatment & Climate,Learning environment free from mistreatment,Campus 7,93.3,29
+2024,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 7,74.1,29
+2024,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 7,71.5,29
+2024,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 7,88.8,29
+2024,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 7,88.6,29
+2024,Facilities,Library and study spaces,Campus 7,94.8,29
+2024,Facilities,Simulation and skills-lab facilities,Campus 7,91.9,29
+2024,Facilities,Technology and IT support,Campus 7,85.2,29
+2024,Facilities,Quality of clinical training sites,Campus 7,90.8,29
+2024,Financial Support,Quality of financial-aid counseling,Campus 7,74.2,29
+2024,Financial Support,Affordability of cost of attendance,Campus 7,50.9,29
+2024,Financial Support,Availability of scholarships,Campus 7,60.8,29
+2024,Financial Support,Education on debt management,Campus 7,68.2,29
+2024,Overall,Overall satisfaction with the quality of your medical education,Campus 8,85.3,24
+2024,Overall,Would choose this medical school again,Campus 8,81.4,24
+2024,Overall,Feel prepared to begin residency,Campus 8,88.0,24
+2024,Curriculum,Quality of pre-clinical basic science instruction,Campus 8,81.7,24
+2024,Curriculum,Integration of basic science with clinical medicine,Campus 8,75.7,24
+2024,Curriculum,Quality of teaching by faculty,Campus 8,83.1,24
+2024,Curriculum,Fairness and transparency of assessments,Campus 8,75.3,24
+2024,Curriculum,Support for Step 1 / Step 2 preparation,Campus 8,80.0,24
+2024,Curriculum,Opportunities for research and scholarly activity,Campus 8,78.2,24
+2024,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 8,90.2,24
+2024,Clerkships,Satisfaction with Surgery clerkship,Campus 8,79.0,24
+2024,Clerkships,Satisfaction with Pediatrics clerkship,Campus 8,89.2,24
+2024,Clerkships,Satisfaction with OBGYN clerkship,Campus 8,80.2,24
+2024,Clerkships,Satisfaction with Psychiatry clerkship,Campus 8,83.1,24
+2024,Clerkships,Satisfaction with Family Medicine clerkship,Campus 8,90.0,24
+2024,Clerkships,Satisfaction with Neurology clerkship,Campus 8,82.6,24
+2024,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 8,89.0,24
+2024,Admin Support,Quality of academic advising,Campus 8,70.3,24
+2024,Admin Support,Quality of residency / career advising,Campus 8,71.3,24
+2024,Admin Support,Responsiveness of registrar and student records,Campus 8,74.4,24
+2024,Admin Support,Accessibility of student affairs deans,Campus 8,74.3,24
+2024,Admin Support,Availability of wellness and mental-health services,Campus 8,66.0,24
+2024,Mistreatment & Climate,Learning environment free from mistreatment,Campus 8,89.8,24
+2024,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 8,71.1,24
+2024,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 8,68.7,24
+2024,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 8,84.7,24
+2024,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 8,85.2,24
+2024,Facilities,Library and study spaces,Campus 8,88.3,24
+2024,Facilities,Simulation and skills-lab facilities,Campus 8,86.4,24
+2024,Facilities,Technology and IT support,Campus 8,82.3,24
+2024,Facilities,Quality of clinical training sites,Campus 8,83.6,24
+2024,Financial Support,Quality of financial-aid counseling,Campus 8,73.0,24
+2024,Financial Support,Affordability of cost of attendance,Campus 8,51.6,24
+2024,Financial Support,Availability of scholarships,Campus 8,57.6,24
+2024,Financial Support,Education on debt management,Campus 8,67.5,24
+2024,Overall,Overall satisfaction with the quality of your medical education,Campus 9,82.9,20
+2024,Overall,Would choose this medical school again,Campus 9,83.0,20
+2024,Overall,Feel prepared to begin residency,Campus 9,86.0,20
+2024,Curriculum,Quality of pre-clinical basic science instruction,Campus 9,83.6,20
+2024,Curriculum,Integration of basic science with clinical medicine,Campus 9,78.4,20
+2024,Curriculum,Quality of teaching by faculty,Campus 9,82.6,20
+2024,Curriculum,Fairness and transparency of assessments,Campus 9,76.3,20
+2024,Curriculum,Support for Step 1 / Step 2 preparation,Campus 9,74.0,20
+2024,Curriculum,Opportunities for research and scholarly activity,Campus 9,77.5,20
+2024,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 9,86.3,20
+2024,Clerkships,Satisfaction with Surgery clerkship,Campus 9,78.1,20
+2024,Clerkships,Satisfaction with Pediatrics clerkship,Campus 9,86.3,20
+2024,Clerkships,Satisfaction with OBGYN clerkship,Campus 9,81.3,20
+2024,Clerkships,Satisfaction with Psychiatry clerkship,Campus 9,83.4,20
+2024,Clerkships,Satisfaction with Family Medicine clerkship,Campus 9,91.2,20
+2024,Clerkships,Satisfaction with Neurology clerkship,Campus 9,81.7,20
+2024,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 9,87.5,20
+2024,Admin Support,Quality of academic advising,Campus 9,70.2,20
+2024,Admin Support,Quality of residency / career advising,Campus 9,67.6,20
+2024,Admin Support,Responsiveness of registrar and student records,Campus 9,72.8,20
+2024,Admin Support,Accessibility of student affairs deans,Campus 9,75.2,20
+2024,Admin Support,Availability of wellness and mental-health services,Campus 9,67.6,20
+2024,Mistreatment & Climate,Learning environment free from mistreatment,Campus 9,88.8,20
+2024,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 9,71.6,20
+2024,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 9,65.8,20
+2024,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 9,82.2,20
+2024,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 9,84.2,20
+2024,Facilities,Library and study spaces,Campus 9,87.9,20
+2024,Facilities,Simulation and skills-lab facilities,Campus 9,87.5,20
+2024,Facilities,Technology and IT support,Campus 9,82.4,20
+2024,Facilities,Quality of clinical training sites,Campus 9,81.1,20
+2024,Financial Support,Quality of financial-aid counseling,Campus 9,68.0,20
+2024,Financial Support,Affordability of cost of attendance,Campus 9,40.1,20
+2024,Financial Support,Availability of scholarships,Campus 9,51.9,20
+2024,Financial Support,Education on debt management,Campus 9,59.2,20
+2025,Overall,Overall satisfaction with the quality of your medical education,Medical School A,82.6,416
+2025,Overall,Would choose this medical school again,Medical School A,81.6,416
+2025,Overall,Feel prepared to begin residency,Medical School A,85.2,416
+2025,Curriculum,Quality of pre-clinical basic science instruction,Medical School A,83.9,416
+2025,Curriculum,Integration of basic science with clinical medicine,Medical School A,80.5,416
+2025,Curriculum,Quality of teaching by faculty,Medical School A,88.4,416
+2025,Curriculum,Fairness and transparency of assessments,Medical School A,81.9,416
+2025,Curriculum,Support for Step 1 / Step 2 preparation,Medical School A,80.5,416
+2025,Curriculum,Opportunities for research and scholarly activity,Medical School A,80.1,416
+2025,Clerkships,Satisfaction with Internal Medicine clerkship,Medical School A,89.8,416
+2025,Clerkships,Satisfaction with Surgery clerkship,Medical School A,76.7,416
+2025,Clerkships,Satisfaction with Pediatrics clerkship,Medical School A,90.2,416
+2025,Clerkships,Satisfaction with OBGYN clerkship,Medical School A,79.8,416
+2025,Clerkships,Satisfaction with Psychiatry clerkship,Medical School A,85.3,416
+2025,Clerkships,Satisfaction with Family Medicine clerkship,Medical School A,89.5,416
+2025,Clerkships,Satisfaction with Neurology clerkship,Medical School A,80.4,416
+2025,Clerkships,Satisfaction with Emergency Medicine clerkship,Medical School A,88.7,416
+2025,Admin Support,Quality of academic advising,Medical School A,75.4,416
+2025,Admin Support,Quality of residency / career advising,Medical School A,75.8,416
+2025,Admin Support,Responsiveness of registrar and student records,Medical School A,82.8,416
+2025,Admin Support,Accessibility of student affairs deans,Medical School A,80.0,416
+2025,Admin Support,Availability of wellness and mental-health services,Medical School A,70.9,416
+2025,Mistreatment & Climate,Learning environment free from mistreatment,Medical School A,84.7,416
+2025,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Medical School A,69.9,416
+2025,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Medical School A,63.2,416
+2025,Mistreatment & Climate,Faculty and residents model professional behavior,Medical School A,81.8,416
+2025,Mistreatment & Climate,Inclusive and respectful climate for all students,Medical School A,80.5,416
+2025,Facilities,Library and study spaces,Medical School A,89.1,416
+2025,Facilities,Simulation and skills-lab facilities,Medical School A,89.9,416
+2025,Facilities,Technology and IT support,Medical School A,85.5,416
+2025,Facilities,Quality of clinical training sites,Medical School A,85.1,416
+2025,Financial Support,Quality of financial-aid counseling,Medical School A,68.7,416
+2025,Financial Support,Affordability of cost of attendance,Medical School A,46.4,416
+2025,Financial Support,Availability of scholarships,Medical School A,53.7,416
+2025,Financial Support,Education on debt management,Medical School A,66.2,416
+2025,Overall,Overall satisfaction with the quality of your medical education,National Benchmark,83.2,
+2025,Overall,Would choose this medical school again,National Benchmark,81.6,
+2025,Overall,Feel prepared to begin residency,National Benchmark,84.6,
+2025,Curriculum,Quality of pre-clinical basic science instruction,National Benchmark,80.9,
+2025,Curriculum,Integration of basic science with clinical medicine,National Benchmark,77.4,
+2025,Curriculum,Quality of teaching by faculty,National Benchmark,84.8,
+2025,Curriculum,Fairness and transparency of assessments,National Benchmark,78.1,
+2025,Curriculum,Support for Step 1 / Step 2 preparation,National Benchmark,74.8,
+2025,Curriculum,Opportunities for research and scholarly activity,National Benchmark,77.4,
+2025,Clerkships,Satisfaction with Internal Medicine clerkship,National Benchmark,86.5,
+2025,Clerkships,Satisfaction with Surgery clerkship,National Benchmark,79.0,
+2025,Clerkships,Satisfaction with Pediatrics clerkship,National Benchmark,87.9,
+2025,Clerkships,Satisfaction with OBGYN clerkship,National Benchmark,81.4,
+2025,Clerkships,Satisfaction with Psychiatry clerkship,National Benchmark,85.0,
+2025,Clerkships,Satisfaction with Family Medicine clerkship,National Benchmark,86.7,
+2025,Clerkships,Satisfaction with Neurology clerkship,National Benchmark,80.1,
+2025,Clerkships,Satisfaction with Emergency Medicine clerkship,National Benchmark,87.4,
+2025,Admin Support,Quality of academic advising,National Benchmark,75.3,
+2025,Admin Support,Quality of residency / career advising,National Benchmark,77.4,
+2025,Admin Support,Responsiveness of registrar and student records,National Benchmark,83.4,
+2025,Admin Support,Accessibility of student affairs deans,National Benchmark,80.5,
+2025,Admin Support,Availability of wellness and mental-health services,National Benchmark,72.5,
+2025,Mistreatment & Climate,Learning environment free from mistreatment,National Benchmark,87.4,
+2025,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,National Benchmark,72.3,
+2025,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,National Benchmark,69.3,
+2025,Mistreatment & Climate,Faculty and residents model professional behavior,National Benchmark,84.5,
+2025,Mistreatment & Climate,Inclusive and respectful climate for all students,National Benchmark,83.6,
+2025,Facilities,Library and study spaces,National Benchmark,83.9,
+2025,Facilities,Simulation and skills-lab facilities,National Benchmark,83.1,
+2025,Facilities,Technology and IT support,National Benchmark,80.8,
+2025,Facilities,Quality of clinical training sites,National Benchmark,80.4,
+2025,Financial Support,Quality of financial-aid counseling,National Benchmark,74.4,
+2025,Financial Support,Affordability of cost of attendance,National Benchmark,53.2,
+2025,Financial Support,Availability of scholarships,National Benchmark,58.9,
+2025,Financial Support,Education on debt management,National Benchmark,70.2,
+2025,Overall,Overall satisfaction with the quality of your medical education,Campus 1,84.0,117
+2025,Overall,Would choose this medical school again,Campus 1,84.3,117
+2025,Overall,Feel prepared to begin residency,Campus 1,87.5,117
+2025,Curriculum,Quality of pre-clinical basic science instruction,Campus 1,83.9,117
+2025,Curriculum,Integration of basic science with clinical medicine,Campus 1,85.1,117
+2025,Curriculum,Quality of teaching by faculty,Campus 1,90.5,117
+2025,Curriculum,Fairness and transparency of assessments,Campus 1,84.9,117
+2025,Curriculum,Support for Step 1 / Step 2 preparation,Campus 1,83.5,117
+2025,Curriculum,Opportunities for research and scholarly activity,Campus 1,79.4,117
+2025,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 1,95.0,117
+2025,Clerkships,Satisfaction with Surgery clerkship,Campus 1,79.9,117
+2025,Clerkships,Satisfaction with Pediatrics clerkship,Campus 1,94.6,117
+2025,Clerkships,Satisfaction with OBGYN clerkship,Campus 1,81.9,117
+2025,Clerkships,Satisfaction with Psychiatry clerkship,Campus 1,87.7,117
+2025,Clerkships,Satisfaction with Family Medicine clerkship,Campus 1,92.0,117
+2025,Clerkships,Satisfaction with Neurology clerkship,Campus 1,83.0,117
+2025,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 1,93.1,117
+2025,Admin Support,Quality of academic advising,Campus 1,78.9,117
+2025,Admin Support,Quality of residency / career advising,Campus 1,76.7,117
+2025,Admin Support,Responsiveness of registrar and student records,Campus 1,83.8,117
+2025,Admin Support,Accessibility of student affairs deans,Campus 1,82.9,117
+2025,Admin Support,Availability of wellness and mental-health services,Campus 1,72.0,117
+2025,Mistreatment & Climate,Learning environment free from mistreatment,Campus 1,85.5,117
+2025,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 1,73.3,117
+2025,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 1,65.2,117
+2025,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 1,83.5,117
+2025,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 1,81.1,117
+2025,Facilities,Library and study spaces,Campus 1,91.5,117
+2025,Facilities,Simulation and skills-lab facilities,Campus 1,90.6,117
+2025,Facilities,Technology and IT support,Campus 1,86.1,117
+2025,Facilities,Quality of clinical training sites,Campus 1,86.7,117
+2025,Financial Support,Quality of financial-aid counseling,Campus 1,69.1,117
+2025,Financial Support,Affordability of cost of attendance,Campus 1,48.0,117
+2025,Financial Support,Availability of scholarships,Campus 1,54.8,117
+2025,Financial Support,Education on debt management,Campus 1,66.5,117
+2025,Overall,Overall satisfaction with the quality of your medical education,Campus 2,83.0,60
+2025,Overall,Would choose this medical school again,Campus 2,80.7,60
+2025,Overall,Feel prepared to begin residency,Campus 2,88.7,60
+2025,Curriculum,Quality of pre-clinical basic science instruction,Campus 2,85.9,60
+2025,Curriculum,Integration of basic science with clinical medicine,Campus 2,77.5,60
+2025,Curriculum,Quality of teaching by faculty,Campus 2,89.3,60
+2025,Curriculum,Fairness and transparency of assessments,Campus 2,81.6,60
+2025,Curriculum,Support for Step 1 / Step 2 preparation,Campus 2,80.4,60
+2025,Curriculum,Opportunities for research and scholarly activity,Campus 2,81.6,60
+2025,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 2,89.0,60
+2025,Clerkships,Satisfaction with Surgery clerkship,Campus 2,79.9,60
+2025,Clerkships,Satisfaction with Pediatrics clerkship,Campus 2,90.4,60
+2025,Clerkships,Satisfaction with OBGYN clerkship,Campus 2,80.1,60
+2025,Clerkships,Satisfaction with Psychiatry clerkship,Campus 2,86.0,60
+2025,Clerkships,Satisfaction with Family Medicine clerkship,Campus 2,91.2,60
+2025,Clerkships,Satisfaction with Neurology clerkship,Campus 2,81.0,60
+2025,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 2,89.0,60
+2025,Admin Support,Quality of academic advising,Campus 2,74.0,60
+2025,Admin Support,Quality of residency / career advising,Campus 2,76.3,60
+2025,Admin Support,Responsiveness of registrar and student records,Campus 2,83.6,60
+2025,Admin Support,Accessibility of student affairs deans,Campus 2,80.6,60
+2025,Admin Support,Availability of wellness and mental-health services,Campus 2,69.6,60
+2025,Mistreatment & Climate,Learning environment free from mistreatment,Campus 2,86.3,60
+2025,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 2,69.2,60
+2025,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 2,64.6,60
+2025,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 2,84.2,60
+2025,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 2,78.8,60
+2025,Facilities,Library and study spaces,Campus 2,91.3,60
+2025,Facilities,Simulation and skills-lab facilities,Campus 2,91.7,60
+2025,Facilities,Technology and IT support,Campus 2,90.7,60
+2025,Facilities,Quality of clinical training sites,Campus 2,87.1,60
+2025,Financial Support,Quality of financial-aid counseling,Campus 2,69.5,60
+2025,Financial Support,Affordability of cost of attendance,Campus 2,47.0,60
+2025,Financial Support,Availability of scholarships,Campus 2,54.3,60
+2025,Financial Support,Education on debt management,Campus 2,67.9,60
+2025,Overall,Overall satisfaction with the quality of your medical education,Campus 3,81.7,45
+2025,Overall,Would choose this medical school again,Campus 3,79.7,45
+2025,Overall,Feel prepared to begin residency,Campus 3,80.5,45
+2025,Curriculum,Quality of pre-clinical basic science instruction,Campus 3,80.6,45
+2025,Curriculum,Integration of basic science with clinical medicine,Campus 3,79.1,45
+2025,Curriculum,Quality of teaching by faculty,Campus 3,84.0,45
+2025,Curriculum,Fairness and transparency of assessments,Campus 3,80.8,45
+2025,Curriculum,Support for Step 1 / Step 2 preparation,Campus 3,80.3,45
+2025,Curriculum,Opportunities for research and scholarly activity,Campus 3,79.6,45
+2025,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 3,82.4,45
+2025,Clerkships,Satisfaction with Surgery clerkship,Campus 3,68.2,45
+2025,Clerkships,Satisfaction with Pediatrics clerkship,Campus 3,83.2,45
+2025,Clerkships,Satisfaction with OBGYN clerkship,Campus 3,73.7,45
+2025,Clerkships,Satisfaction with Psychiatry clerkship,Campus 3,78.9,45
+2025,Clerkships,Satisfaction with Family Medicine clerkship,Campus 3,84.7,45
+2025,Clerkships,Satisfaction with Neurology clerkship,Campus 3,69.7,45
+2025,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 3,81.4,45
+2025,Admin Support,Quality of academic advising,Campus 3,73.5,45
+2025,Admin Support,Quality of residency / career advising,Campus 3,75.1,45
+2025,Admin Support,Responsiveness of registrar and student records,Campus 3,82.1,45
+2025,Admin Support,Accessibility of student affairs deans,Campus 3,80.0,45
+2025,Admin Support,Availability of wellness and mental-health services,Campus 3,75.0,45
+2025,Mistreatment & Climate,Learning environment free from mistreatment,Campus 3,81.2,45
+2025,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 3,69.7,45
+2025,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 3,63.8,45
+2025,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 3,81.6,45
+2025,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 3,80.8,45
+2025,Facilities,Library and study spaces,Campus 3,81.7,45
+2025,Facilities,Simulation and skills-lab facilities,Campus 3,85.7,45
+2025,Facilities,Technology and IT support,Campus 3,81.3,45
+2025,Facilities,Quality of clinical training sites,Campus 3,78.6,45
+2025,Financial Support,Quality of financial-aid counseling,Campus 3,66.9,45
+2025,Financial Support,Affordability of cost of attendance,Campus 3,45.5,45
+2025,Financial Support,Availability of scholarships,Campus 3,52.7,45
+2025,Financial Support,Education on debt management,Campus 3,64.9,45
+2025,Overall,Overall satisfaction with the quality of your medical education,Campus 4,82.6,50
+2025,Overall,Would choose this medical school again,Campus 4,82.1,50
+2025,Overall,Feel prepared to begin residency,Campus 4,85.1,50
+2025,Curriculum,Quality of pre-clinical basic science instruction,Campus 4,84.7,50
+2025,Curriculum,Integration of basic science with clinical medicine,Campus 4,79.5,50
+2025,Curriculum,Quality of teaching by faculty,Campus 4,85.1,50
+2025,Curriculum,Fairness and transparency of assessments,Campus 4,79.0,50
+2025,Curriculum,Support for Step 1 / Step 2 preparation,Campus 4,77.3,50
+2025,Curriculum,Opportunities for research and scholarly activity,Campus 4,80.4,50
+2025,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 4,88.2,50
+2025,Clerkships,Satisfaction with Surgery clerkship,Campus 4,78.1,50
+2025,Clerkships,Satisfaction with Pediatrics clerkship,Campus 4,88.3,50
+2025,Clerkships,Satisfaction with OBGYN clerkship,Campus 4,79.5,50
+2025,Clerkships,Satisfaction with Psychiatry clerkship,Campus 4,84.7,50
+2025,Clerkships,Satisfaction with Family Medicine clerkship,Campus 4,87.2,50
+2025,Clerkships,Satisfaction with Neurology clerkship,Campus 4,84.0,50
+2025,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 4,87.4,50
+2025,Admin Support,Quality of academic advising,Campus 4,75.4,50
+2025,Admin Support,Quality of residency / career advising,Campus 4,74.1,50
+2025,Admin Support,Responsiveness of registrar and student records,Campus 4,85.1,50
+2025,Admin Support,Accessibility of student affairs deans,Campus 4,77.2,50
+2025,Admin Support,Availability of wellness and mental-health services,Campus 4,69.4,50
+2025,Mistreatment & Climate,Learning environment free from mistreatment,Campus 4,86.6,50
+2025,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 4,69.5,50
+2025,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 4,61.6,50
+2025,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 4,80.6,50
+2025,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 4,81.2,50
+2025,Facilities,Library and study spaces,Campus 4,90.9,50
+2025,Facilities,Simulation and skills-lab facilities,Campus 4,89.7,50
+2025,Facilities,Technology and IT support,Campus 4,83.4,50
+2025,Facilities,Quality of clinical training sites,Campus 4,87.0,50
+2025,Financial Support,Quality of financial-aid counseling,Campus 4,69.1,50
+2025,Financial Support,Affordability of cost of attendance,Campus 4,45.6,50
+2025,Financial Support,Availability of scholarships,Campus 4,54.3,50
+2025,Financial Support,Education on debt management,Campus 4,68.0,50
+2025,Overall,Overall satisfaction with the quality of your medical education,Campus 5,77.3,34
+2025,Overall,Would choose this medical school again,Campus 5,76.9,34
+2025,Overall,Feel prepared to begin residency,Campus 5,80.1,34
+2025,Curriculum,Quality of pre-clinical basic science instruction,Campus 5,81.2,34
+2025,Curriculum,Integration of basic science with clinical medicine,Campus 5,76.2,34
+2025,Curriculum,Quality of teaching by faculty,Campus 5,85.8,34
+2025,Curriculum,Fairness and transparency of assessments,Campus 5,78.4,34
+2025,Curriculum,Support for Step 1 / Step 2 preparation,Campus 5,79.2,34
+2025,Curriculum,Opportunities for research and scholarly activity,Campus 5,76.5,34
+2025,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 5,88.4,34
+2025,Clerkships,Satisfaction with Surgery clerkship,Campus 5,70.6,34
+2025,Clerkships,Satisfaction with Pediatrics clerkship,Campus 5,87.0,34
+2025,Clerkships,Satisfaction with OBGYN clerkship,Campus 5,78.1,34
+2025,Clerkships,Satisfaction with Psychiatry clerkship,Campus 5,81.5,34
+2025,Clerkships,Satisfaction with Family Medicine clerkship,Campus 5,86.5,34
+2025,Clerkships,Satisfaction with Neurology clerkship,Campus 5,78.2,34
+2025,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 5,85.8,34
+2025,Admin Support,Quality of academic advising,Campus 5,72.4,34
+2025,Admin Support,Quality of residency / career advising,Campus 5,73.9,34
+2025,Admin Support,Responsiveness of registrar and student records,Campus 5,78.9,34
+2025,Admin Support,Accessibility of student affairs deans,Campus 5,76.8,34
+2025,Admin Support,Availability of wellness and mental-health services,Campus 5,70.5,34
+2025,Mistreatment & Climate,Learning environment free from mistreatment,Campus 5,75.2,34
+2025,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 5,59.8,34
+2025,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 5,52.8,34
+2025,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 5,68.6,34
+2025,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 5,71.6,34
+2025,Facilities,Library and study spaces,Campus 5,86.3,34
+2025,Facilities,Simulation and skills-lab facilities,Campus 5,86.0,34
+2025,Facilities,Technology and IT support,Campus 5,80.7,34
+2025,Facilities,Quality of clinical training sites,Campus 5,85.3,34
+2025,Financial Support,Quality of financial-aid counseling,Campus 5,69.6,34
+2025,Financial Support,Affordability of cost of attendance,Campus 5,43.8,34
+2025,Financial Support,Availability of scholarships,Campus 5,51.1,34
+2025,Financial Support,Education on debt management,Campus 5,65.8,34
+2025,Overall,Overall satisfaction with the quality of your medical education,Campus 6,83.7,37
+2025,Overall,Would choose this medical school again,Campus 6,82.1,37
+2025,Overall,Feel prepared to begin residency,Campus 6,84.1,37
+2025,Curriculum,Quality of pre-clinical basic science instruction,Campus 6,83.4,37
+2025,Curriculum,Integration of basic science with clinical medicine,Campus 6,79.0,37
+2025,Curriculum,Quality of teaching by faculty,Campus 6,90.6,37
+2025,Curriculum,Fairness and transparency of assessments,Campus 6,83.6,37
+2025,Curriculum,Support for Step 1 / Step 2 preparation,Campus 6,77.5,37
+2025,Curriculum,Opportunities for research and scholarly activity,Campus 6,81.6,37
+2025,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 6,89.4,37
+2025,Clerkships,Satisfaction with Surgery clerkship,Campus 6,75.8,37
+2025,Clerkships,Satisfaction with Pediatrics clerkship,Campus 6,89.3,37
+2025,Clerkships,Satisfaction with OBGYN clerkship,Campus 6,81.1,37
+2025,Clerkships,Satisfaction with Psychiatry clerkship,Campus 6,87.1,37
+2025,Clerkships,Satisfaction with Family Medicine clerkship,Campus 6,89.7,37
+2025,Clerkships,Satisfaction with Neurology clerkship,Campus 6,80.7,37
+2025,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 6,89.2,37
+2025,Admin Support,Quality of academic advising,Campus 6,77.2,37
+2025,Admin Support,Quality of residency / career advising,Campus 6,76.4,37
+2025,Admin Support,Responsiveness of registrar and student records,Campus 6,81.4,37
+2025,Admin Support,Accessibility of student affairs deans,Campus 6,80.5,37
+2025,Admin Support,Availability of wellness and mental-health services,Campus 6,71.2,37
+2025,Mistreatment & Climate,Learning environment free from mistreatment,Campus 6,88.1,37
+2025,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 6,70.7,37
+2025,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 6,64.3,37
+2025,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 6,82.3,37
+2025,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 6,82.7,37
+2025,Facilities,Library and study spaces,Campus 6,86.1,37
+2025,Facilities,Simulation and skills-lab facilities,Campus 6,91.8,37
+2025,Facilities,Technology and IT support,Campus 6,86.8,37
+2025,Facilities,Quality of clinical training sites,Campus 6,82.2,37
+2025,Financial Support,Quality of financial-aid counseling,Campus 6,68.7,37
+2025,Financial Support,Affordability of cost of attendance,Campus 6,48.9,37
+2025,Financial Support,Availability of scholarships,Campus 6,55.2,37
+2025,Financial Support,Education on debt management,Campus 6,68.1,37
+2025,Overall,Overall satisfaction with the quality of your medical education,Campus 7,87.2,30
+2025,Overall,Would choose this medical school again,Campus 7,84.9,30
+2025,Overall,Feel prepared to begin residency,Campus 7,88.0,30
+2025,Curriculum,Quality of pre-clinical basic science instruction,Campus 7,88.0,30
+2025,Curriculum,Integration of basic science with clinical medicine,Campus 7,82.2,30
+2025,Curriculum,Quality of teaching by faculty,Campus 7,92.6,30
+2025,Curriculum,Fairness and transparency of assessments,Campus 7,83.0,30
+2025,Curriculum,Support for Step 1 / Step 2 preparation,Campus 7,84.5,30
+2025,Curriculum,Opportunities for research and scholarly activity,Campus 7,82.3,30
+2025,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 7,92.9,30
+2025,Clerkships,Satisfaction with Surgery clerkship,Campus 7,78.0,30
+2025,Clerkships,Satisfaction with Pediatrics clerkship,Campus 7,95.4,30
+2025,Clerkships,Satisfaction with OBGYN clerkship,Campus 7,82.3,30
+2025,Clerkships,Satisfaction with Psychiatry clerkship,Campus 7,89.4,30
+2025,Clerkships,Satisfaction with Family Medicine clerkship,Campus 7,91.7,30
+2025,Clerkships,Satisfaction with Neurology clerkship,Campus 7,83.3,30
+2025,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 7,90.6,30
+2025,Admin Support,Quality of academic advising,Campus 7,78.9,30
+2025,Admin Support,Quality of residency / career advising,Campus 7,81.3,30
+2025,Admin Support,Responsiveness of registrar and student records,Campus 7,85.8,30
+2025,Admin Support,Accessibility of student affairs deans,Campus 7,81.9,30
+2025,Admin Support,Availability of wellness and mental-health services,Campus 7,74.9,30
+2025,Mistreatment & Climate,Learning environment free from mistreatment,Campus 7,89.0,30
+2025,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 7,74.2,30
+2025,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 7,66.4,30
+2025,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 7,88.1,30
+2025,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 7,84.4,30
+2025,Facilities,Library and study spaces,Campus 7,94.1,30
+2025,Facilities,Simulation and skills-lab facilities,Campus 7,95.1,30
+2025,Facilities,Technology and IT support,Campus 7,88.3,30
+2025,Facilities,Quality of clinical training sites,Campus 7,87.6,30
+2025,Financial Support,Quality of financial-aid counseling,Campus 7,71.5,30
+2025,Financial Support,Affordability of cost of attendance,Campus 7,47.2,30
+2025,Financial Support,Availability of scholarships,Campus 7,56.1,30
+2025,Financial Support,Education on debt management,Campus 7,65.5,30
+2025,Overall,Overall satisfaction with the quality of your medical education,Campus 8,79.4,22
+2025,Overall,Would choose this medical school again,Campus 8,78.7,22
+2025,Overall,Feel prepared to begin residency,Campus 8,82.2,22
+2025,Curriculum,Quality of pre-clinical basic science instruction,Campus 8,83.4,22
+2025,Curriculum,Integration of basic science with clinical medicine,Campus 8,76.7,22
+2025,Curriculum,Quality of teaching by faculty,Campus 8,87.8,22
+2025,Curriculum,Fairness and transparency of assessments,Campus 8,80.4,22
+2025,Curriculum,Support for Step 1 / Step 2 preparation,Campus 8,77.3,22
+2025,Curriculum,Opportunities for research and scholarly activity,Campus 8,80.1,22
+2025,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 8,87.2,22
+2025,Clerkships,Satisfaction with Surgery clerkship,Campus 8,75.2,22
+2025,Clerkships,Satisfaction with Pediatrics clerkship,Campus 8,86.0,22
+2025,Clerkships,Satisfaction with OBGYN clerkship,Campus 8,79.4,22
+2025,Clerkships,Satisfaction with Psychiatry clerkship,Campus 8,83.9,22
+2025,Clerkships,Satisfaction with Family Medicine clerkship,Campus 8,89.5,22
+2025,Clerkships,Satisfaction with Neurology clerkship,Campus 8,78.2,22
+2025,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 8,86.8,22
+2025,Admin Support,Quality of academic advising,Campus 8,68.6,22
+2025,Admin Support,Quality of residency / career advising,Campus 8,71.5,22
+2025,Admin Support,Responsiveness of registrar and student records,Campus 8,79.7,22
+2025,Admin Support,Accessibility of student affairs deans,Campus 8,76.4,22
+2025,Admin Support,Availability of wellness and mental-health services,Campus 8,62.9,22
+2025,Mistreatment & Climate,Learning environment free from mistreatment,Campus 8,84.3,22
+2025,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 8,67.2,22
+2025,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 8,61.1,22
+2025,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 8,81.0,22
+2025,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 8,82.3,22
+2025,Facilities,Library and study spaces,Campus 8,87.2,22
+2025,Facilities,Simulation and skills-lab facilities,Campus 8,88.6,22
+2025,Facilities,Technology and IT support,Campus 8,84.4,22
+2025,Facilities,Quality of clinical training sites,Campus 8,82.0,22
+2025,Financial Support,Quality of financial-aid counseling,Campus 8,69.1,22
+2025,Financial Support,Affordability of cost of attendance,Campus 8,43.4,22
+2025,Financial Support,Availability of scholarships,Campus 8,51.4,22
+2025,Financial Support,Education on debt management,Campus 8,63.3,22
+2025,Overall,Overall satisfaction with the quality of your medical education,Campus 9,79.2,21
+2025,Overall,Would choose this medical school again,Campus 9,78.0,21
+2025,Overall,Feel prepared to begin residency,Campus 9,81.9,21
+2025,Curriculum,Quality of pre-clinical basic science instruction,Campus 9,83.0,21
+2025,Curriculum,Integration of basic science with clinical medicine,Campus 9,80.6,21
+2025,Curriculum,Quality of teaching by faculty,Campus 9,86.2,21
+2025,Curriculum,Fairness and transparency of assessments,Campus 9,77.2,21
+2025,Curriculum,Support for Step 1 / Step 2 preparation,Campus 9,77.6,21
+2025,Curriculum,Opportunities for research and scholarly activity,Campus 9,79.5,21
+2025,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 9,84.4,21
+2025,Clerkships,Satisfaction with Surgery clerkship,Campus 9,75.2,21
+2025,Clerkships,Satisfaction with Pediatrics clerkship,Campus 9,88.9,21
+2025,Clerkships,Satisfaction with OBGYN clerkship,Campus 9,77.5,21
+2025,Clerkships,Satisfaction with Psychiatry clerkship,Campus 9,84.4,21
+2025,Clerkships,Satisfaction with Family Medicine clerkship,Campus 9,88.3,21
+2025,Clerkships,Satisfaction with Neurology clerkship,Campus 9,80.3,21
+2025,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 9,84.7,21
+2025,Admin Support,Quality of academic advising,Campus 9,67.8,21
+2025,Admin Support,Quality of residency / career advising,Campus 9,72.9,21
+2025,Admin Support,Responsiveness of registrar and student records,Campus 9,79.4,21
+2025,Admin Support,Accessibility of student affairs deans,Campus 9,73.8,21
+2025,Admin Support,Availability of wellness and mental-health services,Campus 9,65.7,21
+2025,Mistreatment & Climate,Learning environment free from mistreatment,Campus 9,82.0,21
+2025,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 9,65.9,21
+2025,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 9,63.5,21
+2025,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 9,80.3,21
+2025,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 9,82.8,21
+2025,Facilities,Library and study spaces,Campus 9,86.3,21
+2025,Facilities,Simulation and skills-lab facilities,Campus 9,87.4,21
+2025,Facilities,Technology and IT support,Campus 9,83.7,21
+2025,Facilities,Quality of clinical training sites,Campus 9,83.7,21
+2025,Financial Support,Quality of financial-aid counseling,Campus 9,60.4,21
+2025,Financial Support,Affordability of cost of attendance,Campus 9,40.6,21
+2025,Financial Support,Availability of scholarships,Campus 9,46.4,21
+2025,Financial Support,Education on debt management,Campus 9,59.6,21
+2026,Overall,Overall satisfaction with the quality of your medical education,Medical School A,79.5,434
+2026,Overall,Would choose this medical school again,Medical School A,77.6,434
+2026,Overall,Feel prepared to begin residency,Medical School A,82.5,434
+2026,Curriculum,Quality of pre-clinical basic science instruction,Medical School A,84.7,434
+2026,Curriculum,Integration of basic science with clinical medicine,Medical School A,81.0,434
+2026,Curriculum,Quality of teaching by faculty,Medical School A,88.5,434
+2026,Curriculum,Fairness and transparency of assessments,Medical School A,82.4,434
+2026,Curriculum,Support for Step 1 / Step 2 preparation,Medical School A,82.3,434
+2026,Curriculum,Opportunities for research and scholarly activity,Medical School A,81.1,434
+2026,Clerkships,Satisfaction with Internal Medicine clerkship,Medical School A,89.2,434
+2026,Clerkships,Satisfaction with Surgery clerkship,Medical School A,72.6,434
+2026,Clerkships,Satisfaction with Pediatrics clerkship,Medical School A,90.0,434
+2026,Clerkships,Satisfaction with OBGYN clerkship,Medical School A,77.1,434
+2026,Clerkships,Satisfaction with Psychiatry clerkship,Medical School A,84.9,434
+2026,Clerkships,Satisfaction with Family Medicine clerkship,Medical School A,90.5,434
+2026,Clerkships,Satisfaction with Neurology clerkship,Medical School A,80.1,434
+2026,Clerkships,Satisfaction with Emergency Medicine clerkship,Medical School A,87.4,434
+2026,Admin Support,Quality of academic advising,Medical School A,76.7,434
+2026,Admin Support,Quality of residency / career advising,Medical School A,79.4,434
+2026,Admin Support,Responsiveness of registrar and student records,Medical School A,84.7,434
+2026,Admin Support,Accessibility of student affairs deans,Medical School A,81.5,434
+2026,Admin Support,Availability of wellness and mental-health services,Medical School A,74.6,434
+2026,Mistreatment & Climate,Learning environment free from mistreatment,Medical School A,80.2,434
+2026,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Medical School A,64.7,434
+2026,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Medical School A,57.2,434
+2026,Mistreatment & Climate,Faculty and residents model professional behavior,Medical School A,77.4,434
+2026,Mistreatment & Climate,Inclusive and respectful climate for all students,Medical School A,75.0,434
+2026,Facilities,Library and study spaces,Medical School A,90.2,434
+2026,Facilities,Simulation and skills-lab facilities,Medical School A,90.2,434
+2026,Facilities,Technology and IT support,Medical School A,82.8,434
+2026,Facilities,Quality of clinical training sites,Medical School A,84.0,434
+2026,Financial Support,Quality of financial-aid counseling,Medical School A,66.4,434
+2026,Financial Support,Affordability of cost of attendance,Medical School A,42.1,434
+2026,Financial Support,Availability of scholarships,Medical School A,50.1,434
+2026,Financial Support,Education on debt management,Medical School A,61.1,434
+2026,Overall,Overall satisfaction with the quality of your medical education,National Benchmark,82.5,
+2026,Overall,Would choose this medical school again,National Benchmark,81.1,
+2026,Overall,Feel prepared to begin residency,National Benchmark,85.0,
+2026,Curriculum,Quality of pre-clinical basic science instruction,National Benchmark,79.8,
+2026,Curriculum,Integration of basic science with clinical medicine,National Benchmark,76.1,
+2026,Curriculum,Quality of teaching by faculty,National Benchmark,84.2,
+2026,Curriculum,Fairness and transparency of assessments,National Benchmark,79.1,
+2026,Curriculum,Support for Step 1 / Step 2 preparation,National Benchmark,74.7,
+2026,Curriculum,Opportunities for research and scholarly activity,National Benchmark,76.8,
+2026,Clerkships,Satisfaction with Internal Medicine clerkship,National Benchmark,86.2,
+2026,Clerkships,Satisfaction with Surgery clerkship,National Benchmark,79.0,
+2026,Clerkships,Satisfaction with Pediatrics clerkship,National Benchmark,87.8,
+2026,Clerkships,Satisfaction with OBGYN clerkship,National Benchmark,82.0,
+2026,Clerkships,Satisfaction with Psychiatry clerkship,National Benchmark,84.8,
+2026,Clerkships,Satisfaction with Family Medicine clerkship,National Benchmark,86.5,
+2026,Clerkships,Satisfaction with Neurology clerkship,National Benchmark,79.9,
+2026,Clerkships,Satisfaction with Emergency Medicine clerkship,National Benchmark,86.9,
+2026,Admin Support,Quality of academic advising,National Benchmark,74.9,
+2026,Admin Support,Quality of residency / career advising,National Benchmark,77.4,
+2026,Admin Support,Responsiveness of registrar and student records,National Benchmark,81.3,
+2026,Admin Support,Accessibility of student affairs deans,National Benchmark,79.5,
+2026,Admin Support,Availability of wellness and mental-health services,National Benchmark,73.7,
+2026,Mistreatment & Climate,Learning environment free from mistreatment,National Benchmark,86.7,
+2026,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,National Benchmark,71.3,
+2026,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,National Benchmark,69.0,
+2026,Mistreatment & Climate,Faculty and residents model professional behavior,National Benchmark,83.6,
+2026,Mistreatment & Climate,Inclusive and respectful climate for all students,National Benchmark,83.4,
+2026,Facilities,Library and study spaces,National Benchmark,85.4,
+2026,Facilities,Simulation and skills-lab facilities,National Benchmark,82.5,
+2026,Facilities,Technology and IT support,National Benchmark,78.8,
+2026,Facilities,Quality of clinical training sites,National Benchmark,81.0,
+2026,Financial Support,Quality of financial-aid counseling,National Benchmark,73.7,
+2026,Financial Support,Affordability of cost of attendance,National Benchmark,52.7,
+2026,Financial Support,Availability of scholarships,National Benchmark,57.6,
+2026,Financial Support,Education on debt management,National Benchmark,68.4,
+2026,Overall,Overall satisfaction with the quality of your medical education,Campus 1,84.1,120
+2026,Overall,Would choose this medical school again,Campus 1,77.4,120
+2026,Overall,Feel prepared to begin residency,Campus 1,85.5,120
+2026,Curriculum,Quality of pre-clinical basic science instruction,Campus 1,85.9,120
+2026,Curriculum,Integration of basic science with clinical medicine,Campus 1,82.6,120
+2026,Curriculum,Quality of teaching by faculty,Campus 1,87.6,120
+2026,Curriculum,Fairness and transparency of assessments,Campus 1,82.9,120
+2026,Curriculum,Support for Step 1 / Step 2 preparation,Campus 1,83.1,120
+2026,Curriculum,Opportunities for research and scholarly activity,Campus 1,82.2,120
+2026,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 1,92.1,120
+2026,Clerkships,Satisfaction with Surgery clerkship,Campus 1,74.0,120
+2026,Clerkships,Satisfaction with Pediatrics clerkship,Campus 1,91.6,120
+2026,Clerkships,Satisfaction with OBGYN clerkship,Campus 1,77.7,120
+2026,Clerkships,Satisfaction with Psychiatry clerkship,Campus 1,88.5,120
+2026,Clerkships,Satisfaction with Family Medicine clerkship,Campus 1,91.2,120
+2026,Clerkships,Satisfaction with Neurology clerkship,Campus 1,82.7,120
+2026,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 1,91.4,120
+2026,Admin Support,Quality of academic advising,Campus 1,78.3,120
+2026,Admin Support,Quality of residency / career advising,Campus 1,82.0,120
+2026,Admin Support,Responsiveness of registrar and student records,Campus 1,87.9,120
+2026,Admin Support,Accessibility of student affairs deans,Campus 1,83.7,120
+2026,Admin Support,Availability of wellness and mental-health services,Campus 1,77.1,120
+2026,Mistreatment & Climate,Learning environment free from mistreatment,Campus 1,83.2,120
+2026,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 1,68.7,120
+2026,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 1,59.6,120
+2026,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 1,79.5,120
+2026,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 1,75.6,120
+2026,Facilities,Library and study spaces,Campus 1,94.5,120
+2026,Facilities,Simulation and skills-lab facilities,Campus 1,93.0,120
+2026,Facilities,Technology and IT support,Campus 1,85.4,120
+2026,Facilities,Quality of clinical training sites,Campus 1,85.1,120
+2026,Financial Support,Quality of financial-aid counseling,Campus 1,67.9,120
+2026,Financial Support,Affordability of cost of attendance,Campus 1,43.4,120
+2026,Financial Support,Availability of scholarships,Campus 1,51.5,120
+2026,Financial Support,Education on debt management,Campus 1,64.1,120
+2026,Overall,Overall satisfaction with the quality of your medical education,Campus 2,79.4,62
+2026,Overall,Would choose this medical school again,Campus 2,77.0,62
+2026,Overall,Feel prepared to begin residency,Campus 2,82.3,62
+2026,Curriculum,Quality of pre-clinical basic science instruction,Campus 2,85.0,62
+2026,Curriculum,Integration of basic science with clinical medicine,Campus 2,81.1,62
+2026,Curriculum,Quality of teaching by faculty,Campus 2,90.2,62
+2026,Curriculum,Fairness and transparency of assessments,Campus 2,86.9,62
+2026,Curriculum,Support for Step 1 / Step 2 preparation,Campus 2,85.5,62
+2026,Curriculum,Opportunities for research and scholarly activity,Campus 2,80.0,62
+2026,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 2,88.3,62
+2026,Clerkships,Satisfaction with Surgery clerkship,Campus 2,76.8,62
+2026,Clerkships,Satisfaction with Pediatrics clerkship,Campus 2,92.2,62
+2026,Clerkships,Satisfaction with OBGYN clerkship,Campus 2,78.1,62
+2026,Clerkships,Satisfaction with Psychiatry clerkship,Campus 2,87.1,62
+2026,Clerkships,Satisfaction with Family Medicine clerkship,Campus 2,91.0,62
+2026,Clerkships,Satisfaction with Neurology clerkship,Campus 2,80.7,62
+2026,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 2,87.3,62
+2026,Admin Support,Quality of academic advising,Campus 2,78.1,62
+2026,Admin Support,Quality of residency / career advising,Campus 2,78.2,62
+2026,Admin Support,Responsiveness of registrar and student records,Campus 2,84.1,62
+2026,Admin Support,Accessibility of student affairs deans,Campus 2,81.6,62
+2026,Admin Support,Availability of wellness and mental-health services,Campus 2,73.4,62
+2026,Mistreatment & Climate,Learning environment free from mistreatment,Campus 2,81.2,62
+2026,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 2,65.7,62
+2026,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 2,58.9,62
+2026,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 2,78.4,62
+2026,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 2,75.9,62
+2026,Facilities,Library and study spaces,Campus 2,90.7,62
+2026,Facilities,Simulation and skills-lab facilities,Campus 2,91.2,62
+2026,Facilities,Technology and IT support,Campus 2,84.9,62
+2026,Facilities,Quality of clinical training sites,Campus 2,84.4,62
+2026,Financial Support,Quality of financial-aid counseling,Campus 2,67.1,62
+2026,Financial Support,Affordability of cost of attendance,Campus 2,42.1,62
+2026,Financial Support,Availability of scholarships,Campus 2,49.9,62
+2026,Financial Support,Education on debt management,Campus 2,62.9,62
+2026,Overall,Overall satisfaction with the quality of your medical education,Campus 3,76.5,46
+2026,Overall,Would choose this medical school again,Campus 3,75.6,46
+2026,Overall,Feel prepared to begin residency,Campus 3,82.2,46
+2026,Curriculum,Quality of pre-clinical basic science instruction,Campus 3,82.5,46
+2026,Curriculum,Integration of basic science with clinical medicine,Campus 3,76.6,46
+2026,Curriculum,Quality of teaching by faculty,Campus 3,85.4,46
+2026,Curriculum,Fairness and transparency of assessments,Campus 3,79.1,46
+2026,Curriculum,Support for Step 1 / Step 2 preparation,Campus 3,81.0,46
+2026,Curriculum,Opportunities for research and scholarly activity,Campus 3,80.8,46
+2026,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 3,82.3,46
+2026,Clerkships,Satisfaction with Surgery clerkship,Campus 3,65.7,46
+2026,Clerkships,Satisfaction with Pediatrics clerkship,Campus 3,83.6,46
+2026,Clerkships,Satisfaction with OBGYN clerkship,Campus 3,70.9,46
+2026,Clerkships,Satisfaction with Psychiatry clerkship,Campus 3,78.4,46
+2026,Clerkships,Satisfaction with Family Medicine clerkship,Campus 3,83.7,46
+2026,Clerkships,Satisfaction with Neurology clerkship,Campus 3,73.7,46
+2026,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 3,77.7,46
+2026,Admin Support,Quality of academic advising,Campus 3,77.9,46
+2026,Admin Support,Quality of residency / career advising,Campus 3,76.7,46
+2026,Admin Support,Responsiveness of registrar and student records,Campus 3,83.9,46
+2026,Admin Support,Accessibility of student affairs deans,Campus 3,80.2,46
+2026,Admin Support,Availability of wellness and mental-health services,Campus 3,73.7,46
+2026,Mistreatment & Climate,Learning environment free from mistreatment,Campus 3,80.5,46
+2026,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 3,63.2,46
+2026,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 3,56.6,46
+2026,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 3,75.4,46
+2026,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 3,75.0,46
+2026,Facilities,Library and study spaces,Campus 3,82.6,46
+2026,Facilities,Simulation and skills-lab facilities,Campus 3,79.7,46
+2026,Facilities,Technology and IT support,Campus 3,75.9,46
+2026,Facilities,Quality of clinical training sites,Campus 3,78.2,46
+2026,Financial Support,Quality of financial-aid counseling,Campus 3,65.7,46
+2026,Financial Support,Affordability of cost of attendance,Campus 3,42.0,46
+2026,Financial Support,Availability of scholarships,Campus 3,52.7,46
+2026,Financial Support,Education on debt management,Campus 3,58.6,46
+2026,Overall,Overall satisfaction with the quality of your medical education,Campus 4,75.9,51
+2026,Overall,Would choose this medical school again,Campus 4,81.4,51
+2026,Overall,Feel prepared to begin residency,Campus 4,81.5,51
+2026,Curriculum,Quality of pre-clinical basic science instruction,Campus 4,82.5,51
+2026,Curriculum,Integration of basic science with clinical medicine,Campus 4,80.0,51
+2026,Curriculum,Quality of teaching by faculty,Campus 4,91.5,51
+2026,Curriculum,Fairness and transparency of assessments,Campus 4,80.0,51
+2026,Curriculum,Support for Step 1 / Step 2 preparation,Campus 4,83.3,51
+2026,Curriculum,Opportunities for research and scholarly activity,Campus 4,79.0,51
+2026,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 4,88.4,51
+2026,Clerkships,Satisfaction with Surgery clerkship,Campus 4,73.4,51
+2026,Clerkships,Satisfaction with Pediatrics clerkship,Campus 4,91.5,51
+2026,Clerkships,Satisfaction with OBGYN clerkship,Campus 4,77.0,51
+2026,Clerkships,Satisfaction with Psychiatry clerkship,Campus 4,84.4,51
+2026,Clerkships,Satisfaction with Family Medicine clerkship,Campus 4,91.9,51
+2026,Clerkships,Satisfaction with Neurology clerkship,Campus 4,79.2,51
+2026,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 4,86.7,51
+2026,Admin Support,Quality of academic advising,Campus 4,75.9,51
+2026,Admin Support,Quality of residency / career advising,Campus 4,77.3,51
+2026,Admin Support,Responsiveness of registrar and student records,Campus 4,85.1,51
+2026,Admin Support,Accessibility of student affairs deans,Campus 4,81.0,51
+2026,Admin Support,Availability of wellness and mental-health services,Campus 4,76.6,51
+2026,Mistreatment & Climate,Learning environment free from mistreatment,Campus 4,77.9,51
+2026,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 4,64.5,51
+2026,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 4,57.4,51
+2026,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 4,78.1,51
+2026,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 4,75.9,51
+2026,Facilities,Library and study spaces,Campus 4,89.9,51
+2026,Facilities,Simulation and skills-lab facilities,Campus 4,88.9,51
+2026,Facilities,Technology and IT support,Campus 4,82.9,51
+2026,Facilities,Quality of clinical training sites,Campus 4,83.7,51
+2026,Financial Support,Quality of financial-aid counseling,Campus 4,65.0,51
+2026,Financial Support,Affordability of cost of attendance,Campus 4,38.5,51
+2026,Financial Support,Availability of scholarships,Campus 4,48.8,51
+2026,Financial Support,Education on debt management,Campus 4,60.2,51
+2026,Overall,Overall satisfaction with the quality of your medical education,Campus 5,74.7,33
+2026,Overall,Would choose this medical school again,Campus 5,74.0,33
+2026,Overall,Feel prepared to begin residency,Campus 5,77.2,33
+2026,Curriculum,Quality of pre-clinical basic science instruction,Campus 5,81.5,33
+2026,Curriculum,Integration of basic science with clinical medicine,Campus 5,77.1,33
+2026,Curriculum,Quality of teaching by faculty,Campus 5,86.4,33
+2026,Curriculum,Fairness and transparency of assessments,Campus 5,77.0,33
+2026,Curriculum,Support for Step 1 / Step 2 preparation,Campus 5,80.1,33
+2026,Curriculum,Opportunities for research and scholarly activity,Campus 5,78.4,33
+2026,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 5,88.1,33
+2026,Clerkships,Satisfaction with Surgery clerkship,Campus 5,67.9,33
+2026,Clerkships,Satisfaction with Pediatrics clerkship,Campus 5,87.2,33
+2026,Clerkships,Satisfaction with OBGYN clerkship,Campus 5,76.7,33
+2026,Clerkships,Satisfaction with Psychiatry clerkship,Campus 5,80.1,33
+2026,Clerkships,Satisfaction with Family Medicine clerkship,Campus 5,90.0,33
+2026,Clerkships,Satisfaction with Neurology clerkship,Campus 5,77.4,33
+2026,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 5,87.4,33
+2026,Admin Support,Quality of academic advising,Campus 5,71.9,33
+2026,Admin Support,Quality of residency / career advising,Campus 5,78.4,33
+2026,Admin Support,Responsiveness of registrar and student records,Campus 5,81.5,33
+2026,Admin Support,Accessibility of student affairs deans,Campus 5,79.6,33
+2026,Admin Support,Availability of wellness and mental-health services,Campus 5,72.9,33
+2026,Mistreatment & Climate,Learning environment free from mistreatment,Campus 5,67.8,33
+2026,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 5,52.4,33
+2026,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 5,45.0,33
+2026,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 5,64.4,33
+2026,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 5,63.1,33
+2026,Facilities,Library and study spaces,Campus 5,87.0,33
+2026,Facilities,Simulation and skills-lab facilities,Campus 5,89.2,33
+2026,Facilities,Technology and IT support,Campus 5,79.4,33
+2026,Facilities,Quality of clinical training sites,Campus 5,81.8,33
+2026,Financial Support,Quality of financial-aid counseling,Campus 5,63.2,33
+2026,Financial Support,Affordability of cost of attendance,Campus 5,40.0,33
+2026,Financial Support,Availability of scholarships,Campus 5,46.6,33
+2026,Financial Support,Education on debt management,Campus 5,57.2,33
+2026,Overall,Overall satisfaction with the quality of your medical education,Campus 6,78.4,39
+2026,Overall,Would choose this medical school again,Campus 6,78.2,39
+2026,Overall,Feel prepared to begin residency,Campus 6,81.0,39
+2026,Curriculum,Quality of pre-clinical basic science instruction,Campus 6,87.9,39
+2026,Curriculum,Integration of basic science with clinical medicine,Campus 6,82.2,39
+2026,Curriculum,Quality of teaching by faculty,Campus 6,91.0,39
+2026,Curriculum,Fairness and transparency of assessments,Campus 6,84.2,39
+2026,Curriculum,Support for Step 1 / Step 2 preparation,Campus 6,80.1,39
+2026,Curriculum,Opportunities for research and scholarly activity,Campus 6,82.7,39
+2026,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 6,89.4,39
+2026,Clerkships,Satisfaction with Surgery clerkship,Campus 6,71.4,39
+2026,Clerkships,Satisfaction with Pediatrics clerkship,Campus 6,88.8,39
+2026,Clerkships,Satisfaction with OBGYN clerkship,Campus 6,78.0,39
+2026,Clerkships,Satisfaction with Psychiatry clerkship,Campus 6,84.6,39
+2026,Clerkships,Satisfaction with Family Medicine clerkship,Campus 6,90.8,39
+2026,Clerkships,Satisfaction with Neurology clerkship,Campus 6,81.6,39
+2026,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 6,86.6,39
+2026,Admin Support,Quality of academic advising,Campus 6,74.9,39
+2026,Admin Support,Quality of residency / career advising,Campus 6,79.4,39
+2026,Admin Support,Responsiveness of registrar and student records,Campus 6,84.3,39
+2026,Admin Support,Accessibility of student affairs deans,Campus 6,81.0,39
+2026,Admin Support,Availability of wellness and mental-health services,Campus 6,74.3,39
+2026,Mistreatment & Climate,Learning environment free from mistreatment,Campus 6,83.5,39
+2026,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 6,64.1,39
+2026,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 6,56.4,39
+2026,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 6,79.1,39
+2026,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 6,77.1,39
+2026,Facilities,Library and study spaces,Campus 6,89.5,39
+2026,Facilities,Simulation and skills-lab facilities,Campus 6,93.6,39
+2026,Facilities,Technology and IT support,Campus 6,84.5,39
+2026,Facilities,Quality of clinical training sites,Campus 6,87.8,39
+2026,Financial Support,Quality of financial-aid counseling,Campus 6,66.8,39
+2026,Financial Support,Affordability of cost of attendance,Campus 6,42.3,39
+2026,Financial Support,Availability of scholarships,Campus 6,50.0,39
+2026,Financial Support,Education on debt management,Campus 6,60.8,39
+2026,Overall,Overall satisfaction with the quality of your medical education,Campus 7,83.9,33
+2026,Overall,Would choose this medical school again,Campus 7,81.8,33
+2026,Overall,Feel prepared to begin residency,Campus 7,84.4,33
+2026,Curriculum,Quality of pre-clinical basic science instruction,Campus 7,90.1,33
+2026,Curriculum,Integration of basic science with clinical medicine,Campus 7,86.5,33
+2026,Curriculum,Quality of teaching by faculty,Campus 7,91.2,33
+2026,Curriculum,Fairness and transparency of assessments,Campus 7,86.7,33
+2026,Curriculum,Support for Step 1 / Step 2 preparation,Campus 7,84.4,33
+2026,Curriculum,Opportunities for research and scholarly activity,Campus 7,84.3,33
+2026,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 7,92.3,33
+2026,Clerkships,Satisfaction with Surgery clerkship,Campus 7,77.3,33
+2026,Clerkships,Satisfaction with Pediatrics clerkship,Campus 7,94.6,33
+2026,Clerkships,Satisfaction with OBGYN clerkship,Campus 7,84.1,33
+2026,Clerkships,Satisfaction with Psychiatry clerkship,Campus 7,88.0,33
+2026,Clerkships,Satisfaction with Family Medicine clerkship,Campus 7,95.9,33
+2026,Clerkships,Satisfaction with Neurology clerkship,Campus 7,82.3,33
+2026,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 7,91.5,33
+2026,Admin Support,Quality of academic advising,Campus 7,82.4,33
+2026,Admin Support,Quality of residency / career advising,Campus 7,84.9,33
+2026,Admin Support,Responsiveness of registrar and student records,Campus 7,87.9,33
+2026,Admin Support,Accessibility of student affairs deans,Campus 7,84.3,33
+2026,Admin Support,Availability of wellness and mental-health services,Campus 7,75.9,33
+2026,Mistreatment & Climate,Learning environment free from mistreatment,Campus 7,82.2,33
+2026,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 7,67.2,33
+2026,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 7,59.9,33
+2026,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 7,82.6,33
+2026,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 7,81.3,33
+2026,Facilities,Library and study spaces,Campus 7,91.6,33
+2026,Facilities,Simulation and skills-lab facilities,Campus 7,95.3,33
+2026,Facilities,Technology and IT support,Campus 7,83.9,33
+2026,Facilities,Quality of clinical training sites,Campus 7,86.3,33
+2026,Financial Support,Quality of financial-aid counseling,Campus 7,71.0,33
+2026,Financial Support,Affordability of cost of attendance,Campus 7,47.5,33
+2026,Financial Support,Availability of scholarships,Campus 7,53.3,33
+2026,Financial Support,Education on debt management,Campus 7,62.5,33
+2026,Overall,Overall satisfaction with the quality of your medical education,Campus 8,76.6,28
+2026,Overall,Would choose this medical school again,Campus 8,75.7,28
+2026,Overall,Feel prepared to begin residency,Campus 8,81.3,28
+2026,Curriculum,Quality of pre-clinical basic science instruction,Campus 8,82.0,28
+2026,Curriculum,Integration of basic science with clinical medicine,Campus 8,79.1,28
+2026,Curriculum,Quality of teaching by faculty,Campus 8,87.6,28
+2026,Curriculum,Fairness and transparency of assessments,Campus 8,80.7,28
+2026,Curriculum,Support for Step 1 / Step 2 preparation,Campus 8,78.0,28
+2026,Curriculum,Opportunities for research and scholarly activity,Campus 8,81.2,28
+2026,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 8,89.3,28
+2026,Clerkships,Satisfaction with Surgery clerkship,Campus 8,71.3,28
+2026,Clerkships,Satisfaction with Pediatrics clerkship,Campus 8,87.1,28
+2026,Clerkships,Satisfaction with OBGYN clerkship,Campus 8,76.0,28
+2026,Clerkships,Satisfaction with Psychiatry clerkship,Campus 8,79.9,28
+2026,Clerkships,Satisfaction with Family Medicine clerkship,Campus 8,89.4,28
+2026,Clerkships,Satisfaction with Neurology clerkship,Campus 8,80.2,28
+2026,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 8,85.4,28
+2026,Admin Support,Quality of academic advising,Campus 8,72.0,28
+2026,Admin Support,Quality of residency / career advising,Campus 8,77.4,28
+2026,Admin Support,Responsiveness of registrar and student records,Campus 8,77.1,28
+2026,Admin Support,Accessibility of student affairs deans,Campus 8,76.7,28
+2026,Admin Support,Availability of wellness and mental-health services,Campus 8,68.3,28
+2026,Mistreatment & Climate,Learning environment free from mistreatment,Campus 8,79.5,28
+2026,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 8,64.1,28
+2026,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 8,58.5,28
+2026,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 8,76.4,28
+2026,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 8,72.5,28
+2026,Facilities,Library and study spaces,Campus 8,89.9,28
+2026,Facilities,Simulation and skills-lab facilities,Campus 8,87.6,28
+2026,Facilities,Technology and IT support,Campus 8,81.1,28
+2026,Facilities,Quality of clinical training sites,Campus 8,82.8,28
+2026,Financial Support,Quality of financial-aid counseling,Campus 8,66.2,28
+2026,Financial Support,Affordability of cost of attendance,Campus 8,41.5,28
+2026,Financial Support,Availability of scholarships,Campus 8,47.9,28
+2026,Financial Support,Education on debt management,Campus 8,60.2,28
+2026,Overall,Overall satisfaction with the quality of your medical education,Campus 9,76.0,22
+2026,Overall,Would choose this medical school again,Campus 9,75.8,22
+2026,Overall,Feel prepared to begin residency,Campus 9,79.3,22
+2026,Curriculum,Quality of pre-clinical basic science instruction,Campus 9,81.2,22
+2026,Curriculum,Integration of basic science with clinical medicine,Campus 9,80.5,22
+2026,Curriculum,Quality of teaching by faculty,Campus 9,83.9,22
+2026,Curriculum,Fairness and transparency of assessments,Campus 9,79.4,22
+2026,Curriculum,Support for Step 1 / Step 2 preparation,Campus 9,78.8,22
+2026,Curriculum,Opportunities for research and scholarly activity,Campus 9,79.4,22
+2026,Clerkships,Satisfaction with Internal Medicine clerkship,Campus 9,87.8,22
+2026,Clerkships,Satisfaction with Surgery clerkship,Campus 9,69.6,22
+2026,Clerkships,Satisfaction with Pediatrics clerkship,Campus 9,87.5,22
+2026,Clerkships,Satisfaction with OBGYN clerkship,Campus 9,74.0,22
+2026,Clerkships,Satisfaction with Psychiatry clerkship,Campus 9,83.3,22
+2026,Clerkships,Satisfaction with Family Medicine clerkship,Campus 9,90.1,22
+2026,Clerkships,Satisfaction with Neurology clerkship,Campus 9,78.4,22
+2026,Clerkships,Satisfaction with Emergency Medicine clerkship,Campus 9,85.6,22
+2026,Admin Support,Quality of academic advising,Campus 9,71.7,22
+2026,Admin Support,Quality of residency / career advising,Campus 9,74.6,22
+2026,Admin Support,Responsiveness of registrar and student records,Campus 9,79.9,22
+2026,Admin Support,Accessibility of student affairs deans,Campus 9,78.8,22
+2026,Admin Support,Availability of wellness and mental-health services,Campus 9,71.2,22
+2026,Mistreatment & Climate,Learning environment free from mistreatment,Campus 9,75.9,22
+2026,Mistreatment & Climate,Confidence that mistreatment reports are handled fairly,Campus 9,60.9,22
+2026,Mistreatment & Climate,Comfort reporting mistreatment without fear of retaliation,Campus 9,55.1,22
+2026,Mistreatment & Climate,Faculty and residents model professional behavior,Campus 9,75.2,22
+2026,Mistreatment & Climate,Inclusive and respectful climate for all students,Campus 9,75.3,22
+2026,Facilities,Library and study spaces,Campus 9,87.1,22
+2026,Facilities,Simulation and skills-lab facilities,Campus 9,88.0,22
+2026,Facilities,Technology and IT support,Campus 9,79.1,22
+2026,Facilities,Quality of clinical training sites,Campus 9,85.2,22
+2026,Financial Support,Quality of financial-aid counseling,Campus 9,58.7,22
+2026,Financial Support,Affordability of cost of attendance,Campus 9,39.0,22
+2026,Financial Support,Availability of scholarships,Campus 9,43.7,22
+2026,Financial Support,Education on debt management,Campus 9,52.5,22

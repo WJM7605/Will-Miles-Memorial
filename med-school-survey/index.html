@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Graduation Questionnaire Insights – Medical School A</title>
+<style>
+  :root{
+    --navy:#0b2a4a; --ink:#14181f; --ink2:#4a5360; --ink3:#7b8491;
+    --rule:#d9dde3; --panel:#f5f6f8; --bg:#e9ebef;
+    --a:#0b2a4a;            /* Medical School A */
+    --nat:#8b929c;          /* National benchmark */
+    --campus:#2a78d6;       /* selected campus */
+    --pos:#2a78d6; --neg:#eb6834;
+    --pos-t:#1d5aa8; --neg-t:#b4411a;   /* text-safe variants */
+    --serif:Georgia,"Times New Roman",serif;
+    --sans:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{margin:0;background:var(--bg);font-family:var(--sans);color:var(--ink);font-size:13px;line-height:1.35}
+  button{font:inherit;cursor:pointer}
+
+  /* toolbar */
+  .toolbar{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff;display:flex;align-items:center;gap:16px;padding:10px 20px;flex-wrap:wrap}
+  .toolbar .brand{font-family:var(--serif);font-size:15px;letter-spacing:.2px;margin-right:auto}
+  .seg{display:inline-flex;border:1px solid rgba(255,255,255,.35);border-radius:6px;overflow:hidden}
+  .seg button{background:transparent;color:#fff;border:0;padding:6px 14px;font-size:13px}
+  .seg button[aria-pressed="true"]{background:#fff;color:var(--navy);font-weight:600}
+  .tb-btn{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:6px;padding:6px 12px;font-size:13px}
+  .tb-btn:hover{background:rgba(255,255,255,.12)}
+  .tb-lbl{font-size:12px;opacity:.75;margin-right:-8px}
+
+  .stage{transform-origin:top left;width:1100px;margin:20px auto 40px}
+  .page{width:1100px;height:1420px;background:#fff;position:relative;overflow:hidden;padding:34px 46px 0;margin-bottom:24px;box-shadow:0 2px 14px rgba(10,30,60,.14)}
+  .page.auto{height:auto;min-height:0;padding-bottom:36px}
+
+  /* page chrome */
+  .hdr{display:flex;justify-content:space-between;align-items:baseline;font-size:11px;letter-spacing:.9px;text-transform:uppercase;color:var(--ink3);border-bottom:2px solid var(--navy);padding-bottom:8px}
+  .hdr b{color:var(--navy)}
+  .ftr{position:absolute;left:46px;right:46px;bottom:22px;display:flex;justify-content:space-between;font-size:10.5px;color:var(--ink3);border-top:1px solid var(--rule);padding-top:8px}
+  h1.title{font-family:var(--serif);font-weight:400;font-size:27px;line-height:1.22;color:var(--navy);margin:20px 0 6px}
+  .subtitle{color:var(--ink2);font-size:12.5px;margin-bottom:18px}
+  .sec{display:flex;align-items:center;gap:10px;margin:22px 0 10px}
+  .sec .no{background:var(--navy);color:#fff;font-size:11px;font-weight:700;width:20px;height:20px;border-radius:50%;display:grid;place-items:center}
+  .sec h2{margin:0;font-size:14px;color:var(--navy);font-weight:700}
+  .sec .note{margin-left:auto;font-size:11px;color:var(--ink3)}
+  .sec::after{content:"";flex:0 0 0}
+  .ct{font-weight:700;font-size:12.5px;color:var(--ink)}
+  .cs{font-size:11.5px;color:var(--ink2);margin-bottom:8px}
+  .legend{display:flex;gap:14px;font-size:11.5px;color:var(--ink2);margin:4px 0 2px;flex-wrap:wrap}
+  .legend i{display:inline-block;width:12px;height:3px;border-radius:2px;vertical-align:middle;margin-right:5px}
+  .legend i.dot{width:9px;height:9px;border-radius:50%;height:9px}
+  .minis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 22px}
+  .mini .mt{display:flex;justify-content:space-between;font-size:12.5px;font-weight:700;border-bottom:1px solid var(--rule);padding-bottom:3px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+  .grid2.wide-left{grid-template-columns:5fr 6fr}
+
+  /* KPI tiles */
+  .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  .kpi{background:var(--panel);border-top:3px solid var(--navy);padding:12px 12px 10px;min-height:138px;position:relative}
+  .kpi .l{font-size:11px;color:var(--ink2);min-height:30px;line-height:1.25}
+  .kpi .v{font-family:var(--serif);font-size:34px;color:var(--navy);line-height:1.1;margin:2px 0 6px}
+  .kpi .v small{font-size:16px}
+  .delta{font-size:11.5px;display:flex;align-items:center;gap:5px;margin-top:2px;color:var(--ink2)}
+  .delta b{font-weight:700}
+  .up{color:var(--pos-t)} .dn{color:var(--neg-t)} .flat{color:var(--ink2)}
+  .kpi svg.spark{position:absolute;right:10px;top:44px}
+
+  /* insight cards */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .card{border:1px solid var(--rule);border-top:3px solid var(--navy);padding:12px 14px 12px}
+  .card .tag{font-size:10.5px;letter-spacing:.9px;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:6px}
+  .card h3{font-family:var(--serif);font-weight:400;font-size:16px;margin:6px 0 6px;color:var(--navy);line-height:1.25}
+  .card p{margin:0 0 8px;color:var(--ink2);font-size:12px}
+  .card .act{border-top:1px dashed var(--rule);padding-top:8px;font-size:12px;color:var(--ink)}
+  .card .act b{color:var(--navy)}
+  .card.protect{border-top-color:var(--pos)} .card.fix{border-top-color:var(--neg)} .card.watch{border-top-color:var(--ink2)}
+
+  /* tables */
+  table{border-collapse:collapse;width:100%}
+  th{font-size:10.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--ink2);text-align:right;font-weight:600;padding:6px 8px;border-bottom:1.5px solid var(--navy);vertical-align:bottom}
+  th:first-child,td:first-child{text-align:left}
+  td{padding:8px;text-align:right;border-bottom:1px solid var(--rule);font-variant-numeric:tabular-nums}
+  td.q{text-align:left}
+  .chip{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;white-space:nowrap}
+
+  /* HTML bar rows */
+  .brow{display:grid;grid-template-columns:var(--lw,200px) 1fr 52px;align-items:center;gap:10px;padding:4px 0;font-size:12px}
+  .brow .lab{line-height:1.2}
+  .track{position:relative;height:16px}
+  .track .zero{position:absolute;top:-2px;bottom:-2px;width:1px;background:var(--ink3)}
+  .track .bar{position:absolute;top:2px;height:12px}
+  .brow .val{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+  .brow .mut{font-weight:400;color:var(--ink3)}
+  .tracks2{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+
+  /* dumbbell */
+  .dumb{position:relative;height:20px}
+  .dumb .ln{position:absolute;top:9px;height:2px;background:#b9bec6}
+  .dumb .pt{position:absolute;top:4px;width:12px;height:12px;border-radius:50%;margin-left:-6px;border:2px solid #fff}
+  .axis{display:grid;grid-template-columns:var(--lw,170px) 1fr 54px;gap:10px;font-size:10.5px;color:var(--ink3)}
+  .axis .ticks{position:relative;height:14px}
+  .axis .ticks span{position:absolute;transform:translateX(-50%)}
+
+  /* heatmap */
+  .heat th{cursor:pointer;text-align:center;padding:6px 4px}
+  .heat th:hover{color:var(--navy)}
+  .heat th:first-child{text-align:left}
+  .heat td{text-align:center;padding:0;border-bottom:2px solid #fff;border-left:2px solid #fff;height:34px;font-size:12px}
+  .heat td:first-child{text-align:left;padding-left:4px;border-left:0;font-weight:600}
+  .heat tr.row{cursor:pointer}
+  .heat tr.row:hover td:first-child{color:var(--campus)}
+  .heat tr.sel td:first-child{box-shadow:inset 3px 0 0 var(--campus);padding-left:10px;color:var(--campus)}
+  .heat tr.sel td{outline:0}
+  .heat tr.sel td.c{box-shadow:inset 0 0 0 2px var(--navy)}
+  .heat tr.ref td{background:var(--panel);font-weight:700}
+  .heat td.n{color:var(--ink2);font-size:11.5px}
+  .scale{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--ink2);margin-top:8px}
+  .scale .gr{width:200px;height:10px;border-radius:2px}
+
+  /* domain explorer */
+  .tabs{display:flex;gap:0;border-bottom:1px solid var(--rule);flex-wrap:wrap}
+  .tabs button{background:none;border:0;border-bottom:3px solid transparent;padding:7px 12px;font-size:12px;color:var(--ink2);margin-bottom:-1px}
+  .tabs button[aria-pressed="true"]{color:var(--navy);border-bottom-color:var(--navy);font-weight:700}
+  .tabs button:hover{color:var(--navy)}
+  .xrow{display:grid;grid-template-columns:300px 1fr 150px;gap:14px;align-items:center;padding:6px 0;border-bottom:1px solid #eef0f3;font-size:12px}
+  .xtrack{position:relative;height:18px;background:#eef0f3;border-radius:2px}
+  .xtrack .fill{position:absolute;left:0;top:0;bottom:0;background:var(--a);border-radius:2px 4px 4px 2px;opacity:.92}
+  .xtrack .rng{position:absolute;top:7px;height:4px;background:rgba(42,120,214,.35);border-radius:2px}
+  .xtrack .nt{position:absolute;top:-3px;bottom:-3px;width:3px;background:var(--neg);border-radius:1px;margin-left:-1px;box-shadow:0 0 0 1.5px #fff}
+  .xnum{text-align:right;font-variant-numeric:tabular-nums;font-size:12px}
+
+  .note-src{font-size:10.5px;color:var(--ink3)}
+  .badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#8a5a00;background:#fff4d6;border:1px solid #f0d58a;padding:2px 7px;border-radius:3px}
+  svg text{font-family:var(--sans)}
+  #tip{position:fixed;z-index:50;pointer-events:none;background:#14181f;color:#fff;font-size:12px;padding:7px 10px;border-radius:5px;max-width:280px;opacity:0;transition:opacity .08s;line-height:1.35}
+  .appx input,.appx select{font:inherit;padding:6px 8px;border:1px solid var(--rule);border-radius:5px}
+
+  @media print{
+    body{background:#fff}
+    .toolbar,.noprint,#tip{display:none!important}
+    .stage{margin:0!important;zoom:1!important;transform:none!important;width:1100px}
+    .page{box-shadow:none;margin:0;page-break-after:always;break-after:page}
+    #p3{page-break-after:auto;break-after:auto}
+    @page{size:1100px 1420px;margin:0}
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="brand">Graduation Questionnaire Insights &nbsp;|&nbsp; Medical School A</div>
+  <span class="tb-lbl">Graduating class</span>
+  <div class="seg" id="yearSeg" role="group" aria-label="Class year"></div>
+  <button class="tb-btn" id="btnPdf">⤓ Download PDF</button>
+  <button class="tb-btn" id="btnPpt">⤓ Download PPT</button>
+  <button class="tb-btn" id="btnCsv">⤓ Dataset (CSV)</button>
+</div>
+
+<div class="stage" id="stage">
+
+<!-- ============================ PAGE 1 ============================ -->
+<section class="page" id="p1">
+  <div class="hdr"><span><b>Graduation Questionnaire Insights</b> &nbsp;·&nbsp; Executive summary</span><span id="h1r"></span></div>
+  <h1 class="title" id="t1"></h1>
+  <div class="subtitle" id="s1"></div>
+
+  <div class="kpis" id="kpis"></div>
+
+  <div class="sec"><span class="no">1</span><h2>Where we stand versus peers, and how fast it is moving</h2></div>
+  <div class="grid2 wide-left">
+    <div>
+      <div class="ct">Overall satisfaction with medical education</div>
+      <div class="cs">% favorable, 2024–2026</div>
+      <div class="legend"><span><i style="background:var(--a)"></i>Medical School A</span><span><i style="background:var(--nat)"></i>National benchmark</span></div>
+      <div id="trend1"></div>
+    </div>
+    <div>
+      <div class="ct">Gap to national benchmark by domain</div>
+      <div class="cs" id="gapSub">Percentage points, Medical School A minus national</div>
+      <div id="gapBars"></div>
+    </div>
+  </div>
+
+  <div class="sec"><span class="no">2</span><h2>What it means for leadership</h2><span class="note">Auto-generated from the selected class year</span></div>
+  <div class="cards" id="cards"></div>
+
+  <div class="sec"><span class="no">3</span><h2>Trajectory by domain: Medical School A vs national</h2><span class="note">Hover points for values</span></div>
+  <div class="legend" style="margin-bottom:6px"><span><i style="background:var(--a)"></i>Medical School A</span><span><i style="background:var(--nat)"></i>National benchmark</span></div>
+  <div class="minis" id="minis"></div>
+
+  <div class="ftr"><span>Source: <span class="badge">Synthetic mock data</span> &nbsp;Illustrative only – % favorable (agree / satisfied). Benchmark = national peer cohort.</span><span>1</span></div>
+</section>
+
+<!-- ============================ PAGE 2 ============================ -->
+<section class="page" id="p2">
+  <div class="hdr"><span><b>Graduation Questionnaire Insights</b> &nbsp;·&nbsp; Domain &amp; clerkship deep dive</span><span id="h2r"></span></div>
+  <h1 class="title" id="t2"></h1>
+  <div class="subtitle" id="s2"></div>
+
+  <div class="sec" style="margin-top:6px"><span class="no">1</span><h2>Domain scorecard</h2><span class="note">Domain score = average % favorable across its items</span></div>
+  <div id="scorecard"></div>
+
+  <div class="sec"><span class="no">2</span><h2>Clerkships and biggest movers</h2></div>
+  <div class="grid2">
+    <div>
+      <div class="ct">Clerkship satisfaction vs national</div>
+      <div class="legend"><span><i class="dot" style="background:var(--a)"></i>Medical School A</span><span><i class="dot" style="background:var(--nat)"></i>National</span></div>
+      <div id="clerk"></div>
+    </div>
+    <div>
+      <div class="ct" id="moverT">Largest changes since 2024</div>
+      <div class="cs">Medical School A, change in % favorable (pts)</div>
+      <div id="movers"></div>
+    </div>
+  </div>
+
+  <div class="sec"><span class="no">3</span><h2>Drill down: question-level view</h2><span class="note noprint">Click a domain to explore</span></div>
+  <div class="tabs noprint" id="domTabs"></div>
+  <div class="legend" style="margin:10px 0 2px"><span><i style="background:var(--a);height:9px"></i>Medical School A</span><span><i style="background:var(--neg);width:3px;height:12px"></i>National</span><span><i style="background:rgba(42,120,214,.45);height:5px"></i>Range across 9 campuses</span></div>
+  <div id="explorer"></div>
+
+  <div class="ftr"><span>Source: <span class="badge">Synthetic mock data</span> &nbsp;Mistreatment items are positively framed (higher = better).</span><span>2</span></div>
+</section>
+
+<!-- ============================ PAGE 3 ============================ -->
+<section class="page" id="p3">
+  <div class="hdr"><span><b>Graduation Questionnaire Insights</b> &nbsp;·&nbsp; Campus drill-down</span><span id="h3r"></span></div>
+  <h1 class="title" id="t3"></h1>
+  <div class="subtitle" id="s3"></div>
+
+  <div class="sec" style="margin-top:6px"><span class="no">1</span><h2>Campus heatmap: % favorable, shaded by gap to national</h2><span class="note noprint">Click a campus to drill in · click a column to sort</span></div>
+  <div id="heat"></div>
+  <div class="scale"><span>Below national</span><div class="gr" style="background:linear-gradient(90deg,#eb6834,#f7c9b4,#f1f2f4,#bcd5f3,#2a78d6)"></div><span>Above national</span><span style="margin-left:14px">±10 pts or more at the extremes</span></div>
+
+  <div class="sec"><span class="no">2</span><h2 id="campusH">Campus detail</h2></div>
+  <div id="campusKpis" class="kpis" style="grid-template-columns:repeat(4,1fr);margin-bottom:16px"></div>
+  <div class="grid2">
+    <div>
+      <div class="ct">Experience index over time</div>
+      <div class="cs">Average of six domain scores (excludes overall-satisfaction items)</div>
+      <div class="legend" id="campLegend"></div>
+      <div id="campTrend"></div>
+    </div>
+    <div>
+      <div class="ct">Largest gaps to national at this campus</div>
+      <div class="cs">Items, pts vs national benchmark</div>
+      <div id="campGaps"></div>
+    </div>
+  </div>
+
+  <div class="sec"><span class="no">3</span><h2>Momentum: change in experience index by campus</h2></div>
+  <div class="cs" id="momSub"></div>
+  <div id="momentum"></div>
+
+  <div class="ftr"><span>Source: <span class="badge">Synthetic mock data</span> &nbsp;Small campuses (n&lt;35) – interpret ±3 pt moves with caution.</span><span>3</span></div>
+</section>
+
+<!-- ============================ APPENDIX (screen only) ============================ -->
+<section class="page auto noprint appx" id="p4">
+  <div class="hdr"><span><b>Appendix</b> &nbsp;·&nbsp; Question-level dataset</span><span>Screen only – not included in PDF</span></div>
+  <div style="display:flex;gap:10px;margin:16px 0 10px;align-items:center;flex-wrap:wrap">
+    <input id="qSearch" placeholder="Search questions…" style="width:260px">
+    <select id="qDom"></select>
+    <span class="note-src" id="qCount"></span>
+  </div>
+  <div id="apx"></div>
+</section>
+
+</div>
+<div id="tip"></div>
+
+<script src="data.js"></script>
+<script>
+/* ============================ DATA HELPERS ============================ */
+const S = window.SURVEY, YEARS = S.years, Q = S.questions;
+const A = "Medical School A", N = "National Benchmark";
+const BASE_YEAR = YEARS[0];
+const CORE = S.domains.filter(d => d !== "Overall");           // six experience domains
+const DNAME = {"Overall":"Overall satisfaction","Mistreatment & Climate":"Learning environment (mistreatment)","Admin Support":"Admin support","Financial Support":"Financial support"};
+const dn = d => DNAME[d] || d;
+const idxOf = {}; S.domains.forEach(d => idxOf[d] = Q.filter(q => q.domain === d).map(q => q.id));
+const state = {year: YEARS[YEARS.length-1], campus: null, domain: "Mistreatment & Climate", sort: {key:"index", dir:-1}};
+
+const mean = a => a.reduce((s,v)=>s+v,0)/a.length;
+const val = (y,e,i) => S.values[y][e][i];
+const dom = (y,e,d) => mean(idxOf[d].map(i => val(y,e,i)));
+const idx = (y,e) => mean(CORE.map(d => dom(y,e,d)));
+const nTotal = y => Object.values(S.respondents[y]).reduce((s,v)=>s+v,0);
+const f1 = v => v.toFixed(1);
+const sgn = v => (v>0.05?"+":v<-0.05?"−":"") + Math.abs(v).toFixed(1);
+const cls = (v,t=0.05) => v>t?"up":v<-t?"dn":"flat";
+const arrow = v => v>0.05?"▲":v<-0.05?"▼":"●";
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const short = t => t.replace(/^Satisfaction with /,"").replace(/ clerkship$/," clerkship");
+const word = (v,pos,neg) => v>=0?pos:neg;
+
+/* diverging colour for gap (pts vs national), +-10 saturates */
+function heatColor(g){
+  const t = Math.max(-1, Math.min(1, g/10));
+  const mid=[241,242,244], hi=[42,120,214], lo=[235,104,52];
+  const end = t>=0?hi:lo, a = Math.pow(Math.abs(t),0.85)*0.88;
+  const c = mid.map((m,i)=>Math.round(m+(end[i]-m)*a));
+  return `rgb(${c})`;
+}
+function heatText(g){ return Math.abs(g)>8 ? "#fff" : "#14181f"; }
+
+/* ============================ SMALL SVG CHARTS ============================ */
+function spark(series, w=70, h=26){
+  const all = series.flatMap(s=>s.v), lo = Math.min(...all)-1, hi = Math.max(...all)+1;
+  const X = i => 4 + i*(w-8)/(series[0].v.length-1), Y = v => h-3-(v-lo)/(hi-lo)*(h-6);
+  let out = `<svg class="spark" width="${w}" height="${h}" aria-hidden="true">`;
+  series.forEach(s=>{
+    out += `<polyline fill="none" stroke="${s.c}" stroke-width="2" stroke-linejoin="round" points="${s.v.map((v,i)=>X(i)+","+Y(v)).join(" ")}"/>`;
+    out += `<circle cx="${X(s.v.length-1)}" cy="${Y(s.v[s.v.length-1])}" r="3" fill="${s.c}" stroke="#fff" stroke-width="1.5"/>`;
+  });
+  return out+"</svg>";
+}
+
+/* series: [{name,short,color,v:[..per year],label:'all'|'end'|'none',dash}] */
+function lineChart(series,{w=520,h=250,min,max,step=5,unit="%",pr=96,names=true,fs=12}){
+  const P={l:38,r:pr,t:26,b:28}, iw=w-P.l-P.r, ih=h-P.t-P.b;
+  const X = i => P.l + 18 + i*(iw-36)/(YEARS.length-1), Y = v => P.t + (max-v)/(max-min)*ih;
+  let s = `<svg viewBox="0 0 ${w} ${h}" width="100%" role="img" aria-label="Trend chart">`;
+  for(let t=min;t<=max;t+=step){
+    s += `<line x1="${P.l}" x2="${w-P.r}" y1="${Y(t)}" y2="${Y(t)}" stroke="#e6e8ec" stroke-width="1"/>`+
+         `<text x="${P.l-8}" y="${Y(t)+4}" text-anchor="end" font-size="11" fill="#7b8491">${t}${unit}</text>`;
+  }
+  YEARS.forEach((y,i)=>{ s += `<text x="${X(i)}" y="${h-8}" text-anchor="middle" font-size="12" fill="${y===state.year?'#0b2a4a':'#4a5360'}" font-weight="${y===state.year?700:400}">${y}</text>`; });
+  // selected-year band
+  const si = YEARS.indexOf(state.year);
+  s += `<rect x="${X(si)-16}" y="${P.t-8}" width="32" height="${ih+8}" fill="#0b2a4a" opacity=".05" rx="3"/>`;
+  series.forEach(se=>{
+    s += `<polyline fill="none" stroke="${se.color}" stroke-width="2" ${se.dash?'stroke-dasharray="5 4"':''} stroke-linejoin="round" points="${se.v.map((v,i)=>X(i)+","+Y(v)).join(" ")}"/>`;
+  });
+  series.forEach((se,k)=>{
+    se.v.forEach((v,i)=>{
+      s += `<circle cx="${X(i)}" cy="${Y(v)}" r="4.5" fill="${se.color}" stroke="#fff" stroke-width="2"/>`;
+      if(se.label==='all' || (se.label==='end' && i===se.v.length-1)){
+        const labeled = series.filter(o=>o.label==='all' || (o.label==='end' && i===o.v.length-1));
+        const rank = labeled.filter(o=>o.v[i]>v).length;
+        const above = rank===0 && labeled.length>1 || labeled.length===1;
+        s += `<text x="${X(i)}" y="${Y(v)+(above?-11:19)}" text-anchor="middle" font-size="12" font-weight="700" fill="#14181f">${f1(v)}</text>`;
+      }
+      s += `<circle cx="${X(i)}" cy="${Y(v)}" r="13" fill="transparent" data-tip="<b>${esc(se.name)}</b><br>${YEARS[i]}: ${f1(v)}${unit}"/>`;
+    });
+  });
+  // end-of-line names, de-collided
+  const ends = series.map(se=>({se,y:Y(se.v[se.v.length-1])})).sort((a,b)=>a.y-b.y);
+  for(let i=1;i<ends.length;i++) if(ends[i].y-ends[i-1].y<15) ends[i].y = ends[i-1].y+15;
+  if(names) ends.forEach(e=>{ s += `<text x="${X(YEARS.length-1)+14}" y="${e.y+4}" font-size="11.5" font-weight="600" fill="#14181f">${esc(e.se.short||e.se.name)}</text>`; });
+  return s+"</svg>";
+}
+
+/* ============================ HTML BAR WIDGETS ============================ */
+/* rows: [{label, v, sub, tip}] ; diverging around 0 */
+function divBars(rows,{lw=190,max=null,fmt=sgn}={}){
+  const m = max || Math.max(8, Math.ceil(Math.max(...rows.map(r=>Math.abs(r.v)))/2)*2);
+  return `<div style="--lw:${lw}px">` + rows.map(r=>{
+    const w = Math.abs(r.v)/m*50, pos = r.v>=0;
+    return `<div class="brow" data-tip="${esc(r.tip||r.label)}">
+      <div class="lab">${r.html?r.label:esc(r.label)}${r.sub?`<div class="mut" style="font-size:11px;color:var(--ink3)">${r.sub}</div>`:""}</div>
+      <div class="track"><div class="zero" style="left:50%"></div>
+        <div class="bar" style="${pos?`left:50%;border-radius:0 4px 4px 0`:`right:50%;border-radius:4px 0 0 4px`};width:${w}%;background:${pos?'var(--pos)':'var(--neg)'}"></div></div>
+      <div class="val ${cls(r.v)}">${fmt(r.v)}</div></div>`;
+  }).join("")+"</div>";
+}
+
+/* ============================ INSIGHT ENGINE ============================ */
+function snapshot(y){
+  const dScores = S.domains.map(d=>({d,a:dom(y,A,d),n:dom(y,N,d)})).map(o=>({...o,gap:o.a-o.n}));
+  const camps = S.campuses.map(c=>({c,idx:idx(y,c),gap:idx(y,c)-idx(y,N),n:S.respondents[y][c]}));
+  return {dScores,camps};
+}
+const ACTION = {
+  "Overall":"Commission a root-cause review of the 2-year slide in overall satisfaction; report progress to the Dean quarterly.",
+  "Curriculum":"Codify the pre-clinical teaching model and share it with the weakest campuses.",
+  "Clerkships":"Pair under-performing clerkship directors with top-rated peers; review student feedback each block.",
+  "Admin Support":"Sustain the advising and student-affairs investments that drove the recent gains.",
+  "Mistreatment & Climate":"Launch an independent reporting channel, publish an annual 'You Spoke, We Acted' report, and target faculty/resident training on high-risk rotations.",
+  "Facilities":"Maintain simulation and study-space investment; extend simulation access to regional campuses.",
+  "Financial Support":"Expand scholarship pool and proactive aid counseling, starting with the highest-debt cohorts."
+};
+const strongestWorst = (y,e,d,dir) => {
+  const rows = idxOf[d].map(i=>({i,g:val(y,e,i)-val(y,N,i)})).sort((a,b)=>dir*(b.g-a.g)); return rows[0];
+};
+
+/* ============================ RENDER: PAGE 1 ============================ */
+function renderPage1(){
+  const y=state.year, py=Math.max(BASE_YEAR,y-1), {dScores,camps}=snapshot(y);
+  const snap0 = snapshot(BASE_YEAR);
+  const ovI = idxOf["Overall"][0];
+  const ov = val(y,A,ovI), ovN = val(y,N,ovI), ov0 = val(BASE_YEAR,A,ovI);
+  const core = dScores.filter(o=>o.d!=="Overall");
+  const sorted = [...core].sort((a,b)=>a.gap-b.gap);
+  const w1 = sorted[0], w2 = sorted[1];
+  const hdr = `Medical School A &nbsp;·&nbsp; Class of ${y}`;
+  ["h1r","h2r","h3r"].forEach(id=>document.getElementById(id).innerHTML=hdr);
+
+  const chg = ov-ov0;
+  document.getElementById("t1").innerHTML = y===BASE_YEAR
+    ? `Overall satisfaction stands at ${f1(ov)}%, ${f1(Math.abs(ov-ovN))} pts ${word(ov-ovN,"above","below")} the national benchmark`
+    : `Overall satisfaction has ${word(chg,"risen","fallen")} ${f1(Math.abs(chg))} pts since ${BASE_YEAR} to ${f1(ov)}% – now ${f1(Math.abs(ov-ovN))} pts ${word(ov-ovN,"above","below")} the national benchmark – with ${dn(w1.d).toLowerCase()} and ${dn(w2.d).toLowerCase()} driving the gap`;
+  document.getElementById("s1").innerHTML = `Class of ${y} graduation questionnaire · ${nTotal(y)} respondents across 9 campuses · % favorable (agree / satisfied) · compared with the national benchmark`;
+
+  // KPIs
+  const comp = idx(y,A)-idx(y,N);
+  const above = dScores.filter(o=>o.gap>=0).length, above0 = snap0.dScores.filter(o=>o.gap>=0).length;
+  const campBelow = camps.filter(o=>o.gap<0).length, campBelow0 = snap0.camps.filter(o=>o.gap<0).length;
+  const tile = (label,i)=>{
+    const v=val(y,A,i), n=val(y,N,i), p=val(py,A,i);
+    const sp = spark([{v:YEARS.map(yy=>val(yy,N,i)),c:"#8b929c"},{v:YEARS.map(yy=>val(yy,A,i)),c:"#0b2a4a"}]);
+    return `<div class="kpi" data-tip="National benchmark: ${f1(n)}%"><div class="l">${label}</div><div class="v">${f1(v)}<small>%</small></div>
+      <div class="delta"><b class="${cls(v-n)}">${arrow(v-n)} ${sgn(v-n)} pts</b> vs national</div>
+      <div class="delta">${y===BASE_YEAR?"&nbsp;":`<b class="${cls(v-p)}">${arrow(v-p)} ${sgn(v-p)} pts</b> vs ${py}`}</div>${sp}</div>`;
+  };
+  document.getElementById("kpis").innerHTML =
+    tile("Overall satisfaction with medical education",ovI) +
+    tile("Would choose this medical school again",idxOf["Overall"][1]) +
+    tile("Feel prepared to begin residency",idxOf["Overall"][2]) +
+    `<div class="kpi"><div class="l">Domains at or above national benchmark</div><div class="v">${above}<small> of ${dScores.length}</small></div>
+      <div class="delta"><b class="${cls(above-above0,0)}">${arrow(above-above0)} ${above-above0>0?"+":""}${above-above0}</b> vs ${BASE_YEAR}</div>
+      <div class="delta">Experience index <b class="${cls(comp)}">${sgn(comp)} pts</b></div></div>
+     <div class="kpi"><div class="l">Campuses below national benchmark (experience index)</div><div class="v">${campBelow}<small> of 9</small></div>
+      <div class="delta"><b class="${cls(-(campBelow-campBelow0),0)}">${arrow(-(campBelow-campBelow0))} ${campBelow-campBelow0>0?"+":""}${campBelow-campBelow0}</b> vs ${BASE_YEAR}</div>
+      <div class="delta">Spread: ${f1(Math.max(...camps.map(c=>c.idx))-Math.min(...camps.map(c=>c.idx)))} pts best–worst</div></div>`;
+
+  // trend
+  document.getElementById("trend1").innerHTML = lineChart([
+    {name:N,short:"National",color:"#8b929c",label:"all",v:YEARS.map(yy=>val(yy,N,ovI))},
+    {name:A,short:"School A",color:"#0b2a4a",label:"all",v:YEARS.map(yy=>val(yy,A,ovI))}
+  ],{w:520,h:262,min:70,max:90});
+
+  // domain gap bars
+  const gapRows = [...dScores].sort((a,b)=>b.gap-a.gap).map(o=>{
+    const d0 = snap0.dScores.find(x=>x.d===o.d);
+    const dd = o.gap-d0.gap;
+    return {label:dn(o.d),v:o.gap,sub:y===BASE_YEAR?"":`<span class="${cls(dd)}">${arrow(dd)} ${sgn(dd)} vs ${BASE_YEAR} gap</span>`,
+            tip:`<b>${dn(o.d)}</b><br>School A ${f1(o.a)}% vs national ${f1(o.n)}%`};
+  });
+  document.getElementById("gapSub").textContent = `Class of ${y}, percentage points: Medical School A minus national`;
+  document.getElementById("gapBars").innerHTML = divBars(gapRows,{lw:175,max:10});
+
+  // small multiples
+  document.getElementById("minis").innerHTML = CORE.map(d=>{
+    const a=YEARS.map(yy=>dom(yy,A,d)), n=YEARS.map(yy=>dom(yy,N,d)), all=[...a,...n];
+    const lo=Math.floor((Math.min(...all)-2.5)/5)*5, hi=Math.ceil((Math.max(...all)+2.5)/5)*5, g=dom(y,A,d)-dom(y,N,d);
+    return `<div class="mini"><div class="mt"><span>${dn(d)}</span><span class="${cls(g)}">${arrow(g)} ${sgn(g)} pts</span></div>`+
+      lineChart([{name:N,color:"#8b929c",label:"all",v:n},{name:A,color:"#0b2a4a",label:"all",v:a}],{w:320,h:122,min:lo,max:hi,step:hi-lo>20?10:5,pr:30,names:false})+`</div>`;
+  }).join("");
+
+  // cards
+  const best = [...core].sort((a,b)=>b.gap-a.gap).slice(0,2);
+  const wq = strongestWorst(y,A,w1.d,-1);
+  const b0 = idx(BASE_YEAR,A);
+  const campsBad = [...camps].sort((a,b)=>a.gap-b.gap).filter(c=>c.gap<-1).slice(0,3);
+  const campWeak = c => { const r=CORE.map(d=>({d,g:dom(y,c,d)-dom(y,N,d)})).sort((a,b)=>a.g-b.g)[0]; return r; };
+  const bestCamp = [...camps].sort((a,b)=>b.gap-a.gap)[0];
+  const dDelta = d => dom(y,A,d)-dom(BASE_YEAR,A,d);
+  document.getElementById("cards").innerHTML = `
+    <div class="card protect"><div class="tag up">▲ Protect</div>
+      <h3>${dn(best[0].d)} and ${dn(best[1].d).toLowerCase()} are clear competitive strengths</h3>
+      <p>${dn(best[0].d)} leads the benchmark by <b>${sgn(best[0].gap)} pts</b>${y>BASE_YEAR?` (${sgn(dDelta(best[0].d))} pts since ${BASE_YEAR})`:""}; ${dn(best[1].d).toLowerCase()} by <b>${sgn(best[1].gap)} pts</b>. ${bestCamp.c} sets the internal bar (index ${f1(bestCamp.idx)}%).</p>
+      <div class="act"><b>Action:</b> ${ACTION[best[0].d]}</div></div>
+    <div class="card fix"><div class="tag dn">▼ Fix first</div>
+      <h3>${dn(w1.d)} and ${dn(w2.d).toLowerCase()} trail the benchmark by ${f1(Math.abs(w1.gap))} and ${f1(Math.abs(w2.gap))} pts</h3>
+      <p>Weakest item: “${esc(Q[wq.i].text)}” – ${f1(val(y,A,wq.i))}% vs ${f1(val(y,N,wq.i))}% nationally (${sgn(wq.g)} pts).${y>BASE_YEAR?` ${dn(w1.d)} has moved ${sgn(dDelta(w1.d))} pts since ${BASE_YEAR}.`:""}</p>
+      <div class="act"><b>Action:</b> ${ACTION[w1.d]}</div></div>
+    <div class="card watch"><div class="tag" style="color:var(--ink2)">● Target campuses</div>
+      <h3>${campsBad.length?campsBad.map(c=>c.c).join(", ").replace(/, ([^,]*)$/," and $1")+" sit furthest below peers":"No campus is materially below peers"}</h3>
+      <p>${campsBad.map(c=>`${c.c}: ${sgn(c.gap)} pts (weakest on ${dn(campWeak(c.c).d).toLowerCase()}, ${sgn(campWeak(c.c).g)})`).join("; ")||"All campuses are within 1 pt of the benchmark."}.</p>
+      <div class="act"><b>Action:</b> Deploy a campus-level improvement plan with named owners and a 2-quarter checkpoint; see page 3.</div></div>`;
+}
+
+/* ============================ RENDER: PAGE 2 ============================ */
+function renderPage2(){
+  const y=state.year, {dScores}=snapshot(y), s0=snapshot(BASE_YEAR);
+  const core = dScores.filter(o=>o.d!=="Overall");
+  const chg = d => dom(y,A,d)-dom(BASE_YEAR,A,d);
+  const byChg = [...core].sort((a,b)=>chg(a.d)-chg(b.d));
+  const clk = idxOf["Clerkships"].map(i=>({i,g:val(y,A,i)-val(y,N,i)})).sort((a,b)=>a.g-b.g);
+  document.getElementById("t2").innerHTML = y===BASE_YEAR
+    ? `${dn(byChg[0].d)} is the weakest domain versus peers today; ${short(Q[clk[0].i].text)} trails the benchmark by ${f1(Math.abs(clk[0].g))} pts`
+    : `${dn(byChg[0].d)} slipped ${f1(Math.abs(chg(byChg[0].d)))} pts since ${BASE_YEAR} while ${dn(byChg[byChg.length-1].d).toLowerCase()} gained ${f1(chg(byChg[byChg.length-1].d))}; ${short(Q[clk[0].i].text)} is the clerkship furthest below peers`;
+  document.getElementById("s2").textContent = `Class of ${y} · domain scores average the % favorable of every item in the domain · benchmark gap shown in percentage points`;
+
+  // scorecard
+  const rows = dScores.map(o=>{
+    const a = YEARS.map(yy=>dom(yy,A,o.d)), nn = YEARS.map(yy=>dom(yy,N,o.d));
+    const st = o.gap>=1.5?["up","▲","Above benchmark"]:o.gap<=-1.5?["dn","▼","Below benchmark"]:["flat","●","In line"];
+    const d = o.a - dom(BASE_YEAR,A,o.d);
+    return `<tr><td class="q"><b>${dn(o.d)}</b><div style="color:var(--ink3);font-size:11px">${idxOf[o.d].length} items</div></td>
+      ${a.map((v,k)=>`<td style="${YEARS[k]===y?'background:#eef3fa;font-weight:700':''}">${f1(v)}</td>`).join("")}
+      <td>${f1(o.n)}</td><td class="${cls(o.gap)}"><b>${sgn(o.gap)}</b></td>
+      <td class="${cls(d)}">${y===BASE_YEAR?"–":sgn(d)}</td>
+      <td style="text-align:center"><svg width="78" height="28" style="vertical-align:middle">${spark([{v:nn,c:"#8b929c"},{v:a,c:"#0b2a4a"}],78,28).replace(/^<svg[^>]*>/,"").replace(/<\/svg>$/,"")}</svg></td>
+      <td style="text-align:left"><span class="chip ${st[0]}">${st[1]} ${st[2]}</span></td></tr>`;
+  }).join("");
+  document.getElementById("scorecard").innerHTML = `<table><thead><tr><th>Domain</th>${YEARS.map(yy=>`<th>${yy}<br>School A</th>`).join("")}<th>${y}<br>National</th><th>Gap<br>(pts)</th><th>Δ since<br>${BASE_YEAR} (pts)</th><th style="text-align:center">Trend<br><span style="text-transform:none;font-weight:400">navy = A, gray = nat.</span></th><th style="text-align:left">Status</th></tr></thead><tbody>${rows}</tbody></table>`;
+
+  // clerkship dumbbell
+  const lo=70, hi=95, X = v => (v-lo)/(hi-lo)*100;
+  const crow = clk.map(o=>{
+    const a=val(y,A,o.i), n=val(y,N,o.i), l=Math.min(a,n), r=Math.max(a,n);
+    return `<div class="brow" style="--lw:130px;grid-template-columns:130px 1fr 46px" data-tip="<b>${esc(Q[o.i].text)}</b><br>School A ${f1(a)}% · National ${f1(n)}%">
+      <div class="lab">${esc(short(Q[o.i].text).replace(" clerkship",""))}</div>
+      <div class="dumb"><div class="ln" style="left:${X(l)}%;width:${X(r)-X(l)}%"></div>
+        <div class="pt" style="left:${X(n)}%;background:var(--nat)"></div><div class="pt" style="left:${X(a)}%;background:var(--a)"></div></div>
+      <div class="val ${cls(o.g)}">${sgn(o.g)}</div></div>`;
+  }).join("");
+  const ticks = [70,75,80,85,90,95].map(t=>`<span style="left:${X(t)}%">${t}%</span>`).join("");
+  document.getElementById("clerk").innerHTML = `<div style="margin-top:6px">${crow}</div><div class="axis" style="--lw:130px;grid-template-columns:130px 1fr 46px"><span></span><div class="ticks">${ticks}</div><span></span></div>`;
+
+  // movers
+  const mv = Q.map(q=>({q,d:val(y,A,q.id)-val(BASE_YEAR,A,q.id)})).sort((a,b)=>b.d-a.d);
+  const top = y===BASE_YEAR ? [] : [...mv.slice(0,4), ...mv.slice(-4)];
+  document.getElementById("moverT").textContent = `Largest changes since ${BASE_YEAR}`;
+  document.getElementById("movers").innerHTML = y===BASE_YEAR
+    ? `<div class="cs" style="padding:30px 0">Select a later class year to see change over time.</div>`
+    : divBars(top.map(o=>({label:short(o.q.text),v:o.d,tip:`<b>${esc(o.q.text)}</b><br>${f1(val(BASE_YEAR,A,o.q.id))}% → ${f1(val(y,A,o.q.id))}%`})),{lw:210,max:20});
+
+  renderExplorer();
+}
+
+function renderExplorer(){
+  const y=state.year, d=state.domain;
+  document.getElementById("domTabs").innerHTML = S.domains.map(x=>`<button aria-pressed="${x===d}" data-dom="${esc(x)}">${dn(x)}</button>`).join("");
+  document.querySelectorAll("#domTabs button").forEach(b=>b.onclick=()=>{state.domain=b.dataset.dom;renderExplorer();});
+  const lo=40, hi=100, X=v=>(v-lo)/(hi-lo)*100;
+  const items = idxOf[d].map(i=>({i,a:val(y,A,i),n:val(y,N,i),a0:val(BASE_YEAR,A,i),cs:S.campuses.map(c=>val(y,c,i))}));
+  document.getElementById("explorer").innerHTML =
+    `<div class="xrow" style="border-bottom:1.5px solid var(--navy);font-size:10.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--ink2);font-weight:600"><span>Item (class of ${y})</span><span>% favorable (axis ${lo}–${hi})</span><span style="text-align:right">A · Nat · Gap · Δ${String(BASE_YEAR).slice(2)}</span></div>` +
+    items.map(o=>{
+      const g=o.a-o.n, dd=o.a-o.a0, mn=Math.min(...o.cs), mx=Math.max(...o.cs);
+      return `<div class="xrow" data-tip="Campus range ${f1(mn)}–${f1(mx)}%">
+        <span>${esc(Q[o.i].text)}</span>
+        <div class="xtrack"><div class="fill" style="width:${X(o.a)}%"></div><div class="rng" style="left:${X(mn)}%;width:${X(mx)-X(mn)}%;background:rgba(255,255,255,.0);border:0"></div>
+          <div class="nt" style="left:${X(o.n)}%"></div></div>
+        <span class="xnum"><b>${f1(o.a)}</b> · ${f1(o.n)} · <b class="${cls(g)}">${sgn(g)}</b> · <span class="${cls(dd)}">${y===BASE_YEAR?"–":sgn(dd)}</span></span></div>`;
+    }).join("");
+  // draw campus range as light tick markers above fill (rendered after for visibility)
+  document.querySelectorAll("#explorer .xrow[data-tip]").forEach((row,k)=>{
+    const o=items[k], tr=row.querySelector(".xtrack");
+    const mn=Math.min(...o.cs), mx=Math.max(...o.cs);
+    const r=document.createElement("div"); r.style.cssText=`position:absolute;top:6px;height:6px;left:${X(mn)}%;width:${X(mx)-X(mn)}%;background:rgba(138,190,255,.95);border-radius:3px;mix-blend-mode:normal;border:1px solid rgba(255,255,255,.7)`;
+    tr.insertBefore(r,tr.querySelector(".nt"));
+  });
+}
+
+/* ============================ RENDER: PAGE 3 ============================ */
+const HEAT_COLS = [{k:"overall",l:"Overall<br>satisfaction"},...CORE.map(d=>({k:d,l:dn(d).replace(" (mistreatment)","").replace("Learning environment","Learning<br>environment").replace("Admin support","Admin<br>support").replace("Financial support","Financial<br>support")})),{k:"index",l:"Experience<br>index"}];
+const cellVal = (y,e,k) => k==="overall"?val(y,e,idxOf["Overall"][0]):k==="index"?idx(y,e):dom(y,e,k);
+function renderPage3(){
+  const y=state.year, {camps}=snapshot(y);
+  if(!state.campus) state.campus = [...camps].sort((a,b)=>a.gap-b.gap)[0].c;
+  const ranked = [...camps].sort((a,b)=>b.idx-a.idx);
+  const best=ranked[0], worst=ranked[ranked.length-1];
+  const below = camps.filter(c=>c.gap<0).length;
+  document.getElementById("t3").innerHTML =
+    `${f1(best.idx-worst.idx)}-pt spread between campuses: ${worst.c} trails the national benchmark by ${f1(Math.abs(worst.gap))} pts while ${best.c} leads by ${f1(best.gap)}`;
+  document.getElementById("s3").textContent = `Class of ${y} · ${below} of 9 campuses are below the national experience index · experience index = average of six domain scores`;
+
+  const {key,dir} = state.sort;
+  const order = [...S.campuses].sort((a,b)=>dir*(cellVal(y,a,key)-cellVal(y,b,key)));
+  const nat = k => cellVal(y,N,k);
+  const th = HEAT_COLS.map(c=>`<th data-k="${c.k}" title="Sort">${c.l}${key===c.k?(dir<0?" ▾":" ▴"):""}</th>`).join("");
+  const mk = (e,isRef)=>{
+    const n = e===A?nTotal(y):S.respondents[y][e];
+    const cells = HEAT_COLS.map(c=>{
+      const v=cellVal(y,e,c.k), g=v-nat(c.k);
+      return `<td class="c" data-tip="<b>${esc(e)}</b><br>${f1(v)}% (${sgn(g)} pts vs national)" style="background:${isRef?'':heatColor(g)};color:${isRef?'':heatText(g)};font-weight:${c.k==='index'?700:500}">${f1(v)}</td>`;
+    }).join("");
+    return `<tr class="${isRef?'ref':'row'} ${e===state.campus?'sel':''}" data-c="${isRef?'':e}"><td>${e===A?"Medical School A (all)":e}</td><td class="n">${n}</td>${cells}</tr>`;
+  };
+  const natRow = `<tr class="ref"><td>National benchmark</td><td class="n">–</td>${HEAT_COLS.map(c=>`<td>${f1(nat(c.k))}</td>`).join("")}</tr>`;
+  document.getElementById("heat").innerHTML = `<table class="heat"><thead><tr><th style="width:150px">Campus</th><th style="text-align:center;width:44px;cursor:default">n</th>${th}</tr></thead><tbody>${order.map(e=>mk(e,false)).join("")}${mk(A,true)}${natRow}</tbody></table>`;
+  document.querySelectorAll("#heat th[data-k]").forEach(h=>h.onclick=()=>{const k=h.dataset.k; state.sort={key:k,dir:state.sort.key===k?-state.sort.dir:-1}; renderPage3();});
+  document.querySelectorAll("#heat tr.row").forEach(r=>r.onclick=()=>{state.campus=r.dataset.c; renderPage3(); renderApx();});
+  renderCampus();
+  const mom = [...S.campuses].map(c=>({c,d:idx(y,c)-idx(BASE_YEAR,c)})).sort((a,b)=>b.d-a.d);
+  const dA = idx(y,A)-idx(BASE_YEAR,A);
+  document.getElementById("momSub").textContent = y===BASE_YEAR ? "Select a later class year to see momentum." : `Change in experience index, ${BASE_YEAR} to ${y} (pts) · Medical School A overall: ${sgn(dA)} pts · National: ${sgn(idx(y,N)-idx(BASE_YEAR,N))} pts`;
+  document.getElementById("momentum").innerHTML = y===BASE_YEAR ? "" : (()=>{const mx=Math.max(4,Math.ceil(Math.max(...mom.map(o=>Math.abs(o.d))))), r=o=>({html:true,label:`${o.c} <span style="color:var(--ink3);font-size:11px">${f1(idx(BASE_YEAR,o.c))} → ${f1(idx(y,o.c))}</span>`,v:o.d,tip:`<b>${o.c}</b>`}); const h=Math.ceil(mom.length/2);
+    return `<div class="tracks2"><div>${divBars(mom.slice(0,h).map(r),{lw:150,max:mx})}</div><div>${divBars(mom.slice(h).map(r),{lw:150,max:mx})}</div></div>`;})();
+}
+
+function renderCampus(){
+  const y=state.year, c=state.campus, py=Math.max(BASE_YEAR,y-1);
+  document.getElementById("campusH").textContent = `Campus detail: ${c} (class of ${y}, n = ${S.respondents[y][c]})`;
+  const ci=idx(y,c), ni=idx(y,N), ai=idx(y,A);
+  const rank = [...S.campuses].sort((a,b)=>idx(y,b)-idx(y,a)).indexOf(c)+1;
+  const c0 = idx(BASE_YEAR,c);
+  const kp = (l,v,sub)=>`<div class="kpi" style="min-height:88px;padding-bottom:6px"><div class="l" style="min-height:0">${l}</div><div class="v" style="font-size:30px">${v}</div><div class="delta">${sub}</div></div>`;
+  document.getElementById("campusKpis").innerHTML =
+    kp("Experience index",`${f1(ci)}<small>%</small>`,y===BASE_YEAR?"&nbsp;":`<b class="${cls(ci-idx(py,c))}">${arrow(ci-idx(py,c))} ${sgn(ci-idx(py,c))} pts</b> vs ${py}`) +
+    kp("Gap to national",`<span class="${cls(ci-ni)}">${sgn(ci-ni)}</span><small> pts</small>`,`National index ${f1(ni)}%`) +
+    kp("Gap to Medical School A",`<span class="${cls(ci-ai)}">${sgn(ci-ai)}</span><small> pts</small>`,`School A index ${f1(ai)}%`) +
+    kp("Rank among 9 campuses",`${rank}<small> of 9</small>`,y===BASE_YEAR?"&nbsp;":`${sgn(ci-c0)} pts since ${BASE_YEAR}`);
+  document.getElementById("campLegend").innerHTML = `<span><i style="background:var(--campus)"></i>${c}</span><span><i style="background:var(--a)"></i>Medical School A</span><span><i style="background:var(--nat)"></i>National</span>`;
+  const all = YEARS.flatMap(yy=>[idx(yy,c),idx(yy,A),idx(yy,N)]);
+  const lo = Math.floor((Math.min(...all)-2)/5)*5, hi = Math.ceil((Math.max(...all)+2)/5)*5;
+  document.getElementById("campTrend").innerHTML = lineChart([
+    {name:N,short:"National",color:"#8b929c",label:"end",v:YEARS.map(yy=>idx(yy,N))},
+    {name:A,short:"School A",color:"#0b2a4a",label:"end",v:YEARS.map(yy=>idx(yy,A))},
+    {name:c,short:c,color:"#2a78d6",label:"all",v:YEARS.map(yy=>idx(yy,c))}
+  ],{w:480,h:215,min:lo,max:hi,step:5});
+  const g = Q.map(q=>({q,g:val(y,c,q.id)-val(y,N,q.id)})).sort((a,b)=>a.g-b.g);
+  const rows = [...g.slice(0,6),...g.slice(-2)].map(o=>({label:short(o.q.text),v:o.g,tip:`<b>${esc(o.q.text)}</b><br>${c} ${f1(val(y,c,o.q.id))}% vs national ${f1(val(y,N,o.q.id))}%`}));
+  document.getElementById("campGaps").innerHTML = divBars(rows,{lw:215,max:Math.ceil(Math.max(...rows.map(r=>Math.abs(r.v)))/5)*5}) + `<div class="cs" style="margin-top:6px">Six largest shortfalls, then two largest strengths.</div>`;
+}
+
+/* ============================ APPENDIX ============================ */
+function renderApx(){
+  const q = document.getElementById("qSearch").value.toLowerCase(), d = document.getElementById("qDom").value;
+  const rows = Q.filter(x=>(d==="all"||x.domain===d) && x.text.toLowerCase().includes(q));
+  document.getElementById("qCount").textContent = `${rows.length} of ${Q.length} items · campus column follows the campus selected on page 3 (${state.campus||"–"})`;
+  const y=state.year;
+  document.getElementById("apx").innerHTML = `<table><thead><tr><th>Item</th><th style="text-align:left">Domain</th>${YEARS.map(yy=>`<th>${yy}<br>School A</th>`).join("")}<th>${y}<br>National</th><th>Gap</th><th>${y}<br>${state.campus||""}</th></tr></thead><tbody>${
+    rows.map(x=>{const a=val(y,A,x.id),n=val(y,N,x.id);return `<tr><td class="q">${esc(x.text)}</td><td class="q" style="color:var(--ink2)">${dn(x.domain)}</td>${YEARS.map(yy=>`<td>${f1(val(yy,A,x.id))}</td>`).join("")}<td>${f1(n)}</td><td class="${cls(a-n)}"><b>${sgn(a-n)}</b></td><td>${state.campus?f1(val(y,state.campus,x.id)):"–"}</td></tr>`}).join("")
+  }</tbody></table>`;
+}
+
+/* ============================ TOOLBAR, TOOLTIP, SCALING ============================ */
+function renderAll(){
+  document.getElementById("yearSeg").innerHTML = YEARS.map(yy=>`<button aria-pressed="${yy===state.year}" data-y="${yy}">${yy}</button>`).join("");
+  document.querySelectorAll("#yearSeg button").forEach(b=>b.onclick=()=>{state.year=+b.dataset.y;renderAll();});
+  renderPage1(); renderPage2(); renderPage3(); renderApx();
+}
+const tip = document.getElementById("tip");
+document.addEventListener("mouseover",e=>{const t=e.target.closest("[data-tip]"); if(t){tip.innerHTML=t.dataset.tip;tip.style.opacity=1;}});
+document.addEventListener("mousemove",e=>{tip.style.left=Math.min(innerWidth-300,e.clientX+14)+"px";tip.style.top=(e.clientY+14)+"px";});
+document.addEventListener("mouseout",e=>{if(e.target.closest("[data-tip]"))tip.style.opacity=0;});
+
+function fit(){ const s=Math.min(1,(innerWidth-16)/1100); const st=document.getElementById("stage"); st.style.zoom=s; st.style.margin = s<1?"8px 8px 30px":"20px auto 40px"; }
+addEventListener("resize",fit);
+
+document.getElementById("btnPdf").onclick=()=>window.print();
+document.getElementById("btnCsv").onclick=()=>{
+  const rows=[["year","domain","question","entity","pct_favorable"]];
+  YEARS.forEach(y=>[A,N,...S.campuses].forEach(e=>Q.forEach(q=>rows.push([y,q.domain,`"${q.text}"`,e,val(y,e,q.id)]))));
+  const b=new Blob([rows.map(r=>r.join(",")).join("\n")],{type:"text/csv"}), a=document.createElement("a");
+  a.href=URL.createObjectURL(b); a.download="gq_survey_mock_data.csv"; a.click();
+};
+
+/* ---- PowerPoint export (PptxGenJS, native editable charts) ---- */
+document.getElementById("btnPpt").onclick=async()=>{
+  const btn=document.getElementById("btnPpt"); const old=btn.textContent; btn.textContent="Building…";
+  try{
+    if(!window.PptxGenJS) await new Promise((ok,no)=>{const s=document.createElement("script");s.src="vendor-pptxgen.bundle.js";s.onload=ok;s.onerror=()=>no(new Error("Could not load vendor-pptxgen.bundle.js (keep it next to index.html)"));document.head.appendChild(s);});
+    const y=state.year, p=new PptxGenJS(); p.layout="LAYOUT_WIDE";
+    const NAVY="0B2A4A", GRAY="8B929C";
+    const title=(sl,id,sub)=>{ sl.addText(document.getElementById(id).innerText,{x:.5,y:.3,w:12.3,h:1,fontFace:"Georgia",fontSize:22,color:NAVY,valign:"top"}); if(sub) sl.addText(sub,{x:.5,y:1.3,w:12.3,h:.3,fontSize:11,color:"4A5360"});
+      sl.addShape(p.ShapeType.line,{x:.5,y:1.25,w:12.3,h:0,line:{color:NAVY,width:1.5}});
+      sl.addText("Source: synthetic mock data – illustrative only",{x:.5,y:7.05,w:9,h:.25,fontSize:9,color:"7B8491"}); };
+    const {dScores}=snapshot(y);
+    // 1: KPIs + takeaways
+    let s=p.addSlide(); title(s,"t1",document.getElementById("s1").innerText);
+    [...document.querySelectorAll("#kpis .kpi")].forEach((k,i)=>{ const x=.5+i*2.5;
+      s.addShape(p.ShapeType.rect,{x,y:1.8,w:2.35,h:1.6,fill:{color:"F5F6F8"},line:{color:NAVY,width:0}});
+      s.addText(k.querySelector(".l").innerText,{x:x+.1,y:1.85,w:2.15,h:.5,fontSize:10,color:"4A5360",valign:"top"});
+      s.addText(k.querySelector(".v").innerText.replace(/\s+/g," "),{x:x+.1,y:2.35,w:2.15,h:.55,fontFace:"Georgia",fontSize:24,color:NAVY});
+      s.addText([...k.querySelectorAll(".delta")].map(d=>d.innerText).join("\n"),{x:x+.1,y:2.9,w:2.15,h:.5,fontSize:9,color:"4A5360",valign:"top"}); });
+    [...document.querySelectorAll("#cards .card")].forEach((c,i)=>{ const x=.5+i*4.15;
+      s.addText([{text:c.querySelector(".tag").innerText+"\n",options:{bold:true,fontSize:10,color:NAVY}},{text:c.querySelector("h3").innerText+"\n",options:{fontFace:"Georgia",fontSize:13,color:NAVY}},{text:c.querySelector("p").innerText+"\n",options:{fontSize:10,color:"4A5360"}},{text:c.querySelector(".act").innerText,options:{fontSize:10,bold:true,color:"14181F"}}],{x,y:3.7,w:3.95,h:3.2,valign:"top",line:{color:"D9DDE3",width:1},margin:8}); });
+    // 2: trend + gap chart
+    s=p.addSlide(); title(s,"t1");
+    const ovI=idxOf["Overall"][0];
+    s.addText("Overall satisfaction, % favorable",{x:.5,y:1.5,w:6,h:.3,bold:true,fontSize:12});
+    s.addChart(p.charts.LINE,[{name:"Medical School A",labels:YEARS.map(String),values:YEARS.map(yy=>+val(yy,A,ovI).toFixed(1))},{name:"National benchmark",labels:YEARS.map(String),values:YEARS.map(yy=>+val(yy,N,ovI).toFixed(1))}],
+      {x:.5,y:1.85,w:6,h:4.9,chartColors:[NAVY,GRAY],valAxisMinVal:70,valAxisMaxVal:90,showLegend:true,legendPos:"b",showValue:true,dataLabelFormatCode:"0.0",lineSize:3});
+    s.addText("Gap to national by domain, pts",{x:6.9,y:1.5,w:6,h:.3,bold:true,fontSize:12});
+    const gs=[...dScores].sort((a,b)=>a.gap-b.gap);
+    s.addChart(p.charts.BAR,[{name:"Gap (pts)",labels:gs.map(o=>dn(o.d)),values:gs.map(o=>+o.gap.toFixed(1))}],
+      {x:6.9,y:1.85,w:6,h:4.9,barDir:"bar",chartColors:["2A78D6"],invertedColors:["EB6834"],showValue:true,dataLabelFormatCode:"+0.0;-0.0",catAxisLabelFontSize:10,showLegend:false});
+    // 3: scorecard
+    s=p.addSlide(); title(s,"t2",document.getElementById("s2").innerText);
+    const hd=["Domain",...YEARS.map(yy=>yy+" School A"),y+" National","Gap (pts)","Δ since "+BASE_YEAR].map(t=>({text:t,options:{bold:true,color:"FFFFFF",fill:{color:NAVY},align:"center",fontSize:10}}));
+    const body=dScores.map(o=>[{text:dn(o.d),options:{bold:true,fontSize:10}},...YEARS.map(yy=>({text:f1(dom(yy,A,o.d)),options:{align:"center",fontSize:10}})),{text:f1(o.n),options:{align:"center",fontSize:10}},{text:sgn(o.gap),options:{align:"center",bold:true,fontSize:10,color:o.gap>=0?"1D5AA8":"B4411A"}},{text:y===BASE_YEAR?"–":sgn(o.a-dom(BASE_YEAR,A,o.d)),options:{align:"center",fontSize:10}}]);
+    s.addTable([hd,...body],{x:.5,y:1.75,w:12.3,colW:[3.3,1.4,1.4,1.4,1.4,1.7,1.7],border:{type:"solid",color:"D9DDE3",pt:.5},fontFace:"Helvetica"});
+    const clk=idxOf["Clerkships"].map(i=>({i,g:val(y,A,i)-val(y,N,i)})).sort((a,b)=>a.g-b.g);
+    s.addText("Clerkship gap to national, pts",{x:.5,y:4.75,w:6,h:.3,bold:true,fontSize:12});
+    s.addChart(p.charts.BAR,[{name:"Gap",labels:clk.map(o=>short(Q[o.i].text).replace(" clerkship","")),values:clk.map(o=>+o.g.toFixed(1))}],{x:.5,y:5,w:12.3,h:2,barDir:"col",chartColors:["2A78D6"],invertedColors:["EB6834"],showValue:true,dataLabelFormatCode:"+0.0;-0.0",showLegend:false,catAxisLabelFontSize:9});
+    // 4: campus heatmap
+    s=p.addSlide(); title(s,"t3",document.getElementById("s3").innerText);
+    const ch=["Campus","n",...HEAT_COLS.map(c=>c.l.replace(/<br>/g," "))].map(t=>({text:t,options:{bold:true,color:"FFFFFF",fill:{color:NAVY},align:"center",fontSize:9}}));
+    const hex=g=>heatColor(g).match(/\d+/g).map(v=>(+v).toString(16).padStart(2,"0")).join("").toUpperCase();
+    const order=[...S.campuses].sort((a,b)=>idx(y,b)-idx(y,a));
+    const cb=order.map(c=>[{text:c,options:{bold:true,fontSize:10}},{text:String(S.respondents[y][c]),options:{align:"center",fontSize:10}},...HEAT_COLS.map(h=>{const v=cellVal(y,c,h.k),g=v-cellVal(y,N,h.k);return {text:f1(v),options:{align:"center",fontSize:10,fill:{color:hex(g)},color:Math.abs(g)>8?"FFFFFF":"14181F"}}})]);
+    cb.push([{text:"National",options:{bold:true,fontSize:10,fill:{color:"F5F6F8"}}},{text:"–",options:{align:"center",fill:{color:"F5F6F8"}}},...HEAT_COLS.map(h=>({text:f1(cellVal(y,N,h.k)),options:{align:"center",bold:true,fontSize:10,fill:{color:"F5F6F8"}}}))]);
+    s.addTable([ch,...cb],{x:.5,y:1.75,w:12.3,colW:[1.9,.7,1.3,1.3,1.3,1.3,1.3,1.3,1.3,1.3],border:{type:"solid",color:"FFFFFF",pt:1.5},fontFace:"Helvetica"});
+    await p.writeFile({fileName:`GQ_Insights_MedSchoolA_${y}.pptx`});
+  }catch(err){ alert("PPT export failed: "+err.message); }
+  btn.textContent=old;
+};
+
+document.getElementById("qDom").innerHTML = `<option value="all">All domains</option>`+S.domains.map(d=>`<option value="${esc(d)}">${dn(d)}</option>`).join("");
+document.getElementById("qSearch").oninput=renderApx; document.getElementById("qDom").onchange=renderApx;
+renderAll(); fit();
+</script>
+</body>
+</html>
